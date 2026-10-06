@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeftRight,
   Bookmark,
@@ -28,6 +28,10 @@ export const CareersAndCollegesView: React.FC<CareersAndCollegesViewProps> = ({
   onBookAdmissionGuidance,
 }) => {
   const [subTab, setSubTab] = useState<'careers' | 'compare' | 'colleges'>(initialSubTab);
+
+  useEffect(() => {
+    setSubTab(initialSubTab);
+  }, [initialSubTab]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedCareer, setSelectedCareer] = useState<CareerRecord>(careers[0]);

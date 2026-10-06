@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Building2,
   Calendar,
@@ -43,7 +43,80 @@ const LIFECYCLE_STAGES = [
   '12th',
   'UG',
   'Career',
-];
+] as const;
+
+type LifecycleStageKey = (typeof LIFECYCLE_STAGES)[number];
+
+const LIFECYCLE_STAGE_CONTENT: Record<
+  LifecycleStageKey,
+  {
+    title: string;
+    status: string;
+    focus: string;
+    deliverables: string[];
+  }
+> = {
+  '5th': {
+    title: 'Class 5 · Early Curiosity & Learning Style Discovery',
+    status: 'Completed · Score: 82/100',
+    focus: 'Multiple-intelligence check, visual/logical learning style identification, and spoken English habit formation.',
+    deliverables: ['Curiosity & Learning Style Profile', 'Parent Observation Guide', 'Spoken English Starter Lab'],
+  },
+  '6th': {
+    title: 'Class 6 · Foundational Logic & Communication Confidence',
+    status: 'Completed · Score: 84/100',
+    focus: 'Building computational curiosity, public speaking poise, and structured study routines.',
+    deliverables: ['Foundational Competency Map', 'Junior Public Speaking Showcase', 'Logic Puzzle & Coding Basics'],
+  },
+  '7th': {
+    title: 'Class 7 · Pre-High-School Aptitude & Subject Affinity',
+    status: 'Completed · Score: 85/100',
+    focus: 'Exploring natural inclination across STEM, Commerce, Design, and Humanities before high school.',
+    deliverables: ['14-Dimension Aptitude Snapshot', 'Subject Affinity Indicators', 'Young Investor Basics'],
+  },
+  '8th': {
+    title: 'Class 8 · Career Cluster Exploration & First Mini-Portfolio',
+    status: 'Completed · Score: 86/100',
+    focus: 'Deep-dive into 6 modern career clusters with hands-on projects in Python and Financial Literacy.',
+    deliverables: ['6-Cluster Career World Report', 'First Python Mini-Project', 'High-School Transition Plan'],
+  },
+  '9th': {
+    title: 'Class 9 · Pre-Stream Psychometric Triangulation',
+    status: 'Completed · Score: 87/100',
+    focus: 'Evaluating quantitative, verbal, and spatial aptitude against Class 11 stream requirements.',
+    deliverables: ['Pre-Stream Diagnostic Matrix', 'Olympiad & Elective Strategy', 'Counsellor Alignment Notes'],
+  },
+  '10th': {
+    title: 'Class 10 · Scientific Stream & Subject Combination Lock',
+    status: 'Completed · Score: 89/100',
+    focus: 'Locked PCM + Computer Science + Economics pathway after joint Parent-Student counselling session.',
+    deliverables: ['24-Page Career Clarity Report', 'Stream Selection Sign-off', '2-Year Entrance Prep Blueprint'],
+  },
+  '11th': {
+    title: 'Class 11 · Degree Shortlisting & Entrance Exam Foundation',
+    status: 'Active Stage · Readiness: 86/100',
+    focus: 'Targeting B.Tech AI & Data Science / Dual Degree Economics across IIIT-H UGEE, JEE, and BITSAT.',
+    deliverables: ['38-Page Career Roadmap Report', '15-College Shortlist Matrix', 'Applied AI Lab Enrollment'],
+  },
+  '12th': {
+    title: 'Class 12 · Competitive Exam Execution & College Admission Desk',
+    status: 'Upcoming Milestone · Target: 2027',
+    focus: 'Application tracking, mock entrance reviews, JoSAA/UGEE/BITSAT counselling, and Parent ROI verification.',
+    deliverables: ['Entrance Exam Calendar Tracker', 'College Cut-Off & ROI Audit', '1-on-1 Seat Allotment Advisory'],
+  },
+  UG: {
+    title: 'Undergraduate (UG) · Internships, Proof-of-Work & Placement vs PG',
+    status: 'Future Roadmap Stage',
+    focus: 'GitHub/AI project portfolio, corporate internships, and Placement vs MS/MBA ROI evaluation.',
+    deliverables: ['Employability & Skill-Gap Audit', '3 Live Capstone Projects', 'ATS Resume & Mock Interview Pack'],
+  },
+  Career: {
+    title: 'First Job, Executive Growth & Entrepreneurial Launch',
+    status: 'Long-Term North Star',
+    focus: 'First-role offer evaluation, 90-day corporate compounding, AI leadership, or startup incubation.',
+    deliverables: ['Offer & CTC Negotiation Matrix', 'First 90-Day Career Playbook', 'Job-vs-Business Venture Map'],
+  },
+};
 
 interface RoleWorkspacesViewProps {
   initialRole?: UserRole;
@@ -69,6 +142,11 @@ export const RoleWorkspacesView: React.FC<RoleWorkspacesViewProps> = ({
   onRequestSchoolProgram,
 }) => {
   const [activeRole, setActiveRole] = useState<UserRole>(initialRole);
+  const [selectedLifecycleStage, setSelectedLifecycleStage] = useState<LifecycleStageKey>('11th');
+
+  useEffect(() => {
+    setActiveRole(initialRole);
+  }, [initialRole]);
 
   // Counsellor availability form state
   const firstCounsellor = db.counsellors[0];
@@ -206,22 +284,50 @@ export const RoleWorkspacesView: React.FC<RoleWorkspacesViewProps> = ({
             <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
               {LIFECYCLE_STAGES.map((st, idx) => {
                 const isCompleted = idx <= 6; // up to 11th
-                const isCurrent = st === '11th' || st === '12th';
+                const isSelected = selectedLifecycleStage === st;
                 return (
-                  <div
+                  <button
                     key={st}
-                    className={`py-2.5 px-2 rounded-lg text-center border text-xs font-mono font-semibold ${
-                      isCurrent
-                        ? 'bg-[#0F766E] text-white border-[#0F766E]'
+                    type="button"
+                    onClick={() => setSelectedLifecycleStage(st)}
+                    className={`py-2.5 px-2 rounded-lg text-center border text-xs font-mono font-semibold transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#0D3B49] text-white border-[#0D3B49] ring-2 ring-[#0F766E]'
                         : isCompleted
-                        ? 'bg-[#F0FDFA] text-[#0F766E] border-teal-200'
-                        : 'bg-slate-50 text-slate-400 border-slate-200'
+                        ? 'bg-[#F0FDFA] text-[#0F766E] border-teal-200 hover:bg-teal-100'
+                        : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                     }`}
                   >
                     {st}
-                  </div>
+                  </button>
                 );
               })}
+            </div>
+
+            {/* Selected Lifecycle Stage Detail Card */}
+            <div className="mt-4 p-4 rounded-xl bg-[#F8FAFC] border border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <h3 className="text-sm font-bold text-slate-900">
+                  {LIFECYCLE_STAGE_CONTENT[selectedLifecycleStage].title}
+                </h3>
+                <span className="text-xs font-mono font-semibold text-[#0F766E]">
+                  {LIFECYCLE_STAGE_CONTENT[selectedLifecycleStage].status}
+                </span>
+              </div>
+              <p className="text-xs text-slate-600 mb-3">
+                {LIFECYCLE_STAGE_CONTENT[selectedLifecycleStage].focus}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {LIFECYCLE_STAGE_CONTENT[selectedLifecycleStage].deliverables.map((d, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-slate-200 text-xs font-medium text-slate-800"
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#0F766E]" />
+                    {d}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 

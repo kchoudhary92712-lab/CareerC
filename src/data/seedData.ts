@@ -114,17 +114,67 @@ export const RBAC_PERMISSION_MATRIX: Record<
 export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
   {
     id: 'career-guidance',
+    pillarNumber: '01',
     title: 'Career Guidance',
     headerBg: '#137A6E',
     accentColor: '#0F766E',
-    description: 'Stage-specific discovery and psychometric mapping tailored to every academic and professional milestone.',
+    description:
+      'Stage-specific psychometric discovery, academic alignment, and multi-year roadmaps tailored to every educational and professional milestone.',
+    pillarMetrics: {
+      totalModules: '7 Stage-Specific Tracks',
+      targetUsers: 'Class 5 to Working Pros',
+      coreOutcome: 'Scientific Career & Stream Clarity',
+    },
     items: [
       {
         id: 'cg-5-6',
         label: 'Class 5-6',
-        cohortOrTarget: 'Class 5-6',
-        summary: 'Early curiosity discovery, multiple-intelligence mapping, foundational learning habits, and communication confidence.',
-        deliverables: ['Curiosity & Learning Style Profile', 'Foundational Skill Activity Map', 'Parent Observation Guide'],
+        headline: 'Class 5–6 Early Curiosity Discovery, Multiple-Intelligence & Learning Habit Blueprint',
+        cohortOrTarget: 'Class 5-6 Students & Parents',
+        summary:
+          'Uncover how your child naturally processes information, solves puzzles, and expresses creativity before middle-school academic pressure begins. Focuses on multiple-intelligence mapping, reading & communication fluency, and joyful curiosity.',
+        deliverables: [
+          'Curiosity & Learning Style Profile (Visual / Logical / Verbal / Kinesthetic)',
+          'Foundational Skill & Co-Curricular Activity Map',
+          'Parent Observation & Screen-Time Habit Guide',
+          '90-Day Spoken English & Logical Curiosity Plan',
+        ],
+        keyChallengesSolved: [
+          'Identifies whether the child learns best through visual experiments, logic puzzles, or storytelling',
+          'Builds early English speaking confidence and stage comfort without exam anxiety',
+          'Replaces rote memorization with foundational curiosity and disciplined study habits',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Gamified Curiosity Check',
+            detail: '25-minute child-friendly assessment measuring multiple intelligences and learning preferences.',
+          },
+          {
+            stepTitle: '02. Strength & Habit Profiling',
+            detail: 'Map verbal, numerical, spatial, and interpersonal indicators across 14 foundational dimensions.',
+          },
+          {
+            stepTitle: '03. Parent Counsellor Briefing',
+            detail: '1-on-1 guidance session helping parents nurture strengths without academic pressure.',
+          },
+          {
+            stepTitle: '04. Skill & Hobby Execution',
+            detail: 'Curated enrollment into Public Speaking, Young Coder, or Creative Thinking labs.',
+          },
+        ],
+        metrics: {
+          duration: '30 Mins Diagnostic + Parent Brief',
+          mode: 'Online Child-Friendly & Hybrid',
+          feeOrTier: 'Free Starter / ₹499 Snapshot',
+          outcomeMetric: 'Early Learning & Curiosity Clarity',
+        },
+        careerOrSkillHighlights: [
+          'Multiple Intelligence Mapping',
+          'Spoken English Fluency',
+          'Foundational Logic & Coding',
+          'Creative & Design Thinking',
+          'Healthy Study Habits',
+        ],
         recommendedActionLabel: 'Start Class 5-6 Assessment',
         targetTab: 'assessment',
         targetSubView: 'Class 5-6',
@@ -132,9 +182,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'cg-7-8',
         label: 'Class 7-8',
-        cohortOrTarget: 'Class 7-8',
-        summary: 'Aptitude exploration, STEM vs Creative vs Humanities exposure, and project-based skill discovery before high school.',
-        deliverables: ['Aptitude & Interest Cluster Report', 'Subject Affinity Indicators', 'Co-Curricular Skill Plan'],
+        headline: 'Class 7–8 Pre-High-School Aptitude Exploration & Subject Affinity Mapping',
+        cohortOrTarget: 'Class 7-8 Students & Parents',
+        summary:
+          'Bridge middle school and high school by exploring natural affinities across STEM, Commerce, Design, Humanities, and AI literacy. Helps students discover what excites them before Class 9–10 board curricula lock in.',
+        deliverables: [
+          '14-Dimension Aptitude & Interest Cluster Report',
+          'Subject Affinity Indicators (STEM / Commerce / Arts / Design)',
+          'Co-Curricular & Olympiad Skill Plan',
+          'Counsellor-Guided High-School Readiness Roadmap',
+        ],
+        keyChallengesSolved: [
+          'Prevents blind enrollment into heavy foundation coaching without checking natural aptitude fit',
+          'Connects classroom subjects (Math, Science, Social Studies, Languages) to real-world 2030+ careers',
+          'Builds demonstrable student confidence through mini-projects in Coding, AI, and Financial Literacy',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Aptitude & Interest Diagnostic',
+            detail: 'Evaluate analytical reasoning, scientific curiosity, creativity, and communication confidence.',
+          },
+          {
+            stepTitle: '02. 6-Cluster Career World Tour',
+            detail: 'Structured exploration of Technology, Healthcare, Finance, Design, Law, and Entrepreneurship.',
+          },
+          {
+            stepTitle: '03. First Portfolio Project',
+            detail: 'Complete a guided 4-week project in Python, Applied AI, or Young Investor basics.',
+          },
+          {
+            stepTitle: '04. Class 9 Transition Plan',
+            detail: 'Align elective choices, Olympiads, and reading habits with emerging career strengths.',
+          },
+        ],
+        metrics: {
+          duration: '35 Mins Assessment + Report',
+          mode: 'Online & In-Centre Guidance',
+          feeOrTier: '₹499 Career Snapshot Report',
+          outcomeMetric: 'Pre-High-School Subject Clarity',
+        },
+        careerOrSkillHighlights: [
+          'STEM vs Creative vs Commerce Fit',
+          'Python & Algorithmic Thinking',
+          'Young Investor Financial Basics',
+          'Olympiad & Project Selection',
+          'Debate & Communication',
+        ],
         recommendedActionLabel: 'Start Class 7-8 Assessment',
         targetTab: 'assessment',
         targetSubView: 'Class 7-8',
@@ -142,9 +235,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'cg-9-10',
         label: 'Class 9-10',
-        cohortOrTarget: 'Class 9-10',
-        summary: 'Scientific stream & subject selection (PCM, PCB, Commerce, Humanities, Interdisciplinary) aligned with long-term career fit.',
-        deliverables: ['Stream Selection Matrix', 'Top 3 Career Cluster Fit Analysis', '1-on-1 Stream Clarity Session'],
+        headline: 'Class 9–10 Scientific Stream & Subject Combination Selection (PCM, PCB, Commerce, Humanities & NEP 2020)',
+        cohortOrTarget: 'Class 9-10 Students & Families',
+        summary:
+          'Eliminate peer pressure and guesswork at the first major career crossroads. Scientifically triangulate aptitude, personality, and long-term career eligibility to select the right Class 11 stream and optional subjects.',
+        deliverables: [
+          'Scientific Stream Selection Matrix (PCM / PCB / Commerce / Humanities)',
+          'Top 3 Career Cluster Fit Analysis & Eligibility Check',
+          'NEP 2020 Interdisciplinary Subject Combination Guide',
+          '1-on-1 Parent-Student Stream Clarity Session',
+        ],
+        keyChallengesSolved: [
+          'Resolves confusion between PCM, PCB, Commerce with Applied Math, and Humanities/Liberal Arts',
+          'Shows exact future degrees and entrance exams unlocked or restricted by each subject combination',
+          'Aligns student intrinsic motivation with parental career security and ROI expectations',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. 14-Dimension Stream Assessment',
+            detail: 'Measure quantitative aptitude, verbal reasoning, spatial logic, and subject comfort.',
+          },
+          {
+            stepTitle: '02. Stream & Elective Simulation',
+            detail: 'Compare 4-year academic rigour and career openings across all stream combinations.',
+          },
+          {
+            stepTitle: '03. 24-Page Career Clarity Report',
+            detail: 'Receive ranked career clusters, entrance exam pathways, and skill recommendations.',
+          },
+          {
+            stepTitle: '04. Expert Counsellor Validation',
+            detail: '45-minute joint family session to lock Class 11 stream and 2-year preparation strategy.',
+          },
+        ],
+        metrics: {
+          duration: '45 Mins Test + 45 Mins Session',
+          mode: 'Online Video & In-Person',
+          feeOrTier: '₹999 Clarity Report / ₹2,999 Bundle',
+          outcomeMetric: '100% Stream & Subject Certainty',
+        },
+        careerOrSkillHighlights: [
+          'PCM & Engineering / AI Pathways',
+          'PCB & Healthcare / Bio-Sciences',
+          'Commerce, Finance & Actuaries',
+          'Humanities, Law (CLAT) & Design (UCEED)',
+          'NEP 2020 Multi-Disciplinary Combos',
+        ],
         recommendedActionLabel: 'Start Class 9-10 Stream Assessment',
         targetTab: 'assessment',
         targetSubView: 'Class 9-10',
@@ -152,9 +288,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'cg-11-12',
         label: 'Class 11-12',
-        cohortOrTarget: 'Class 11-12',
-        summary: 'Degree & college roadmap, entrance exam calendar (JEE, NEET, CUET, CLAT, NID, IPMAT), and backup pathway planning.',
-        deliverables: ['Entrance Exam & Degree Roadmap', 'Shortlisted College Matrix', 'Application Timeline & Strategy'],
+        headline: 'Class 11–12 Degree Shortlisting, Entrance Exam Calendar & Tier-1 College Admission Roadmap',
+        cohortOrTarget: 'Class 11-12 Students (All Streams)',
+        summary:
+          'Build a bulletproof Plan A, Plan B, and Plan C across competitive entrance exams (JEE, NEET, CUET, CLAT, IPMAT, UCEED, BITSAT) and high-ROI undergraduate colleges in India.',
+        deliverables: [
+          'Personalized Entrance Exam & Application Calendar',
+          '15-College Shortlist Matrix (Dream, Target & Safe Tiers)',
+          '38-Page Career Roadmap Report with 5-Year Trajectory',
+          'Parent Higher-Education Cost & ROI Comparison',
+        ],
+        keyChallengesSolved: [
+          'Prevents single-exam dependency by mapping strong backup exams and interdisciplinary degrees',
+          'Clarifies new-age degree options (B.Tech AI, BS Data Science, IPM BBA+MBA, B.Des, FinTech)',
+          'Provides cut-off ranks, fee structures, and placement payback analysis for top Indian colleges',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Degree & Specialization Audit',
+            detail: 'Match Class 11–12 stream and aptitude to high-growth undergraduate courses.',
+          },
+          {
+            stepTitle: '02. Entrance Exam Prioritization',
+            detail: 'Select 4–6 targeted entrance exams with timeline, syllabus overlap, and cutoff benchmarks.',
+          },
+          {
+            stepTitle: '03. College Shortlisting & ROI',
+            detail: 'Filter colleges by stream, annual fees, average placement package, and location.',
+          },
+          {
+            stepTitle: '04. Admission & Interview Desk',
+            detail: 'Guided support through counselling rounds, SOP/portfolio review, and seat selection.',
+          },
+        ],
+        metrics: {
+          duration: '45 Mins Test + 38-Page Roadmap',
+          mode: 'Online & Offline Advisory',
+          feeOrTier: '₹1,999 Career Roadmap / ₹2,999 Bundle',
+          outcomeMetric: 'Plan A/B/C College & Exam Blueprint',
+        },
+        careerOrSkillHighlights: [
+          'JEE Main/Adv · BITSAT · IIIT-H UGEE',
+          'CUET (UG) · IPMAT (IIMs) · NPAT',
+          'CLAT / AILET · UCEED / NID DAT',
+          'NEET-UG · IISER IAT · Biotech',
+          'College Cut-Off & ROI Matrix',
+        ],
         recommendedActionLabel: 'Start Class 11-12 Career Assessment',
         targetTab: 'assessment',
         targetSubView: 'Class 11-12',
@@ -162,9 +341,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'cg-ug',
         label: 'UG students',
-        cohortOrTarget: 'UG',
-        summary: 'Specialization clarity, industry skill-gap mapping, high-impact internships, campus placement vs higher studies decision.',
-        deliverables: ['Employability & Skill-Gap Report', 'Job vs PG / MBA Evaluation', 'Portfolio & Internship Action Plan'],
+        headline: 'Undergraduate (UG) Specialization, Skill-Gap Closure & Placement vs Higher Studies Strategy',
+        cohortOrTarget: 'B.Tech, B.Com, BBA, BA, B.Sc & B.Des Students',
+        summary:
+          'Turn your undergraduate degree into high-paying career outcomes. Decide objectively between campus placements, higher studies (MBA / MS / M.Tech / CFA), or startup building while closing critical industry skill gaps.',
+        deliverables: [
+          'Employability & Industry Skill-Gap Diagnostic Report',
+          'Campus Placement vs PG / MBA / MS ROI Evaluation',
+          '90-Day Internship, GitHub / Portfolio & Certification Plan',
+          'ATS Resume Architecture & Mock Interview Readiness',
+        ],
+        keyChallengesSolved: [
+          'Solves the "Job right after college vs CAT/GATE/GRE/CFA" dilemma using 5-year ROI data',
+          'Bridges the gap between outdated university syllabi and modern AI-era hiring requirements',
+          'Helps non-tier-1 college students build verifiable proof-of-work portfolios that win interviews',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Competency & Role Mapping',
+            detail: 'Assess technical, analytical, and communication readiness against target job roles.',
+          },
+          {
+            stepTitle: '02. Placement vs PG Decision Matrix',
+            detail: 'Compare immediate salary compounding vs domestic/international postgraduate degrees.',
+          },
+          {
+            stepTitle: '03. Skill Capstone Sprint',
+            detail: 'Complete hands-on labs in Applied AI, Coding, Digital Marketing, or Financial Modeling.',
+          },
+          {
+            stepTitle: '04. High-CTC Interview Conversion',
+            detail: 'Optimize LinkedIn, portfolio projects, and structured behavioral/technical interviews.',
+          },
+        ],
+        metrics: {
+          duration: '40 Mins Diagnostic + 90-Day Plan',
+          mode: 'Live Online + AI Career Engine',
+          feeOrTier: '₹999 – ₹1,999 Roadmap',
+          outcomeMetric: 'Job Placement or Tier-1 PG Clarity',
+        },
+        careerOrSkillHighlights: [
+          'AI & Full-Stack Engineering',
+          'Product Management & Analytics',
+          'CAT / XAT / GMAT / CFA Strategy',
+          'GATE / MS Research Pathways',
+          'High-Impact Internship Portfolio',
+        ],
         recommendedActionLabel: 'Start UG Career Assessment',
         targetTab: 'assessment',
         targetSubView: 'UG',
@@ -172,9 +394,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'cg-pg',
         label: 'PG students',
-        cohortOrTarget: 'PG',
-        summary: 'Domain specialization, R&D vs corporate leadership track, high-growth industry targeting, and compensation negotiation.',
-        deliverables: ['Domain Specialization Blueprint', 'Industry Role & Compensation Mapping', 'Executive Readiness Plan'],
+        headline: 'Postgraduate (PG) Domain Mastery, R&D vs Corporate Leadership & Executive Launchpad',
+        cohortOrTarget: 'MBA, M.Tech, M.Sc, MA, LLM & M.Des Students',
+        summary:
+          'Maximize the return on your postgraduate investment. Align your thesis, capstone projects, and domain specialization with high-leverage corporate strategy, product leadership, quantitative finance, or deep-tech R&D tracks.',
+        deliverables: [
+          'Postgraduate Domain Specialization Blueprint',
+          'Industry Role, ESOP & Compensation Benchmarking',
+          'R&D / Fellowship vs Corporate Leadership Track Matrix',
+          'Executive Presence & Case Interview Playbook',
+        ],
+        keyChallengesSolved: [
+          'Positions postgraduate candidates for specialist and fast-track leadership roles rather than generic entry roles',
+          'Clarifies trade-offs between enterprise leadership, deep-tech research labs, and venture founding',
+          'Prepares candidates for rigorous case interviews, system design rounds, and salary negotiations',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Specialist Positioning Audit',
+            detail: 'Map PG coursework and prior experience to high-margin industry problem domains.',
+          },
+          {
+            stepTitle: '02. Target Industry & Role Shortlist',
+            detail: 'Identify top 20 hiring enterprises, GCCs, consulting firms, or funded growth startups.',
+          },
+          {
+            stepTitle: '03. Executive Case & Capstone Polish',
+            detail: 'Publish industry whitepapers, AI prototypes, or valuation models as proof of mastery.',
+          },
+          {
+            stepTitle: '04. Offer & Compensation Strategy',
+            detail: '1-on-1 mentor review of role scope, fixed-vs-variable pay, and 3-year promotion velocity.',
+          },
+        ],
+        metrics: {
+          duration: '45 Mins Executive Diagnostic',
+          mode: '1-on-1 Senior Industry Mentor',
+          feeOrTier: '₹1,999 – ₹2,999 Executive Pack',
+          outcomeMetric: 'Specialist & Leadership Role Fit',
+        },
+        careerOrSkillHighlights: [
+          'Enterprise AI & Systems Architecture',
+          'Product & Strategy Leadership',
+          'Investment Banking & Quant Finance',
+          'Corporate Law & Policy Advisory',
+          'Compensation & Offer Evaluation',
+        ],
         recommendedActionLabel: 'Start PG Career Assessment',
         targetTab: 'assessment',
         targetSubView: 'PG',
@@ -182,9 +447,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'cg-wp',
         label: 'Working professionals',
-        cohortOrTarget: 'Working Professionals',
-        summary: 'Mid-career pivot, AI-era upskilling, leadership transition, salary-growth roadmap, or side-to-full entrepreneurship.',
-        deliverables: ['Professional Career Growth Roadmap', 'AI Disruption & Upskilling Audit', 'Pivot / Promotion Strategy'],
+        headline: 'Working Professionals Mid-Career Pivot, AI-Era Upskilling & Salary Acceleration Roadmap',
+        cohortOrTarget: 'Working Professionals (1 to 15+ Years Experience)',
+        summary:
+          'Break through mid-career stagnation and automation risk. Whether you want a 50%+ compensation jump, a domain switch into AI/Product/Growth, or a structured transition from job to business, get an actionable 90-day execution plan.',
+        deliverables: [
+          'Working Professional Career Growth & Pivot Roadmap',
+          'AI Disruption Risk & Transferable Skill Audit',
+          'Job vs Business / Consulting Readiness Evaluation',
+          '1-on-1 Executive Mentor Session + LinkedIn Rewrite',
+        ],
+        keyChallengesSolved: [
+          'Provides a realistic weekend upskilling and transition blueprint without quitting your current job prematurely',
+          'Transforms legacy QA, support, operations, or traditional roles into AI-augmented product & strategy profiles',
+          'Evaluates financial readiness and unit economics before launching a startup or independent practice',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Career Leverage & Gap Audit',
+            detail: 'Benchmark current CTC, domain capital, and AI automation exposure.',
+          },
+          {
+            stepTitle: '02. Pivot vs Promotion Selection',
+            detail: 'Lock target role (e.g., AI Product Manager, Growth Lead, FinTech Strategist, Founder).',
+          },
+          {
+            stepTitle: '03. Weekend Proof-of-Work Labs',
+            detail: 'Build 2–3 industry capstones in Applied AI, Analytics, or Executive Communication.',
+          },
+          {
+            stepTitle: '04. Lateral Hiring & Negotiation',
+            detail: 'Targeted referral strategy, executive interview simulation, and CTC negotiation.',
+          },
+        ],
+        metrics: {
+          duration: '45 Mins Audit + 90-Day Pivot Plan',
+          mode: 'Weekend Online + 1-on-1 Mentor',
+          feeOrTier: '₹1,999 Roadmap / ₹2,999 Session',
+          outcomeMetric: 'High-Growth Pivot & CTC Acceleration',
+        },
+        careerOrSkillHighlights: [
+          'IT / QA to AI Product & Engineering',
+          'Mid-Career Leadership Acceleration',
+          'Applied Generative AI Workflows',
+          'Job-to-Startup Venture Transition',
+          'Executive Branding & Networking',
+        ],
         recommendedActionLabel: 'Start Professional Assessment',
         targetTab: 'assessment',
         targetSubView: 'Working Professionals',
@@ -193,53 +501,276 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
   },
   {
     id: 'student-services',
+    pillarNumber: '02',
     title: 'Student Services',
     headerBg: '#137A6E',
     accentColor: '#0F766E',
-    description: 'End-to-end student support from first psychometric diagnostic to college admission and first job readiness.',
+    description:
+      'End-to-end student lifecycle support from first psychometric diagnostic and 1-on-1 counselling to college admission and first-job readiness.',
+    pillarMetrics: {
+      totalModules: '9 Core Student Services',
+      targetUsers: 'School & College Learners',
+      coreOutcome: 'End-to-End Academic to Career Execution',
+    },
     items: [
       {
         id: 'ss-assessment',
         label: 'Career assessment',
-        cohortOrTarget: 'All Student Cohorts',
-        summary: '14-dimension psychometric & competency assessment evaluating aptitude, interests, personality, and future readiness.',
-        deliverables: ['Instant Student Career Profile', 'Dimension Score Breakdown', 'Suggested Career Clusters'],
+        headline: '14-Dimension Psychometric & Competency Career Assessment Engine',
+        cohortOrTarget: 'All Student Cohorts (Class 5 to PG)',
+        summary:
+          'Our flagship multi-cohort diagnostic evaluates Academic Profile, Interests, Aptitude, Personality, Communication Confidence, Technology/AI Interest, Creativity, Entrepreneurship, and Financial Awareness to generate an instant Student Career Profile.',
+        deliverables: [
+          'Instant Student Career Profile & Readiness Index (0–100)',
+          '14-Dimension Visual Score Breakdown & Interpretation',
+          'Top 3 Suggested Career Clusters with Fit Rationale',
+          'Downloadable PDF Report & 90-Day Action Plan',
+        ],
+        keyChallengesSolved: [
+          'Replaces generic one-size-fits-all tests with cohort-calibrated scoring for 7 distinct educational stages',
+          'Measures both traditional aptitude and modern competencies (AI readiness, financial literacy, communication)',
+          'Uses ethical, non-deterministic guidance language ("Suggested Fit", "Potential Pathways")',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Select Cohort Stage',
+            detail: 'Choose your exact stage from Class 5–6 up to PG or Working Professional.',
+          },
+          {
+            stepTitle: '02. Complete Multi-Dimension Quiz',
+            detail: 'Answer scenario-based questions across aptitude, interests, and work preferences.',
+          },
+          {
+            stepTitle: '03. Instant Profile Generation',
+            detail: 'View dimension bars, strengths, development areas, and matched career clusters.',
+          },
+          {
+            stepTitle: '04. Upgrade or Validate with Expert',
+            detail: 'Export your PDF profile or unlock 24/38-page deep reports with counsellor review.',
+          },
+        ],
+        metrics: {
+          duration: '25–45 Mins Self-Paced Online',
+          mode: 'Instant AI + Psychometric Engine',
+          feeOrTier: 'Free Starter / ₹499 – ₹2,999 Tiers',
+          outcomeMetric: '14-Dimension Verified Career Profile',
+        },
+        careerOrSkillHighlights: [
+          'Aptitude & Logical Reasoning',
+          'Intrinsic Interest Mapping',
+          'Communication & Leadership Check',
+          'Tech, AI & Entrepreneurial Quotient',
+          'Instant Digital Report Export',
+        ],
         recommendedActionLabel: 'Take Free Career Assessment',
         targetTab: 'assessment',
       },
       {
         id: 'ss-counselling',
         label: 'Career counselling',
-        cohortOrTarget: 'Students & Parents',
-        summary: '1-on-1 human validation with certified career psychologists and industry specialists (Online & Offline).',
-        deliverables: ['45-Min Deep-Dive Session', 'Counsellor Validated Action Plan', 'Parent Alignment Summary'],
+        headline: '1-on-1 Personalized Career Counselling with Certified Psychologists & Industry Mentors',
+        cohortOrTarget: 'Students, Parents & Young Graduates',
+        summary:
+          'Connect directly with GCDF-certified career psychologists, IIM/IIT alumni strategists, and TISS counselling specialists. Every session triangulates psychometric data with real-world industry trends and family expectations.',
+        deliverables: [
+          '45-Minute Live 1-on-1 Video or In-Centre Counselling Session',
+          'Counsellor-Validated Career & Stream Action Plan',
+          'Joint Parent-Child Alignment & Q&A Resolution',
+          'Post-Session Written Summary & Follow-Up Notes',
+        ],
+        keyChallengesSolved: [
+          'Provides empathetic human judgment that no automated test or chatbot can replace alone',
+          'Resolves parent-student disagreements objectively using market data and aptitude evidence',
+          'Creates accountability with documented session notes and concrete next-step milestones',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Filter Verified Counsellors',
+            detail: 'Filter marketplace by student cohort, career domain, language, and fee.',
+          },
+          {
+            stepTitle: '02. Select Date & Time Slot',
+            detail: 'Book real-time slots with automatic 15-minute buffer and instant Supabase sync.',
+          },
+          {
+            stepTitle: '03. Pre-Session Report Review',
+            detail: 'Your counsellor reviews your Student Career Profile before the meeting begins.',
+          },
+          {
+            stepTitle: '04. Live Deep-Dive & Roadmap Lock',
+            detail: 'Finalize stream, college, exam, and skill priorities with written session notes.',
+          },
+        ],
+        metrics: {
+          duration: '45 Mins Live 1-on-1 Session',
+          mode: 'Online Video & In-Centre',
+          feeOrTier: '₹1,299 – ₹1,999 Per Session',
+          outcomeMetric: '4.9★ Rated Human Validation',
+        },
+        careerOrSkillHighlights: [
+          'Dr. Meera Sharma (Ph.D. Psychology)',
+          'Rajesh Verma (IIM-K / NIT-W Strategist)',
+          'Ananya Nair (TISS Applied Psychology)',
+          'Multilingual (English / Hindi / Regional)',
+          'Instant Supabase Booking Confirmation',
+        ],
         recommendedActionLabel: 'Browse Certified Counsellors',
         targetTab: 'counsellors',
       },
       {
         id: 'ss-stream',
         label: 'Stream selection',
-        cohortOrTarget: 'Class 8-10',
-        summary: 'Eliminate guesswork between Science, Commerce, Humanities, and NEP 2020 multi-disciplinary subject combinations.',
-        deliverables: ['Subject Combination Fit Score', 'Aptitude vs Interest Alignment', 'Future Career Eligibility Check'],
+        headline: 'Scientific Stream & Subject Combination Selection after Class 10',
+        cohortOrTarget: 'Class 8, 9 & 10 Students',
+        summary:
+          'Compare Science (PCM / PCB / PCMB), Commerce (with/without Math), Humanities, and NEP 2020 interdisciplinary subject combinations side-by-side against future career eligibility, competition, and salary potential.',
+        deliverables: [
+          'Stream & Optional Subject Compatibility Scorecard',
+          'Career A vs Career B Side-by-Side Comparison Matrix',
+          'Future Entrance Exam Eligibility Verification',
+          'Backup Pathway Protection Plan',
+        ],
+        keyChallengesSolved: [
+          'Prevents accidental exclusion from high-growth careers (e.g., dropping Math before checking Economics/FinTech eligibility)',
+          'Demystifies new-age careers accessible from any stream (Design, Law, Product Management, Digital Business)',
+          'Replaces herd mentality with transparent 10-year career outcome comparisons',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Stream Aptitude Benchmarking',
+            detail: 'Evaluate numerical, scientific, verbal, and creative reasoning strength.',
+          },
+          {
+            stepTitle: '02. Career A vs B Comparison',
+            detail: 'Compare study duration, education cost, competition, and salary across streams.',
+          },
+          {
+            stepTitle: '03. Subject Combination Lock',
+            detail: 'Select 5 core + 1 additional subject maximizing college admission optionality.',
+          },
+          {
+            stepTitle: '04. Class 11 Academic Launchpad',
+            detail: 'Transition plan for board academics + foundational entrance preparation.',
+          },
+        ],
+        metrics: {
+          duration: 'Instant Comparison + 45m Review',
+          mode: 'Interactive Career Compare Tool',
+          feeOrTier: 'Included in ₹999 Clarity Report',
+          outcomeMetric: 'Zero-Regret Stream Selection',
+        },
+        careerOrSkillHighlights: [
+          'Science (PCM / PCB / Computer Science)',
+          'Commerce + Applied Mathematics',
+          'Humanities + Economics & Psychology',
+          'Design (UCEED/NID) & Law (CLAT)',
+          'Side-by-Side Career Compare Engine',
+        ],
         recommendedActionLabel: 'Compare Streams & Careers',
         targetTab: 'careers',
+        targetSubView: 'compare',
       },
       {
         id: 'ss-planning',
         label: 'Career planning',
-        cohortOrTarget: 'Class 9 to UG',
-        summary: 'Multi-year milestone roadmap covering academics, competitive exams, certifications, and portfolio projects.',
-        deliverables: ['90-Day & 3-Year Career Roadmap', 'Exam & Certification Calendar', 'Backup Plan Architecture'],
+        headline: 'Multi-Year Longitudinal Career Planning & 90-Day Milestone Execution',
+        cohortOrTarget: 'Class 9 to Final Year UG',
+        summary:
+          'Career success is a multi-year compounding process, not a single one-time decision. Build a structured 90-day and 3-to-5-year roadmap integrating academics, entrance exams, skill certifications, and portfolio milestones.',
+        deliverables: [
+          '38-Page Customized 5-Year Career Roadmap',
+          'Phase-Wise 90-Day Action Plan (Days 1–30, 31–60, 61–90)',
+          'Primary + Plan B + Plan C Career Architecture',
+          'Annual Longitudinal Profile Version Tracking',
+        ],
+        keyChallengesSolved: [
+          'Breaks overwhelming 5-year career goals into manageable 30-day student actions',
+          'Tracks longitudinal student progress from Class 5 through UG placement inside a single dashboard',
+          'Keeps students resilient against AI industry shifts with annual roadmap recalibration',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Baseline Profile Snapshot',
+            detail: 'Record current academic scores, interests, and 14-dimension readiness index.',
+          },
+          {
+            stepTitle: '02. Primary & Backup Cluster Lock',
+            detail: 'Select 1 primary career track and 2 resilient adjacent backup tracks.',
+          },
+          {
+            stepTitle: '03. 90-Day Sprint Execution',
+            detail: 'Complete targeted academic, exam, and skill-building milestones each quarter.',
+          },
+          {
+            stepTitle: '04. Annual Counsellor Audit',
+            detail: 'Review progress and update college/career targets as capabilities compound.',
+          },
+        ],
+        metrics: {
+          duration: '90-Day Sprints + 5-Year Map',
+          mode: 'Digital Workspace + PDF Roadmap',
+          feeOrTier: '₹1,999 Career Roadmap Tier',
+          outcomeMetric: 'Structured Multi-Year Execution',
+        },
+        careerOrSkillHighlights: [
+          '30-60-90 Day Milestone Tracker',
+          'Plan A / Plan B Architecture',
+          'Exam & Certification Calendar',
+          'Longitudinal Student Lifecycle',
+          'Print-Ready Roadmap Dossier',
+        ],
         recommendedActionLabel: 'Generate Career Roadmap',
         targetTab: 'assessment',
       },
       {
         id: 'ss-college',
         label: 'College guidance',
-        cohortOrTarget: 'Class 11-12 & UG',
-        summary: 'Data-backed college shortlisting across India, cut-off analysis, fee vs placement ROI, and admission counselling.',
-        deliverables: ['Personalized College Shortlist', 'Entrance Exam & Cut-off Tracker', 'Fee & Placement Comparison'],
+        headline: 'Data-Backed College Shortlisting, Entrance Cut-Offs & Admission Guidance',
+        cohortOrTarget: 'Class 11-12 & UG Aspirants',
+        summary:
+          'Navigate India’s complex university admission landscape across IITs, IIITs, NITs, BITS, DU (CUET), NLUs (CLAT), NID/IIT-IDC, IIM IPM, and premier private universities with transparent fee, cutoff, and placement ROI intelligence.',
+        deliverables: [
+          'Curated Shortlist of Top Colleges by Stream & Budget',
+          'Entrance Exam & Cut-Off Percentile Tracker',
+          'Tuition Fee vs Average Placement ROI Comparison',
+          'Counselling Round & Admission Documentation Support',
+        ],
+        keyChallengesSolved: [
+          'Uncovers high-ROI colleges (like SSCBS Delhi, IIIT-H UGEE, IDC IITB) often missed by students',
+          'Protects families from misleading college marketing by verifying real placement and fee metrics',
+          'Streamlines multi-exam application deadlines across JEE, CUET, BITSAT, IPMAT, CLAT, and UCEED',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Stream & Budget Filtering',
+            detail: 'Filter verified college directory by stream cluster, state, and fee bracket.',
+          },
+          {
+            stepTitle: '02. Entrance & Cut-Off Mapping',
+            detail: 'Review exact admission modes (JEE, UGEE, CUET, BITSAT, CLAT, UCEED) and cutoffs.',
+          },
+          {
+            stepTitle: '03. Placement Payback Analysis',
+            detail: 'Run the Parent ROI Calculator to compare total program cost vs starting CTC.',
+          },
+          {
+            stepTitle: '04. Choice Filling & Seat Lock',
+            detail: '1-on-1 expert guidance during JoSAA, CSAS, CLAT, or private university counselling.',
+          },
+        ],
+        metrics: {
+          duration: 'Full Admission Cycle Support',
+          mode: 'College Database + ROI Calculator',
+          feeOrTier: 'Included in Roadmap & Counselling',
+          outcomeMetric: 'Tier-1 High-ROI College Admission',
+        },
+        careerOrSkillHighlights: [
+          'IIIT Hyderabad · BITS Pilani · IITs',
+          'SSCBS & SRCC Delhi (CUET)',
+          'NLSIU & NALSAR (CLAT)',
+          'IDC IIT Bombay & NID (UCEED/DAT)',
+          'IIM Indore / Rohtak (IPMAT)',
+        ],
         recommendedActionLabel: 'Explore College Guidance',
         targetTab: 'careers',
         targetSubView: 'colleges',
@@ -247,54 +778,280 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'ss-skillgap',
         label: 'Skill-gap analysis',
-        cohortOrTarget: 'Class 9 to Working Pros',
-        summary: 'AI-assisted diagnostic comparing your current competency profile against target career requirements.',
-        deliverables: ['Target Role Competency Matrix', 'Priority Skill Deficit List', 'Matched Skill Courses'],
+        headline: 'AI-Assisted Competency & Skill-Gap Diagnostic Engine',
+        cohortOrTarget: 'Class 9 to Working Professionals',
+        summary:
+          'Compare your current academic subjects and skill inventory against the exact technical, analytical, and communication requirements of your target 2026–2030 career path using our Gemini AI Career Advisor.',
+        deliverables: [
+          'Target Role vs Current Competency Gap Matrix',
+          'Prioritized Technical & Soft-Skill Deficit List',
+          'Direct Matching to Live Career360 Skill Courses',
+          'AI-Generated 90-Day Upskilling Action Plan',
+        ],
+        keyChallengesSolved: [
+          'Pinpoints the exact 2–3 missing skills holding a student or professional back from top roles',
+          'Eliminates random course hoarding by recommending only high-impact, role-aligned capstones',
+          'Combines AI speed with mandatory human counsellor validation guidelines',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Input Current Skills & Goal',
+            detail: 'Enter your current cohort, subjects/skills, interests, and target career goal.',
+          },
+          {
+            stepTitle: '02. Run AI Skill-Gap Diagnostic',
+            detail: 'Generate structured pathway fit indicators and competency gap analysis.',
+          },
+          {
+            stepTitle: '03. Match Mentor-Led Skill Labs',
+            detail: 'Map identified gaps directly to Applied AI, English, Coding, or Finance courses.',
+          },
+          {
+            stepTitle: '04. Build Verifiable Portfolio',
+            detail: 'Complete live projects and earn Career360 verified skill certifications.',
+          },
+        ],
+        metrics: {
+          duration: 'Instant AI Diagnostic + 90d Plan',
+          mode: 'Gemini AI Advisor + Live Courses',
+          feeOrTier: 'Free AI Diagnostic Tool',
+          outcomeMetric: 'Targeted Competency Closure',
+        },
+        careerOrSkillHighlights: [
+          'Gemini AI Career & Skill Engine',
+          'Technical vs Soft-Skill Gap Audit',
+          'Role Readiness Benchmarking',
+          '90-Day Upskilling Sprint',
+          'Portfolio Capstone Matching',
+        ],
         recommendedActionLabel: 'Run AI Skill-Gap Analysis',
         targetTab: 'skills',
+        targetSubView: 'ai-advisor',
       },
       {
         id: 'ss-internship',
         label: 'Internship guidance',
-        cohortOrTarget: 'UG & PG Students',
-        summary: 'Build real-world proof of work through structured industry projects, research internships, and mentor-guided portfolios.',
-        deliverables: ['Project Portfolio Blueprint', 'Internship Application Playbook', 'Cold Outreach & Resume Templates'],
+        headline: 'High-Impact Internship Strategy, Proof-of-Work Portfolio & Industry Outreach',
+        cohortOrTarget: 'Class 11-12, UG & PG Students',
+        summary:
+          'Top internships are won through proof of work, not generic resume blasts. Learn how to build live GitHub apps, UI/UX case studies, financial models, or growth audits that attract founders, research labs, and corporate hiring managers.',
+        deliverables: [
+          'Domain-Specific Proof-of-Work Portfolio Blueprint',
+          'Cold-Email, LinkedIn Outreach & Referral Playbook',
+          'Research & Corporate Internship Application Tracker',
+          'Live Capstone Project Mentorship',
+        ],
+        keyChallengesSolved: [
+          'Solves the "no experience, no internship" catch-22 by building real industry capstones first',
+          'Teaches students how to pitch startup founders and professors with value-first project audits',
+          'Converts summer and winter breaks into verifiable resume credentials',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Select Target Internship Track',
+            detail: 'Choose Software/AI, Product/Design, Finance/Research, or Growth Marketing.',
+          },
+          {
+            stepTitle: '02. Build 2 Live Capstone Assets',
+            detail: 'Ship a working prototype, design audit, or equity research report.',
+          },
+          {
+            stepTitle: '03. Portfolio & Resume Packaging',
+            detail: 'Structure GitHub, Notion/Behance portfolio, and metric-driven 1-page CV.',
+          },
+          {
+            stepTitle: '04. Outreach & Interview Conversion',
+            detail: 'Execute targeted applications and ace technical/founder interviews.',
+          },
+        ],
+        metrics: {
+          duration: '4–8 Weeks Portfolio Sprint',
+          mode: 'Mentor-Guided Capstone + Playbook',
+          feeOrTier: 'Included in Skill & Pro Tracks',
+          outcomeMetric: 'Verified Proof-of-Work Portfolio',
+        },
+        careerOrSkillHighlights: [
+          'GitHub & Live App Portfolios',
+          'Startup & Founder Outreach',
+          'Academic Research Internships',
+          'UI/UX & Growth Case Studies',
+          'Pre-Placement Offer (PPO) Strategy',
+        ],
         recommendedActionLabel: 'View Employability & Internships',
         targetTab: 'skills',
+        targetSubView: 'pro-track',
       },
       {
         id: 'ss-employability',
         label: 'Employability',
-        cohortOrTarget: 'Final Year UG/PG',
-        summary: 'Bridge the campus-to-corporate gap with workplace communication, problem-solving, and interview simulation.',
-        deliverables: ['Mock Interview Assessment', 'ATS-Ready Resume Architecture', 'Corporate Readiness Certification'],
+        headline: 'Campus-to-Corporate Employability, Executive Communication & Interview Mastery',
+        cohortOrTarget: 'Pre-Final & Final Year College Students',
+        summary:
+          'Bridge the employability gap that leaves 50%+ of graduates underemployed. Master structured problem-solving, Pyramid-Principle communication, group discussions, aptitude tests, and high-stakes panel interviews.',
+        deliverables: [
+          'ATS-Optimized Resume & LinkedIn Profile Overhaul',
+          'Group Discussion (GD) & Case Interview Simulation',
+          'Executive English & Presentation Poise Assessment',
+          'Career360 Corporate Readiness Certification',
+        ],
+        keyChallengesSolved: [
+          'Eliminates interview nervousness and unstructured answers during campus placements',
+          'Trains students in workplace tools (AI workflows, analytical decks, professional etiquette)',
+          'Improves shortlist-to-offer conversion rates across technical and management interviews',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Employability Readiness Audit',
+            detail: 'Evaluate resume impact, verbal fluency, aptitude speed, and domain depth.',
+          },
+          {
+            stepTitle: '02. Communication & GD Labs',
+            detail: 'Practice structured arguments, active listening, and executive presence.',
+          },
+          {
+            stepTitle: '03. Technical & Case Mock Panels',
+            detail: '1-on-1 simulated interviews with actionable rubric-based feedback.',
+          },
+          {
+            stepTitle: '04. Placement Drive Execution',
+            detail: 'Company-specific preparation for Tier-1 product, consulting, and finance roles.',
+          },
+        ],
+        metrics: {
+          duration: '6–8 Weeks Readiness Program',
+          mode: 'Live Labs + Mock Interviews',
+          feeOrTier: '₹3,999 – ₹5,499 Skill Tracks',
+          outcomeMetric: '2.5x Interview Conversion Rate',
+        },
+        careerOrSkillHighlights: [
+          'ATS Resume & LinkedIn Architecture',
+          'Group Discussion (GD) Mastery',
+          'Structured Case & Technical Rounds',
+          'Workplace AI & Productivity',
+          'Executive Presence Certification',
+        ],
         recommendedActionLabel: 'Explore Employability Programs',
         targetTab: 'skills',
+        targetSubView: 'English Speaking',
       },
       {
         id: 'ss-firstjob',
         label: 'First job',
-        cohortOrTarget: 'Fresh Graduates',
-        summary: 'First-role selection, offer evaluation, 90-day onboarding success plan, and early-career compounding strategy.',
-        deliverables: ['Role & Industry Selection Matrix', 'Offer Evaluation Checklist', 'First 90 Days Career Playbook'],
+        headline: 'First-Job Selection, Offer Evaluation & First 90-Day Career Compounding',
+        cohortOrTarget: 'Fresh Graduates & Early-Career Starters',
+        summary:
+          'Your first job sets your learning velocity and compensation baseline for the next 5 years. Compare competing offers objectively, avoid dead-end support roles, and execute a standout first 90 days at work.',
+        deliverables: [
+          'First-Role & Industry Quality Evaluation Matrix',
+          'CTC Breakdown (Fixed vs Variable vs ESOPs) Analyzer',
+          'Off-Campus High-Growth Hiring Playbook',
+          'First 90-Day Workplace Success & Promotion Guide',
+        ],
+        keyChallengesSolved: [
+          'Prevents freshers from choosing high-headline-CTC dead-end roles over high-learning-velocity teams',
+          'Provides a step-by-step off-campus hiring system when college placements fall short',
+          'Equips fresh graduates to deliver visible business impact in their first quarter on the job',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Role & Team Quality Audit',
+            detail: 'Evaluate learning curve, mentorship quality, and AI resilience of target roles.',
+          },
+          {
+            stepTitle: '02. Off-Campus & Referral Engine',
+            detail: 'Target funded startups, product companies, and global capability centers (GCCs).',
+          },
+          {
+            stepTitle: '03. Offer Comparison & Negotiation',
+            detail: 'Analyze in-hand pay, growth trajectory, and exit optionality with a mentor.',
+          },
+          {
+            stepTitle: '04. First 90-Day Impact Plan',
+            detail: 'Transition smoothly from campus student to high-trust corporate contributor.',
+          },
+        ],
+        metrics: {
+          duration: '45 Mins Advisory + 90-Day Plan',
+          mode: '1-on-1 Mentor + Pro Workspace',
+          feeOrTier: '₹1,299 – ₹1,999 Advisory',
+          outcomeMetric: 'High-Velocity Career Launch',
+        },
+        careerOrSkillHighlights: [
+          'Offer & CTC Breakdown Analysis',
+          'Product vs Service Role Comparison',
+          'Off-Campus Hiring System',
+          'First 90 Days Corporate Playbook',
+          'Early-Career Wealth & Skill Plan',
+        ],
         recommendedActionLabel: 'Launch First Job Readiness',
         targetTab: 'skills',
+        targetSubView: 'pro-track',
       },
     ],
   },
   {
     id: 'skill-development',
+    pillarNumber: '03',
     title: 'Skill Development',
     headerBg: '#0D3B49',
     accentColor: '#0D3B49',
-    description: 'Convert career clarity into demonstrable capabilities with mentor-led, outcome-driven skill programs.',
+    description:
+      'Convert career clarity into demonstrable capabilities with live mentor-led, project-driven skill courses and verified certifications.',
+    pillarMetrics: {
+      totalModules: '8 Live Capstone Programs',
+      targetUsers: 'Class 5 to Working Pros',
+      coreOutcome: 'Verifiable Portfolio & Certification',
+    },
     items: [
       {
         id: 'sd-english',
         label: 'English speaking',
-        cohortOrTarget: 'Students & Professionals',
-        summary: 'Fluency, articulation, public speaking, group discussion mastery, and global workplace communication.',
-        deliverables: ['Live Speaking Labs', 'Vocabulary & Pronunciation Drills', 'Public Speaking Showcase'],
+        headline: 'Executive English Speaking, Public Speaking & Interview Presence Lab',
+        cohortOrTarget: 'Class 5–12, College Students & Professionals',
+        summary:
+          'Overcome hesitation and master structured verbal articulation, spontaneous speaking, group discussions, debates, and high-stakes admission or job interviews in small 15-learner live batches.',
+        deliverables: [
+          '32 Hours of Live Speaking Labs & Pronunciation Drills',
+          'Recorded 5-Minute TED-Style Capstone Talk',
+          'Group Discussion (GD) & Mock Interview Evaluation',
+          'Career360 Communication & Executive Presence Certificate',
+        ],
+        keyChallengesSolved: [
+          'Eliminates translation lag, stage fright, and filler words during presentations and interviews',
+          'Teaches the Pyramid Principle for structuring clear, persuasive answers under pressure',
+          'Builds lifelong verbal confidence for global classrooms and corporate boardrooms',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Fluency & Tonality Diagnostic',
+            detail: 'Baseline assessment of vocabulary precision, pacing, and speaking confidence.',
+          },
+          {
+            stepTitle: '02. Structured Thought Architecture',
+            detail: 'Master PREP and Pyramid frameworks for impromptu speaking and debates.',
+          },
+          {
+            stepTitle: '03. Live GD & Persuasive Storytelling',
+            detail: 'Lead moderated group discussions and high-impact pitch presentations.',
+          },
+          {
+            stepTitle: '04. TED-Style Showcase & Mock Panel',
+            detail: 'Deliver a recorded capstone talk and pass a live panel interview.',
+          },
+        ],
+        metrics: {
+          duration: '8 Weeks (32 Live Hours)',
+          mode: 'Live Online (Batch Size: 15)',
+          feeOrTier: '₹3,999 (Save 20% with FUTURE20)',
+          outcomeMetric: 'TED-Style Talk + Interview Mastery',
+        },
+        careerOrSkillHighlights: [
+          'Spoken English Fluency',
+          'Public Speaking & Debate',
+          'Group Discussion (GD) Leadership',
+          'Admission & Job Interview Poise',
+          'Trainer: Avantika Sen (CELTA Certified)',
+        ],
         recommendedActionLabel: 'View English Speaking Course',
         targetTab: 'skills',
         targetSubView: 'English Speaking',
@@ -302,9 +1059,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'sd-personality',
         label: 'Personality development',
-        cohortOrTarget: 'Class 5 to UG',
-        summary: 'Executive presence, emotional intelligence, leadership confidence, body language, and interview poise.',
-        deliverables: ['Confidence & Etiquette Workshops', 'Leadership Simulation', 'Personal Brand Presentation'],
+        headline: 'Personality Development, Emotional Intelligence & Leadership Presence Program',
+        cohortOrTarget: 'Class 5 to UG Students & Young Professionals',
+        summary:
+          'Develop authentic self-confidence, executive body language, emotional intelligence (EQ), conflict resolution, time discipline, and personal brand presence for leadership in school, college, and work.',
+        deliverables: [
+          '24 Hours of Interactive Leadership & Etiquette Labs',
+          'Personal Brand & Digital Presence Portfolio',
+          'Emotional Intelligence (EQ) & Assertiveness Assessment',
+          'Career360 Leadership & Personality Certification',
+        ],
+        keyChallengesSolved: [
+          'Transforms shy or hesitant learners into articulate, self-assured team leaders',
+          'Instills professional etiquette, active listening, and diplomatic conflict handling',
+          'Builds resilience, goal discipline, and positive peer leadership habits',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Self-Awareness & EQ Mapping',
+            detail: 'Identify personal communication style, social triggers, and leadership strengths.',
+          },
+          {
+            stepTitle: '02. Body Language & First Impressions',
+            detail: 'Master posture, eye contact, vocal projection, and professional etiquette.',
+          },
+          {
+            stepTitle: '03. Team Leadership & Negotiation',
+            detail: 'Role-play real-world group projects, crisis decisions, and ethical dilemmas.',
+          },
+          {
+            stepTitle: '04. Personal Brand Capstone',
+            detail: 'Present a 360-degree personal leadership portfolio to mentors and peers.',
+          },
+        ],
+        metrics: {
+          duration: '6 Weeks (24 Live Hours)',
+          mode: 'Live Interactive Cohort',
+          feeOrTier: '₹3,499 (Save 20% with FUTURE20)',
+          outcomeMetric: 'Executive Confidence & EQ Growth',
+        },
+        careerOrSkillHighlights: [
+          'Executive Presence & Body Language',
+          'Emotional Intelligence (EQ)',
+          'Student Council & Team Leadership',
+          'Professional Etiquette & Networking',
+          'Personal Branding Capstone',
+        ],
         recommendedActionLabel: 'View Personality Course',
         targetTab: 'skills',
         targetSubView: 'Personality Development',
@@ -312,9 +1112,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'sd-dm',
         label: 'Digital marketing',
-        cohortOrTarget: 'Class 11+ & Professionals',
-        summary: 'Performance marketing, SEO, content strategy, analytics, and AI-powered growth campaigns with live projects.',
-        deliverables: ['Live Campaign Portfolio', 'SEO & Meta/Google Ads Labs', 'Freelance & Agency Readiness'],
+        headline: 'Performance Digital Marketing, SEO, Content Strategy & AI Growth Engine',
+        cohortOrTarget: 'Class 11+, College Students, Freelancers & Founders',
+        summary:
+          'Master modern digital customer acquisition across technical SEO, high-retention content, Meta & Google performance ads, conversion copywriting, and GA4 analytics using live brand campaigns.',
+        deliverables: [
+          'Live Brand Growth Audit & Campaign Portfolio',
+          'SEO, Content Funnel & Ad Copywriting Templates',
+          'Meta & Google Ads ROAS Simulation Labs',
+          'Career360 Certified Growth Marketer Credential',
+        ],
+        keyChallengesSolved: [
+          'Replaces theoretical marketing definitions with hands-on funnel building and ROAS math',
+          'Equips learners to earn freelance income, grow family businesses, or land growth roles',
+          'Integrates AI content and analytics workflows for 3x faster campaign execution',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Buyer Psychology & Funnels',
+            detail: 'Map customer personas, value propositions, and high-converting landing pages.',
+          },
+          {
+            stepTitle: '02. SEO & Organic Content Engine',
+            detail: 'Master keyword intent, on-page SEO, and short-form video/social distribution.',
+          },
+          {
+            stepTitle: '03. Paid Performance & Analytics',
+            detail: 'Structure Meta/Google campaigns, CAC/LTV metrics, and GA4 attribution.',
+          },
+          {
+            stepTitle: '04. Live Brand Growth Capstone',
+            detail: 'Present a complete 30-day acquisition blueprint for a real D2C or SaaS brand.',
+          },
+        ],
+        metrics: {
+          duration: '6 Weeks (24 Live Hours)',
+          mode: 'Live Online + Campaign Labs',
+          feeOrTier: '₹4,499 (Save 20% with FUTURE20)',
+          outcomeMetric: 'Job & Freelance Growth Portfolio',
+        },
+        careerOrSkillHighlights: [
+          'Technical SEO & Content Funnels',
+          'Meta & Google Performance Ads',
+          'Conversion Copywriting & CRO',
+          'GA4 & Marketing Analytics',
+          'Trainer: Neha Kapoor (₹25Cr+ Ad Spend)',
+        ],
         recommendedActionLabel: 'View Digital Marketing Course',
         targetTab: 'skills',
         targetSubView: 'Digital Marketing',
@@ -322,9 +1165,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'sd-coding',
         label: 'Coding',
-        cohortOrTarget: 'Class 6 to UG',
-        summary: 'Computational thinking, Python, Full-Stack Web Development, Data Structures, and real software deployment.',
-        deliverables: ['3 Deployed GitHub Projects', 'Algorithmic Problem Solving', 'Code Review Mentorship'],
+        headline: 'Python, Algorithmic Thinking & Full-Stack Web Development Foundations',
+        cohortOrTarget: 'Class 6–12 Students & UG Beginners',
+        summary:
+          'Move beyond rote textbook syntax to build real software from scratch. Master computational logic, Python data structures, REST APIs, and modern frontend web applications hosted live on GitHub.',
+        deliverables: [
+          '3 Deployed Software Projects Hosted on GitHub',
+          'Python & Algorithmic Problem-Solving Workbook',
+          'Live API & Full-Stack Web Application Capstone',
+          'Career360 Software Engineering Foundations Certificate',
+        ],
+        keyChallengesSolved: [
+          'Eliminates fear of programming by teaching visual logic and real problem-solving first',
+          'Builds a real GitHub portfolio before college or campus placement seasons begin',
+          'Prepares students for Computer Science boards, hackathons, and technical interviews',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Logic & Python Core',
+            detail: 'Master variables, control flow, functions, lists, dictionaries, and clean code.',
+          },
+          {
+            stepTitle: '02. Automation & APIs',
+            detail: 'Connect Python scripts to real-world JSON APIs, datasets, and automation tasks.',
+          },
+          {
+            stepTitle: '03. Interactive Web UI',
+            detail: 'Build responsive web interfaces and connect frontend components to backend logic.',
+          },
+          {
+            stepTitle: '04. GitHub Deployment & Demo',
+            detail: 'Push code to GitHub, deploy live URLs, and pass mentor code review.',
+          },
+        ],
+        metrics: {
+          duration: '8 Weeks (32 Live Hours)',
+          mode: 'Live Coding Labs (Batch Size: 16)',
+          feeOrTier: '₹5,499 (Save 20% with FUTURE20)',
+          outcomeMetric: '3 Live GitHub Projects Shipped',
+        },
+        careerOrSkillHighlights: [
+          'Python Programming & Data Structures',
+          'Algorithmic Problem Solving',
+          'REST APIs & Web Development',
+          'Git, GitHub & Cloud Deployment',
+          'Trainer: Rohan Kulkarni (Sr. Full-Stack Eng)',
+        ],
         recommendedActionLabel: 'View Coding Course',
         targetTab: 'skills',
         targetSubView: 'Coding',
@@ -332,9 +1218,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'sd-ai',
         label: 'AI',
-        cohortOrTarget: 'All Cohorts',
-        summary: 'Applied Generative AI, prompt engineering, workflow automation, AI agents, and responsible AI literacy.',
-        deliverables: ['Custom AI Workflow Portfolio', 'LLM & No-Code Agent Labs', 'Future-Readiness Certification'],
+        headline: 'Applied Generative AI, Prompt Engineering & Autonomous Workflow Lab',
+        cohortOrTarget: 'Class 9–12, UG/PG Students & Working Professionals',
+        summary:
+          'Future-proof your career in the AI era. Learn how Large Language Models work and build practical AI research assistants, automated data pipelines, custom domain copilots, and prompt architectures.',
+        deliverables: [
+          '2 Deployed Domain-Specific AI Assistant Workflows',
+          'Structured Prompt Engineering & RAG Playbook',
+          'AI Productivity & Research Automation Toolkit',
+          'Career360 by Bytezen Verified Applied AI Certification',
+        ],
+        keyChallengesSolved: [
+          'Transforms learners from passive AI consumers into builders of AI-powered workflows',
+          'Multiplies academic research, coding, writing, and data analysis speed by 3x–5x ethically',
+          'Creates standout AI portfolio credentials for college admissions and lateral job switches',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. LLM & Multimodal Foundations',
+            detail: 'Understand tokens, embeddings, context windows, hallucinations, and evaluation.',
+          },
+          {
+            stepTitle: '02. Advanced Prompt Architecture',
+            detail: 'Master Chain-of-Thought, few-shot prompting, structured JSON outputs, and system roles.',
+          },
+          {
+            stepTitle: '03. AI Workflow & Agent Pipelines',
+            detail: 'Connect AI models with documents, spreadsheets, and automation triggers.',
+          },
+          {
+            stepTitle: '04. Domain AI Copilot Capstone',
+            detail: 'Build, test, and showcase a custom AI assistant for your target industry.',
+          },
+        ],
+        metrics: {
+          duration: '6 Weeks (24 Live Hours)',
+          mode: 'Live Online Labs (Batch Size: 20)',
+          feeOrTier: '₹4,999 (Save 20% with FUTURE20)',
+          outcomeMetric: '2 Live AI Workflows Built',
+        },
+        careerOrSkillHighlights: [
+          'Prompt Architecture & System Design',
+          'Multimodal AI & RAG Concepts',
+          'No-Code / Low-Code AI Automation',
+          'Responsible AI & Verification',
+          'Trainer: Siddharth Rao (Ex-Microsoft / IIT-R)',
+        ],
         recommendedActionLabel: 'View Applied AI Course',
         targetTab: 'skills',
         targetSubView: 'AI',
@@ -342,9 +1271,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'sd-design',
         label: 'Graphic design',
-        cohortOrTarget: 'Creative Learners',
-        summary: 'Visual communication, UI/UX fundamentals, typography, brand identity design, and Figma/Adobe workflows.',
-        deliverables: ['Behance/Figma Design Portfolio', 'Brand Identity Capstone', 'Freelance Client Brief Simulation'],
+        headline: 'Visual Communication, Brand Identity & UI/UX Product Design Studio',
+        cohortOrTarget: 'Class 8–12, Creative Learners & Aspiring Designers',
+        summary:
+          'Master the principles of visual hierarchy, typography, color systems, brand identity design, and interactive UI/UX prototyping in Figma for digital products, startups, and design entrance portfolios.',
+        deliverables: [
+          'Complete Behance & Figma UI/UX Design Portfolio',
+          'Brand Identity System & Typography Styleguide',
+          'Interactive Mobile & Web App Prototype',
+          'Career360 Visual & Product Design Certification',
+        ],
+        keyChallengesSolved: [
+          'Moves learners beyond basic template editing to real design thinking and Figma systems',
+          'Builds strong portfolio pieces for UCEED/NID/NIFT aspirants and freelance UI/UX designers',
+          'Teaches how to design clean, high-conversion interfaces for modern web and mobile apps',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Typography, Color & Grid Systems',
+            detail: 'Master visual contrast, spatial alignment, editorial layout, and brand psychology.',
+          },
+          {
+            stepTitle: '02. Brand Identity & Visual Storytelling',
+            detail: 'Design logos, packaging, social systems, and cohesive brand guidelines.',
+          },
+          {
+            stepTitle: '03. Figma UI/UX & Wireframing',
+            detail: 'Create auto-layout components, design tokens, and interactive user flows.',
+          },
+          {
+            stepTitle: '04. Client Brief & Portfolio Review',
+            detail: 'Publish a 3-project case study portfolio reviewed by senior product designers.',
+          },
+        ],
+        metrics: {
+          duration: '6 Weeks (24 Live Hours)',
+          mode: 'Live Figma Studio (Batch Size: 18)',
+          feeOrTier: '₹4,299 (Save 20% with FUTURE20)',
+          outcomeMetric: '3-Case-Study Figma Portfolio',
+        },
+        careerOrSkillHighlights: [
+          'Figma UI/UX & Interactive Prototyping',
+          'Typography & Editorial Layout',
+          'Brand Identity & Design Systems',
+          'UCEED / NID Portfolio Readiness',
+          'Freelance Design Client Workflows',
+        ],
         recommendedActionLabel: 'View Graphic Design Course',
         targetTab: 'skills',
         targetSubView: 'Graphic Designing',
@@ -352,9 +1324,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'sd-finance',
         label: 'Financial literacy',
-        cohortOrTarget: 'Class 7 to Adults',
-        summary: 'Budgeting, compounding, taxation basics, banking, insurance, and responsible personal finance management.',
-        deliverables: ['Personal Finance Simulation', 'Compounding & Wealth Planner', 'Stock Market Basics Module'],
+        headline: 'Young Investor: Financial Literacy, Compounding & Capital Markets Lab',
+        cohortOrTarget: 'Class 7–12, College Students & Young Earner Families',
+        summary:
+          'Build lifelong money intelligence seldom taught in school. Master personal budgeting, inflation math, banking, credit discipline, taxation basics, mutual funds, and fundamental business valuation.',
+        deliverables: [
+          '10-Year Personal & Family Wealth Simulation Model',
+          'Financial Statement & Business Moats Workbook',
+          'Inflation, SIP & Compounding Calculator Sheets',
+          'Career360 Financial Literacy Certification',
+        ],
+        keyChallengesSolved: [
+          'Instills disciplined money management and compounding awareness before first paycheck',
+          'Protects youth and families from speculative trading traps and financial scams',
+          'Sparks career interest in Chartered Accountancy, CFA, FinTech, and Economics',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Money Systems, Inflation & Banking',
+            detail: 'Understand how central banks, interest rates, credit scores, and taxes work.',
+          },
+          {
+            stepTitle: '02. The Mathematics of Compounding',
+            detail: 'Simulate goal-based investing, emergency funds, and asset allocation.',
+          },
+          {
+            stepTitle: '03. Reading Businesses & Markets',
+            detail: 'Analyze revenue, profit margins, balance sheets, and index vs active investing.',
+          },
+          {
+            stepTitle: '04. Model Portfolio Capstone',
+            detail: 'Construct and defend a diversified 10-year goal-based investment plan.',
+          },
+        ],
+        metrics: {
+          duration: '4 Weeks (16 Live Hours)',
+          mode: 'Live Sunday Cohort (Batch Size: 25)',
+          feeOrTier: '₹2,999 (Save 20% with FUTURE20)',
+          outcomeMetric: 'Custom 10-Year Financial Model',
+        },
+        careerOrSkillHighlights: [
+          'Personal Budgeting & Credit Discipline',
+          'Compounding & SIP Mathematics',
+          'Financial Statement Analysis',
+          'Risk-Managed Capital Allocation',
+          'Trainer: CA Pranav Joshi (CA & CFA)',
+        ],
         recommendedActionLabel: 'View Financial Literacy Course',
         targetTab: 'skills',
         targetSubView: 'Financial Literacy',
@@ -362,9 +1377,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'sd-ent',
         label: 'Entrepreneurship',
-        cohortOrTarget: 'Aspiring Founders',
-        summary: 'Problem discovery, unit economics, MVP prototyping, customer validation, and pitch deck storytelling.',
-        deliverables: ['Validated Business Canvas', 'Unit Economics Spreadsheet', 'Demo Day Pitch Deck'],
+        headline: 'Founder Bootcamp: Problem Discovery, Unit Economics & MVP Pitching',
+        cohortOrTarget: 'Class 8 to UG Students & Aspiring Founders',
+        summary:
+          'Learn how to spot real market problems, interview customers, design no-code/AI prototypes, calculate unit economics (CAC, LTV, Gross Margin), and pitch to industry founders.',
+        deliverables: [
+          'Validated Lean Business Canvas & Customer Discovery Log',
+          'Interactive No-Code / AI Product MVP Prototype',
+          'Unit Economics & Pricing Financial Sheet',
+          '10-Slide Investor Pitch Deck + Young Founder Certificate',
+        ],
+        keyChallengesSolved: [
+          'Teaches commercial thinking, ownership mindset, and real-world value creation early',
+          'Helps students build standout leadership credentials for global/Indian university admissions',
+          'Provides a safe, mentor-guided environment to test startup ideas with zero capital risk',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Problem & Customer Discovery',
+            detail: 'Identify high-friction problems and conduct 10 structured user interviews.',
+          },
+          {
+            stepTitle: '02. Rapid MVP Prototyping',
+            detail: 'Build a functional landing page or AI/no-code workflow in 14 days.',
+          },
+          {
+            stepTitle: '03. Unit Economics & Go-To-Market',
+            detail: 'Calculate pricing, cost structure, gross margin, and first-100-user strategy.',
+          },
+          {
+            stepTitle: '04. Live Founder Demo Day',
+            detail: 'Pitch your venture in 5 minutes to startup mentors and receive written feedback.',
+          },
+        ],
+        metrics: {
+          duration: '8 Weeks (30 Live Hours)',
+          mode: 'Weekend Founder Cohort',
+          feeOrTier: '₹6,499 (Save 20% with FUTURE20)',
+          outcomeMetric: 'Live MVP + 10-Slide Pitch Deck',
+        },
+        careerOrSkillHighlights: [
+          'Customer Empathy & Problem Validation',
+          'No-Code & AI MVP Prototyping',
+          'Unit Economics (CAC / LTV / Margin)',
+          'Demo Day Storytelling & Pitching',
+          'Trainer: Karanveer Mehta (2x SaaS Founder / ISB)',
+        ],
         recommendedActionLabel: 'View Entrepreneurship Course',
         targetTab: 'skills',
         targetSubView: 'Entrepreneurship',
@@ -373,26 +1431,119 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
   },
   {
     id: 'parent-services',
+    pillarNumber: '04',
     title: 'Parent Services',
     headerBg: '#E59838',
     accentColor: '#B45309',
-    description: 'Empowering parents with objective career intelligence, higher-education financial planning, and ROI clarity.',
+    description:
+      'Empowering parents with objective career intelligence, generational alignment counselling, higher-education corpus planning, and degree ROI clarity.',
+    pillarMetrics: {
+      totalModules: '4 Dedicated Family Tools',
+      targetUsers: 'Parents of Class 5 to UG',
+      coreOutcome: 'Financial & Career Peace of Mind',
+    },
     items: [
       {
         id: 'ps-counselling',
         label: 'Parent counselling',
-        cohortOrTarget: 'Parents of Class 5 to UG',
-        summary: 'Bridge generational perspectives and align student aptitude with family aspirations without academic pressure.',
-        deliverables: ['Joint Parent-Child Alignment Session', 'New-Age Career Landscape Briefing', 'Stress-Free Academic Support Plan'],
+        headline: 'Joint Parent-Child Alignment Counselling & Stress-Free Career Decision Desk',
+        cohortOrTarget: 'Parents of Class 5 to UG Students',
+        summary:
+          'Bridge generational perspectives with objective psychometric data. Our senior career psychologists help parents understand emerging 2026–2035 career landscapes while aligning student aptitude with family values.',
+        deliverables: [
+          'Joint Parent-Student Alignment Session (45 Mins)',
+          '2026–2035 Emerging Careers & AI Impact Briefing for Parents',
+          'Conflict-Free Stream & Exam Support Blueprint',
+          'Dedicated Parent Guidance Section in Career Report',
+        ],
+        keyChallengesSolved: [
+          'Eliminates household tension around stream choices, exam comparisons, and peer pressure',
+          'Gives parents verified facts on non-traditional careers (UI/UX, FinTech, Law, AI, Economics)',
+          'Establishes a realistic, supportive home environment during high-stakes board/entrance years',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Student Psychometric Review',
+            detail: 'Counsellor walks parents through their child’s 14-dimension aptitude and interest profile.',
+          },
+          {
+            stepTitle: '02. Family Aspiration Mapping',
+            detail: 'Discuss location preferences, budget comfort, and career security expectations openly.',
+          },
+          {
+            stepTitle: '03. Pathway & Backup Consensus',
+            detail: 'Agree on a primary career goal and 2 strong backup options both parent and child own.',
+          },
+          {
+            stepTitle: '04. Quarterly Parent Progress Check',
+            detail: 'Track milestones seamlessly via the Career360 Parent Workspace.',
+          },
+        ],
+        metrics: {
+          duration: '45 Mins Family Session',
+          mode: 'Online Video or In-Centre',
+          feeOrTier: '₹1,499 Session / Included in ₹2,999 Pack',
+          outcomeMetric: '100% Parent-Child Career Alignment',
+        },
+        careerOrSkillHighlights: [
+          'Empathetic Psychometric Interpretation',
+          'New-Age vs Traditional Career Facts',
+          'Adolescent Motivation & Stress Reduction',
+          'Multi-Child Parent Account Tracking',
+          'Written Parent Action Summary',
+        ],
         recommendedActionLabel: 'Book Parent Counselling',
         targetTab: 'counsellors',
       },
       {
         id: 'ps-finance',
         label: 'Career finance',
-        cohortOrTarget: 'Parents & Families',
-        summary: 'Estimate total domestic and international higher-education costs (tuition, hostel, inflation) 3–8 years in advance.',
-        deliverables: ['Higher-Ed Corpus Estimator', 'Scholarship & Education Loan Guide', 'Stream-wise Cost Breakdown'],
+        headline: 'Higher-Education Corpus Estimator & Multi-Year Career Finance Planner',
+        cohortOrTarget: 'Parents of Class 5 to Class 12 Students',
+        summary:
+          'Higher education inflation in India runs at 8%–10% annually. Project the exact tuition, hostel, and living corpus required 2 to 8 years from today across Engineering, Medicine, Management, Design, and Law.',
+        deliverables: [
+          'Inflation-Adjusted Higher-Ed Corpus Projection',
+          'Monthly SIP / Education Fund Requirement Calculator',
+          'Government vs Private vs Autonomous Fee Comparison',
+          'Scholarship, Olympiad & Education Loan Tax-Benefit Guide',
+        ],
+        keyChallengesSolved: [
+          'Prevents last-minute financial shock when Class 12 college admission offers arrive',
+          'Helps families compare ₹1.5L Govt/DU degrees vs ₹25L+ private university programs objectively',
+          'Quantifies the exact monthly investment needed today to fund a child’s dream college debt-free',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Select Target Degree Cost',
+            detail: 'Input current 4-to-5-year degree cost (₹4L to ₹40L+) in the interactive calculator.',
+          },
+          {
+            stepTitle: '02. Set Horizon & Inflation Rate',
+            detail: 'Adjust years until college admission (1–8 yrs) and education inflation (6%–10%).',
+          },
+          {
+            stepTitle: '03. Compute Future Corpus & SIP',
+            detail: 'Instantly view future college cost in Lakhs and monthly SIP needed.',
+          },
+          {
+            stepTitle: '04. Shortlist High-Value Colleges',
+            detail: 'Pair financial targets with merit scholarships and high-ROI institutions.',
+          },
+        ],
+        metrics: {
+          duration: 'Instant Interactive Calculator',
+          mode: 'Live Tool in College & ROI Hub',
+          feeOrTier: 'Free Interactive Parent Tool',
+          outcomeMetric: 'Debt-Free Higher-Ed Financial Plan',
+        },
+        careerOrSkillHighlights: [
+          '8%–10% Education Inflation Modeling',
+          'Monthly SIP Corpus Estimator',
+          'Stream-Wise Fee Benchmarking',
+          'Merit Scholarship & Loan Guide',
+          'Multi-Child Education Budgeting',
+        ],
         recommendedActionLabel: 'Open Career Finance & ROI Tool',
         targetTab: 'careers',
         targetSubView: 'colleges',
@@ -400,9 +1551,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'ps-roi',
         label: 'Education ROI',
-        cohortOrTarget: 'Parents of Class 11-12 & UG',
-        summary: 'Compare degree investment vs median starting compensation, placement track record, and payback period.',
-        deliverables: ['Degree Payback Period Calculator', 'College Tier vs Placement Analysis', 'Alternative Pathway Comparison'],
+        headline: 'Degree Investment vs Placement Compensation & Payback Period Calculator',
+        cohortOrTarget: 'Parents of Class 11-12 & UG Students',
+        summary:
+          'Treat higher education as a strategic family investment. Compare total 4/5-year program fees against verified median placement packages to calculate the exact payback period in years before signing admission forms.',
+        deliverables: [
+          'Degree Payback Period Calculator (Years to Recover Cost)',
+          'College-by-College Fee vs Average Placement Matrix',
+          'Tier-1 Govt/Autonomous vs Private University ROI Audit',
+          'Alternative High-ROI Pathway Recommendations',
+        ],
+        keyChallengesSolved: [
+          'Exposes overpriced degrees where total fees exceed 4x the median starting salary',
+          'Highlights exceptional-ROI colleges like SSCBS (₹1.5L fee vs ₹11.8L+ avg CTC) or IDC IITB',
+          'Empowers parents to evaluate Dual Degrees, Integrated MBAs, and certifications with hard numbers',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Compare Total Program Outflow',
+            detail: 'Include tuition, hostel, exam fees, and inflation-adjusted outlay.',
+          },
+          {
+            stepTitle: '02. Benchmark Verified Placements',
+            detail: 'Input realistic median starting CTC (₹6L to ₹30L+ PA) for target colleges.',
+          },
+          {
+            stepTitle: '03. Calculate Net Payback Period',
+            detail: 'Measure how many years of net savings recover 100% of the education cost.',
+          },
+          {
+            stepTitle: '04. Validate College Shortlist',
+            detail: 'Lock Dream, Target, and Safe colleges with the highest placement-to-fee ratio.',
+          },
+        ],
+        metrics: {
+          duration: 'Instant ROI & Payback Simulation',
+          mode: 'Interactive Calculator + Directory',
+          feeOrTier: 'Free Parent Intelligence Tool',
+          outcomeMetric: 'Verified Degree Payback Clarity',
+        },
+        careerOrSkillHighlights: [
+          'Payback Period (Years) Formula',
+          'SSCBS · IIIT-H · BITS · IIT-IDC · NLSIU',
+          'Fee vs Median CTC Benchmarking',
+          'Placement Track-Record Verification',
+          'Parent Decision Confidence',
+        ],
         recommendedActionLabel: 'Calculate Education ROI',
         targetTab: 'careers',
         targetSubView: 'colleges',
@@ -410,9 +1604,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'ps-workshops',
         label: 'Parent workshops',
-        cohortOrTarget: 'School PTAs & Parent Groups',
-        summary: 'Interactive sessions on NEP 2020 changes, AI-era career shifts, entrance exam myths, and adolescent motivation.',
-        deliverables: ['Live Expert Q&A', '2026 Career Handbook for Parents', 'Child Career Readiness Checklist'],
+        headline: 'Parent Career Conclaves, NEP 2020 Briefings & Multi-Child Parent Workspace',
+        cohortOrTarget: 'Parents, Families & School PTA Communities',
+        summary:
+          'Access live weekend parent workshops and your dedicated Parent Dashboard to manage multiple children’s profiles, download psychometric reports, review counsellor feedback notes, and track GST invoices.',
+        deliverables: [
+          'Dedicated Multi-Child Parent Dashboard Account',
+          'Live Weekend Webinars on NEP 2020 & AI-Era Careers',
+          'Counsellor Session Notes & Child Progress Tracker',
+          '2026 Parent Career & Entrance Exam Handbook',
+        ],
+        keyChallengesSolved: [
+          'Keeps busy parents updated on changing entrance patterns (CUET, UGEE, IPMAT, NEP Honours)',
+          'Centralizes all reports, bookings, and skill course progress for siblings in one dashboard',
+          'Provides direct access to certified counsellors during crucial exam and admission windows',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Activate Parent Workspace',
+            detail: 'Switch to the Parent Role Workspace to view linked child profiles and readiness scores.',
+          },
+          {
+            stepTitle: '02. Review Counsellor Feedback',
+            detail: 'Read verified post-session notes from Dr. Meera Sharma and senior advisors.',
+          },
+          {
+            stepTitle: '03. Attend Live Parent Conclave',
+            detail: 'Join interactive Q&A sessions on stream selection, college ROI, and student mindset.',
+          },
+          {
+            stepTitle: '04. Track 90-Day Child Milestones',
+            detail: 'Monitor assessment completion, report unlocks, and skill course certifications.',
+          },
+        ],
+        metrics: {
+          duration: '24/7 Parent Portal + Live Workshops',
+          mode: 'Parent Role Workspace & Webinars',
+          feeOrTier: 'Included with Student Account',
+          outcomeMetric: 'Complete Family Visibility',
+        },
+        careerOrSkillHighlights: [
+          'Multi-Child Profile Switcher',
+          'NEP 2020 & Exam Updates for Parents',
+          'Counsellor Feedback Ledger',
+          'Order & GST Invoice History',
+          'PTA & Community Career Conclaves',
+        ],
         recommendedActionLabel: 'Access Parent Dashboard',
         targetTab: 'workspace',
         targetSubView: 'Parent',
@@ -421,17 +1658,67 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
   },
   {
     id: 'entrepreneurship',
+    pillarNumber: '05',
     title: 'Entrepreneurship',
     headerBg: '#D94826',
     accentColor: '#C2410C',
-    description: 'Structured venture discovery, business-vs-job evaluation, and startup incubation for students and professionals.',
+    description:
+      'Structured business discovery, Job-vs-Business evaluation, startup mentorship, and experiential founder programs for students and professionals.',
+    pillarMetrics: {
+      totalModules: '3 Venture & Founder Tracks',
+      targetUsers: 'Class 8 to Working Pros',
+      coreOutcome: 'Validated MVP & Founder Readiness',
+    },
     items: [
       {
         id: 'en-discovery',
         label: 'Business discovery',
-        cohortOrTarget: 'Students & Professionals',
-        summary: 'Evaluate entrepreneurial aptitude, risk tolerance, market opportunity identification, and Job-vs-Business fit.',
-        deliverables: ['Job vs Business Readiness Diagnostic', 'Industry Opportunity Map', 'Founder Competency Score'],
+        headline: 'Entrepreneurial Aptitude, Job-vs-Business Fit & Opportunity Discovery Hub',
+        cohortOrTarget: 'Students, Graduates & Working Professionals',
+        summary:
+          'Should you build a high-growth corporate career first, launch a bootstrapped agency/micro-SaaS, or build a venture-scale startup? Evaluate your risk profile, domain leverage, and commercial readiness objectively.',
+        deliverables: [
+          'Job vs Business vs Hybrid Career Readiness Diagnostic',
+          'Industry Problem & Micro-Venture Opportunity Map',
+          'Founder Competency Score (Sales, Product, Finance, Resilience)',
+          '90-Day Side-Project to Revenue Validation Roadmap',
+        ],
+        keyChallengesSolved: [
+          'Prevents impulsive quitting of jobs or degrees without validating customer demand first',
+          'Identifies whether a learner is best suited as a Technical Co-Founder, Commercial Founder, or Intrapreneur',
+          'Maps low-capital digital business models (AI automation, SaaS, D2C, specialized consulting)',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Founder vs Executive Diagnostic',
+            detail: 'Assess ambiguity tolerance, commercial instinct, and domain expertise.',
+          },
+          {
+            stepTitle: '02. Problem & Market Selection',
+            detail: 'Shortlist 3 high-margin niche problems in EdTech, FinTech, SaaS, or D2C.',
+          },
+          {
+            stepTitle: '03. Zero-Cost Customer Validation',
+            detail: 'Conduct 15 structured buyer interviews before writing code or spending capital.',
+          },
+          {
+            stepTitle: '04. Job-to-Venture Transition Plan',
+            detail: 'Establish financial runway and revenue milestones with a startup mentor.',
+          },
+        ],
+        metrics: {
+          duration: 'Interactive Diagnostic + 90d Map',
+          mode: 'Entrepreneurship & Pro Hub',
+          feeOrTier: 'Included in Pro & Skill Hub',
+          outcomeMetric: 'Objective Job-vs-Business Clarity',
+        },
+        careerOrSkillHighlights: [
+          'Job vs Business Fit Matrix',
+          'Micro-SaaS & AI Agency Models',
+          'Customer Discovery Framework',
+          'Runway & Risk Management',
+          'Intrapreneurship & Product Ownership',
+        ],
         recommendedActionLabel: 'Explore Entrepreneurship Hub',
         targetTab: 'skills',
         targetSubView: 'entrepreneurship-hub',
@@ -439,18 +1726,104 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'en-startup',
         label: 'Startup guidance',
-        cohortOrTarget: 'Early-Stage Founders',
-        summary: '1-on-1 mentorship on MVP validation, go-to-market execution, digital customer acquisition, and unit economics.',
-        deliverables: ['MVP Validation Roadmap', 'Go-To-Market Playbook', 'Mentor Review Session'],
+        headline: '1-on-1 Startup Mentorship: MVP Validation, Unit Economics & Go-To-Market',
+        cohortOrTarget: 'Early-Stage Student & Professional Founders',
+        summary:
+          'Work 1-on-1 with experienced 2x founders, product architects, and IIM/ISB mentors to validate your MVP, fix your unit economics, acquire your first 100 paying customers, and structure your pitch deck.',
+        deliverables: [
+          '45-Minute 1-on-1 Venture Advisory Session',
+          'MVP Scope & No-Code/AI Architecture Review',
+          'Unit Economics (CAC, LTV, Payback, Gross Margin) Audit',
+          'Go-To-Market (GTM) & Early Traction Playbook',
+        ],
+        keyChallengesSolved: [
+          'Saves 6–12 months of wasted engineering by validating willingness-to-pay upfront',
+          'Sharpens founder storytelling for campus incubators, Startup India grants, and angel rounds',
+          'Connects first-time founders with battle-tested product and growth mentors',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Book Startup Strategist',
+            detail: 'Select a mentor specializing in SaaS, AI, FinTech, or Consumer Growth.',
+          },
+          {
+            stepTitle: '02. Idea & MVP Stress-Test',
+            detail: 'Audit value proposition, competitive moat, and 2-week prototype scope.',
+          },
+          {
+            stepTitle: '03. First-100-Users GTM Plan',
+            detail: 'Design outbound, content, community, and partnership acquisition loops.',
+          },
+          {
+            stepTitle: '04. Pitch Deck & Incubator Readiness',
+            detail: 'Refine your 10-slide narrative for grants, college incubators, or seed angels.',
+          },
+        ],
+        metrics: {
+          duration: '45 Mins 1-on-1 Founder Session',
+          mode: 'Live Video Mentorship',
+          feeOrTier: '₹1,999 Per Mentor Session',
+          outcomeMetric: 'Validated MVP & GTM Roadmap',
+        },
+        careerOrSkillHighlights: [
+          'MVP Scoping & Product Strategy',
+          'Unit Economics & Pricing Audit',
+          'B2B & Consumer GTM Loops',
+          'Incubator & Grant Pitch Readiness',
+          'Mentor: Rajesh Verma & Karanveer Mehta',
+        ],
         recommendedActionLabel: 'Book Startup Mentor',
         targetTab: 'counsellors',
       },
       {
         id: 'en-yep',
         label: 'Young Entrepreneur Program',
-        cohortOrTarget: 'Class 8 to UG Students',
-        summary: '8-week experiential cohort where students ideate, build a real micro-venture or prototype, and pitch to industry leaders.',
-        deliverables: ['Live Prototype & Pitch Deck', 'Young Founder Certificate', 'Seed Project Showcase'],
+        headline: 'Young Entrepreneur Program (YEP): 8-Week Experiential Idea-to-Pitch Fellowship',
+        cohortOrTarget: 'Class 8–12 & Undergraduate Students',
+        summary:
+          'An action-packed 8-week cohort where students don’t just study business—they build one. Ideate a real venture, build a functional prototype using AI/no-code tools, test pricing, and pitch live on Demo Day.',
+        deliverables: [
+          'Live Functional Prototype / Micro-Venture Launch',
+          '10-Slide Investor & Incubator Pitch Deck',
+          'Unit Economics & Financial Model Spreadsheet',
+          'Career360 Young Founder Fellowship Certificate',
+        ],
+        keyChallengesSolved: [
+          'Develops real-world financial, sales, and leadership grit impossible to learn from textbooks',
+          'Creates a standout differentiator for Ivy League, ISB YLP, IIM IPM, and Ashoka/Flame admissions',
+          'Connects ambitious young builders across India in a peer-driven founder network',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Weeks 1–2: Problem & User Research',
+            detail: 'Spot a real community or market problem and interview 10 target users.',
+          },
+          {
+            stepTitle: '02. Weeks 3–4: AI & No-Code MVP Build',
+            detail: 'Build a working web app, product prototype, or service workflow.',
+          },
+          {
+            stepTitle: '03. Weeks 5–6: Revenue & Marketing Test',
+            detail: 'Craft brand identity, pricing model, and run a live customer acquisition test.',
+          },
+          {
+            stepTitle: '04. Weeks 7–8: Demo Day Pitch',
+            detail: 'Present your venture to founders and earn your Young Founder Fellowship.',
+          },
+        ],
+        metrics: {
+          duration: '8 Weeks (30 Live Hours)',
+          mode: 'Weekend Live Cohort (Batch: 18)',
+          feeOrTier: '₹6,499 (Save 20% with FUTURE20)',
+          outcomeMetric: 'Live Prototype + Demo Day Pitch',
+        },
+        careerOrSkillHighlights: [
+          'Experiential Venture Building',
+          'AI & No-Code Rapid Prototyping',
+          'Financial Modeling for Teens & UG',
+          'Live Founder Demo Day Showcase',
+          'Standout College Admission Credential',
+        ],
         recommendedActionLabel: 'Enroll in Young Entrepreneur Program',
         targetTab: 'skills',
         targetSubView: 'Entrepreneurship',
@@ -459,17 +1832,67 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
   },
   {
     id: 'for-schools',
+    pillarNumber: '06',
     title: 'For Schools',
     headerBg: '#0D3B49',
     accentColor: '#0D3B49',
-    description: 'Turnkey NEP 2020-aligned institutional career guidance cells, batch assessments, and analytics for schools & colleges.',
+    description:
+      'Turnkey NEP 2020-aligned institutional career guidance cells, batch psychometric drives, parent conclaves, and analytics for K-12 schools and colleges.',
+    pillarMetrics: {
+      totalModules: '6 Institutional B2B Solutions',
+      targetUsers: 'Principals, Deans & Schools',
+      coreOutcome: '100% NEP 2020 Career Compliance',
+    },
     items: [
       {
         id: 'fs-seminars',
         label: 'Career seminars',
-        cohortOrTarget: 'K-12 Schools & Colleges',
-        summary: 'High-impact on-campus and virtual career awareness seminars for students from Class 8 to 12 and undergraduate batches.',
-        deliverables: ['Grade-Specific Career Deck', 'Interactive Q&A with Career Experts', 'Post-Seminar Student Summary'],
+        headline: 'High-Impact On-Campus & Virtual Career Awareness Seminars for Schools & Colleges',
+        cohortOrTarget: 'Class 8–12 K-12 Schools & Undergraduate Colleges',
+        summary:
+          'Energize your student batches with structured, data-rich career seminars led by certified psychologists and industry leaders. Tailored modules for Class 9–10 stream selection, Class 11–12 entrance strategy, and UG employability.',
+        deliverables: [
+          'Grade-Specific Interactive Career Keynote (90–120 Mins)',
+          '2026 Emerging Careers & Entrance Exam Digital Deck',
+          'Live Student Q&A with Senior Career360 Strategists',
+          'Post-Seminar Institutional Participation & Interest Summary',
+        ],
+        keyChallengesSolved: [
+          'Exposes entire student batches to 50+ high-growth careers beyond conventional doctor/engineer tracks',
+          'Motivates students for board and competitive exams by connecting subjects to tangible career goals',
+          'Zero administrative burden on school staff with turnkey scheduling and delivery',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Select Grade & Seminar Theme',
+            detail: 'Choose Stream Clarity (Class 8–10), College/Exam Strategy (11–12), or AI-Era Skills (UG).',
+          },
+          {
+            stepTitle: '02. Pre-Seminar Student Poll',
+            detail: 'Optional 5-minute digital pulse check to customize seminar examples to your batch.',
+          },
+          {
+            stepTitle: '03. On-Campus / Live Delivery',
+            detail: 'Interactive session with real case studies, salary benchmarks, and live Q&A.',
+          },
+          {
+            stepTitle: '04. Principal Summary & Next Steps',
+            detail: 'Share batch interest trends and starter assessment links with school leadership.',
+          },
+        ],
+        metrics: {
+          duration: '90–120 Mins Interactive Keynote',
+          mode: 'On-Campus or Live Virtual',
+          feeOrTier: 'Custom Institutional / Partner Pack',
+          outcomeMetric: '100% Batch Career Awareness',
+        },
+        careerOrSkillHighlights: [
+          'Class 9–10 Stream Selection Seminar',
+          'Class 11–12 Entrance & College Conclave',
+          'New-Age AI, FinTech, Design & Law Tracks',
+          'UG Placement & Higher-Ed Readiness',
+          'Instant B2B Proposal Request',
+        ],
         recommendedActionLabel: 'Request School Seminar',
         targetTab: 'workspace',
         targetSubView: 'Institution Admin',
@@ -477,9 +1900,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'fs-annual',
         label: 'Annual career program',
-        cohortOrTarget: 'Partner Schools',
-        summary: 'Year-round institutional partnership establishing a dedicated Career360 Guidance Lab inside your campus.',
-        deliverables: ['Full-Year Activity Calendar', 'Dedicated School Counsellor', 'NEP 2020 Compliance Documentation'],
+        headline: 'Turnkey Annual Institutional Partnership & On-Campus Career360 Guidance Lab',
+        cohortOrTarget: 'CBSE, ICSE, IB, State Board Schools & Colleges',
+        summary:
+          'Establish a permanent, NEP 2020-compliant Career Guidance & Skill Cell inside your institution. Includes year-round psychometric assessments, 1-on-1 counselling days, parent orientations, and Principal analytics.',
+        deliverables: [
+          'Full Academic-Year Career Activity Calendar',
+          'Individual Career Profiles for Every Student (Class 5–12)',
+          'Dedicated Visiting / Online Career360 Counsellor Desk',
+          'NEP 2020 & Board Accreditation Compliance Dossier',
+        ],
+        keyChallengesSolved: [
+          'Delivers complete NEP 2020 career counselling compliance without hiring a full-time in-house team',
+          'Enhances school admissions branding as a Future-Ready Career Partner Institution',
+          'Provides continuous support across Class 8, 10, and 12 transition milestones',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Quarter 1: Batch Diagnostics',
+            detail: 'Onboard students onto the School Portal and execute class-wise psychometric assessments.',
+          },
+          {
+            stepTitle: '02. Quarter 2: Report & Stream Clinics',
+            detail: 'Distribute digital reports and host stream/career workshops for Classes 8–12.',
+          },
+          {
+            stepTitle: '03. Quarter 3: 1-on-1 Parent-Student Desk',
+            detail: 'Conduct individual counselling sessions for high-priority Class 10 & 12 families.',
+          },
+          {
+            stepTitle: '04. Quarter 4: Annual Principal Audit',
+            detail: 'Present school-wide stream distribution, college admission, and skill readiness metrics.',
+          },
+        ],
+        metrics: {
+          duration: 'Full Academic Year Partnership',
+          mode: 'Hybrid (On-Campus + Cloud Portal)',
+          feeOrTier: 'Per-Student Annual Institutional Tie-Up',
+          outcomeMetric: 'Turnkey Campus Career Cell',
+        },
+        careerOrSkillHighlights: [
+          'NEP 2020 Mandate Compliance',
+          'Co-Branded School Career Portal',
+          'Dedicated Institutional Counsellors',
+          'Year-Round Activity Calendar',
+          'Partner: Delhi Public School & Symbiosis',
+        ],
         recommendedActionLabel: 'View Annual School Program',
         targetTab: 'workspace',
         targetSubView: 'Institution Admin',
@@ -487,9 +1953,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'fs-assessment',
         label: 'Career assessment',
-        cohortOrTarget: 'Bulk Student Batches',
-        summary: 'Automated class-wise psychometric assessment drives with instant individual student profiles and Principal batch analytics.',
-        deliverables: ['Individual Student Career Reports', 'Class-wise Stream & Aptitude Heatmap', 'Counsellor Triaging'],
+        headline: 'Bulk School-Wide Psychometric Assessment Drives & Batch Aptitude Heatmaps',
+        cohortOrTarget: 'Student Batches from Class 5 to Class 12 & UG',
+        summary:
+          'Run seamless computer-lab or tablet assessment drives for 100 to 5,000+ students simultaneously. Every student receives an instant personalized Career Profile while the Principal receives a macro batch intelligence report.',
+        deliverables: [
+          'Individual Student Career Reports for 100% of Batch',
+          'Class-Wise Stream & Aptitude Distribution Heatmap',
+          'Automated Identification of At-Risk / Undecided Students',
+          'Bulk CSV / PDF Roster Export for School Coordinators',
+        ],
+        keyChallengesSolved: [
+          'Replaces manual paper tests with instant zero-latency cloud scoring and report generation',
+          'Helps school management plan Class 11 section capacities (PCM, PCB, Commerce, Arts) accurately',
+          'Identifies gifted students for Olympiads, coding clubs, debate teams, and design tracks',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Roster Upload & Cohort Codes',
+            detail: 'Generate class-wise access links for computer lab or home completion.',
+          },
+          {
+            stepTitle: '02. 40-Minute Supervised Drive',
+            detail: 'Students complete age-calibrated 14-dimension assessments with auto-save.',
+          },
+          {
+            stepTitle: '03. Instant Report Distribution',
+            detail: 'Students and parents unlock digital profiles immediately upon submission.',
+          },
+          {
+            stepTitle: '04. Principal Batch Debrief',
+            detail: 'Review macro stream affinities and schedule targeted counsellor interventions.',
+          },
+        ],
+        metrics: {
+          duration: '1-Day Lab Drive + Instant Reports',
+          mode: 'Cloud Computer Lab / Mobile Ready',
+          feeOrTier: 'Institutional Batch Pricing',
+          outcomeMetric: '100% Student Roster Assessed',
+        },
+        careerOrSkillHighlights: [
+          'Class 5–12 Calibrated Test Versions',
+          'Macro Stream Affinity Heatmaps',
+          'Automated Counsellor Triaging',
+          'Coordinator Roster Management',
+          'Zero-Paper Digital Execution',
+        ],
         recommendedActionLabel: 'Launch School Assessment Drive',
         targetTab: 'workspace',
         targetSubView: 'Institution Admin',
@@ -497,9 +2006,52 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'fs-parent',
         label: 'Parent programs',
-        cohortOrTarget: 'School Parent Community',
-        summary: 'Stream selection orientations and career awareness conclaves that build parent trust in your institution.',
-        deliverables: ['PTA Career Conclave', 'Parent Stream Selection Guide', '1-on-1 Parent Desk'],
+        headline: 'School PTA Career Conclaves & Parent Stream-Selection Orientations',
+        cohortOrTarget: 'School Parent Communities & Management',
+        summary:
+          'Partner with parents as allies in student success. Host authoritative PTA Career Conclaves for Class 8–10 and Class 11–12 parents covering stream selection science, entrance exam calendars, and higher-education financial planning.',
+        deliverables: [
+          'Keynote PTA Orientation by Senior Career Psychologist',
+          'School-Branded Parent Stream & Exam Guidebook',
+          'On-Spot 1-on-1 Parent Query Resolution Desk',
+          'Parent Satisfaction & Feedback Analytics for School',
+        ],
+        keyChallengesSolved: [
+          'Eliminates parent anxiety and last-minute stream-change requests in Class 11',
+          'Builds deep parent trust and goodwill toward the school’s academic leadership',
+          'Educates families on NEP 2020 subject flexibility, CUET, and non-traditional careers',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Pre-PTA Assessment Completion',
+            detail: 'Students complete assessments prior to the PTA meeting so parents hold real reports.',
+          },
+          {
+            stepTitle: '02. Group Parent Orientation',
+            detail: '60-minute expert session on how to read the Career360 report and support children.',
+          },
+          {
+            stepTitle: '03. Stream & Exam Myth-Busting',
+            detail: 'Address common parent questions on Science vs Commerce vs Arts and entrance ROI.',
+          },
+          {
+            stepTitle: '04. 1-on-1 Family Counselling Desk',
+            detail: 'Book follow-up individual slots for families requiring deeper personalization.',
+          },
+        ],
+        metrics: {
+          duration: '60–90 Mins PTA Conclave + Desk',
+          mode: 'Auditorium Event or Live Webinar',
+          feeOrTier: 'Included in Institutional Programs',
+          outcomeMetric: 'High Parent Trust & Alignment',
+        },
+        careerOrSkillHighlights: [
+          'Class 10 PTA Stream Conclave',
+          'Class 12 College & Exam Orientation',
+          'Report Interpretation for Parents',
+          'Higher-Ed Finance & ROI Briefing',
+          'Co-Branded School Handbooks',
+        ],
         recommendedActionLabel: 'Schedule Parent Orientation',
         targetTab: 'workspace',
         targetSubView: 'Institution Admin',
@@ -507,18 +2059,104 @@ export const ECOSYSTEM_PILLARS: EcosystemPillar[] = [
       {
         id: 'fs-studentdev',
         label: 'Student development',
-        cohortOrTarget: 'Class 5 to 12 & Colleges',
-        summary: 'In-school skill workshops on communication, AI literacy, financial awareness, design thinking, and entrepreneurship.',
-        deliverables: ['Modular Skill Bootcamps', 'Student Project Exhibitions', 'Co-Branded Certificates'],
+        headline: 'In-School Future-Readiness Skill Bootcamps (AI, Coding, English, Finance & Design)',
+        cohortOrTarget: 'Class 5–12 School Clubs & College Batches',
+        summary:
+          'Transform co-curricular periods and summer camps into outcome-driven skill incubators. Deliver hands-on modules in Spoken English, Applied AI, Python Coding, Financial Literacy, and Young Entrepreneurship.',
+        deliverables: [
+          'Modular 12-to-30 Hour In-School Skill Curriculum',
+          'Student Project Showcase & Demo Day Exhibition',
+          'Pre- and Post-Bootcamp Competency Scorecards',
+          'Co-Branded School + Career360 Certificates',
+        ],
+        keyChallengesSolved: [
+          'Brings industry-grade AI, financial literacy, and communication training directly into school timetables',
+          'Gives every student a tangible project (app, pitch deck, TED talk, financial model) to showcase',
+          'Positions your school as an innovation leader during parent open houses and inspections',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Select Grade-Wise Skill Tracks',
+            detail: 'Pair Class 5–7 with English/Coding and Class 8–12 with AI, Finance, or Entrepreneurship.',
+          },
+          {
+            stepTitle: '02. Weekly Lab / Bootcamp Delivery',
+            detail: 'Certified Career360 trainers conduct hands-on project sessions online or on-campus.',
+          },
+          {
+            stepTitle: '03. Capstone Build & Evaluation',
+            detail: 'Students build working prototypes, presentations, or portfolios in teams.',
+          },
+          {
+            stepTitle: '04. School Innovation Showcase',
+            detail: 'Host an exhibition day for parents and award verified certifications.',
+          },
+        ],
+        metrics: {
+          duration: '4–8 Weeks Modular Bootcamps',
+          mode: 'On-Campus Labs or Live Online',
+          feeOrTier: 'Institutional Batch Enrollment',
+          outcomeMetric: 'Certified Student Skill Portfolios',
+        },
+        careerOrSkillHighlights: [
+          'Applied AI & Prompt Literacy Club',
+          'Executive English & Debate Studio',
+          'Young Investor Financial Literacy',
+          'Python & Full-Stack Coding Club',
+          'Young Entrepreneur School Incubator',
+        ],
         recommendedActionLabel: 'Explore School Skill Workshops',
         targetTab: 'skills',
       },
       {
         id: 'fs-dashboard',
         label: 'School career dashboard',
-        cohortOrTarget: 'Principals & Management',
-        summary: 'Real-time institutional intelligence tracking student assessments, stream distributions, college placements, and workshop outcomes.',
-        deliverables: ['Principal Analytics Console', 'Batch Readiness Export (CSV/PDF)', 'Counselling Progress Tracker'],
+        headline: 'Principal & Management Real-Time Institutional Career Intelligence Console',
+        cohortOrTarget: 'Principals, Trustees, Deans & Career Coordinators',
+        summary:
+          'Monitor your entire institution’s career readiness from a single executive command center. Track student assessment completion, class-wise stream distributions, counselling progress, and workshop outcomes in real time.',
+        deliverables: [
+          'Real-Time Principal & Coordinator Analytics Dashboard',
+          'Batch Stream Distribution (Science / Commerce / Arts / AI) Charts',
+          'Student-Wise Assessment & Counselling Status Ledger',
+          'One-Click Institutional Partnership Proposal & Onboarding',
+        ],
+        keyChallengesSolved: [
+          'Gives Principals instant visibility into how many students have completed assessments and counselling',
+          'Provides board-ready data for school accreditation, trustees, and parent communications',
+          'Enables seamless RBAC coordination between Principal (`Institution Admin`) and Teachers (`Institution Staff`)',
+        ],
+        roadmapSteps: [
+          {
+            stepTitle: '01. Open Institution Admin Workspace',
+            detail: 'Access the dedicated B2B School Portal with live partner metrics.',
+          },
+          {
+            stepTitle: '02. Inspect Batch Readiness KPIs',
+            detail: 'Review Students Enrolled vs Assessed, Counselling Completed, and Stream Splits.',
+          },
+          {
+            stepTitle: '03. Manage Workshops & Cohorts',
+            detail: 'Track scheduled seminars, parent conclaves, and class-wise completion rates.',
+          },
+          {
+            stepTitle: '04. Request Custom B2B Proposal',
+            detail: 'Submit your school details for immediate onboarding with our Institutional Desk.',
+          },
+        ],
+        metrics: {
+          duration: 'Real-Time Cloud B2B Console',
+          mode: 'Role-Based Institution Admin Portal',
+          feeOrTier: 'Included for Partner Institutions',
+          outcomeMetric: '360° Institutional Career Visibility',
+        },
+        careerOrSkillHighlights: [
+          'Live Batch Assessment KPIs',
+          'Stream Distribution Analytics',
+          'Counselling & Workshop Tracker',
+          'RBAC Principal & Staff Roles',
+          'Direct B2B Partnership Desk',
+        ],
         recommendedActionLabel: 'Open School Career Dashboard',
         targetTab: 'workspace',
         targetSubView: 'Institution Admin',
@@ -1371,6 +3009,52 @@ export const INITIAL_PLATFORM_DB: PlatformDatabase = {
       outcomes: 'Job-ready and freelance-ready digital marketing portfolio with verified campaign metrics.',
       certification: 'Career360 Certified Growth Marketer',
       targetAudience: 'Class 11–12, College Students, Freelancers & Business Owners',
+    },
+    {
+      id: 'crs-pers-dev',
+      title: 'Personality Development, Emotional Intelligence & Leadership Presence',
+      category: 'Personality Development',
+      overview:
+        'Build authentic self-confidence, executive body language, emotional intelligence (EQ), team leadership, and personal brand poise for school, college, and corporate success.',
+      curriculum: [
+        'Module 1: Self-Awareness, Emotional Intelligence (EQ) & Growth Mindset',
+        'Module 2: Executive Body Language, Vocal Presence & Professional Etiquette',
+        'Module 3: Assertive Communication, Conflict Resolution & Team Leadership',
+        'Module 4: Capstone — Personal Brand & Leadership Portfolio Showcase',
+      ],
+      duration: '6 Weeks (24 Live Hours)',
+      trainerName: 'Avantika Sen',
+      trainerCredentials: 'Leadership & Communication Coach · CELTA Certified · 11+ Years Experience',
+      schedule: 'Mon, Wed & Fri · 5:30 PM – 6:45 PM IST',
+      feesInr: 3499,
+      batchSize: 18,
+      skillsGained: ['Executive Presence', 'Emotional Intelligence', 'Team Leadership', 'Personal Branding'],
+      outcomes: 'Graduate with measurable stage confidence, conflict-handling poise, and a personal leadership portfolio.',
+      certification: 'Career360 Leadership & Personality Development Certification',
+      targetAudience: 'Class 5–12 Students, College Undergraduates & Young Professionals',
+    },
+    {
+      id: 'crs-design-ui',
+      title: 'Visual Communication, Brand Identity & Figma UI/UX Product Design Studio',
+      category: 'Graphic Designing',
+      overview:
+        'Master typography, color theory, brand identity design, and interactive Figma UI/UX prototyping for modern digital products and creative portfolios.',
+      curriculum: [
+        'Module 1: Typography, Color Systems, Grids & Visual Hierarchy',
+        'Module 2: Brand Identity, Logo Systems & Editorial Layout',
+        'Module 3: Figma Auto-Layout, Design Tokens & Interactive Prototyping',
+        'Module 4: Capstone — 3-Project Behance & Figma Product Design Portfolio',
+      ],
+      duration: '6 Weeks (24 Live Hours)',
+      trainerName: 'Kabir Deshmukh',
+      trainerCredentials: 'Principal Product Designer · NID Alumnus · 10+ Years UI/UX & Brand Systems',
+      schedule: 'Sat & Sun · 3:00 PM – 5:00 PM IST',
+      feesInr: 4299,
+      batchSize: 18,
+      skillsGained: ['Figma UI/UX Design', 'Typography & Layout', 'Brand Identity Systems', 'Interactive Prototyping'],
+      outcomes: 'Publish a 3-project Behance and Figma portfolio ready for UCEED/NID interviews or freelance clients.',
+      certification: 'Career360 Visual & UI/UX Product Design Certification',
+      targetAudience: 'Class 8–12 Students, Design Aspirants & Creative Professionals',
     },
   ],
   counsellors: [

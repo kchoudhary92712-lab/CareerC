@@ -35,6 +35,7 @@ import {
   CohortStage,
   CrmStage,
   EcosystemNodeItem,
+  EcosystemPillar,
   LeadRecord,
   OrderRecord,
   PlatformDatabase,
@@ -187,7 +188,13 @@ export default function App() {
       }
       setActiveTab('assessment');
     } else if (item.targetTab === 'careers') {
-      setCareersSubTab(item.targetSubView === 'colleges' ? 'colleges' : 'careers');
+      setCareersSubTab(
+        item.targetSubView === 'colleges'
+          ? 'colleges'
+          : item.targetSubView === 'compare'
+          ? 'compare'
+          : 'careers'
+      );
       setActiveTab('careers');
     } else if (item.targetTab === 'counsellors') {
       setActiveTab('counsellors');
@@ -203,6 +210,35 @@ export default function App() {
       setActiveTab('ecosystem');
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBookCounsellingForNode = (_item: EcosystemNodeItem, _pillar: EcosystemPillar) => {
+    setActiveTab('counsellors');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleRequestCallbackForNode = (item: EcosystemNodeItem, pillar: EcosystemPillar) => {
+    if (pillar.id === 'for-schools') {
+      setLeadUserType('School/College');
+      setLeadService('Annual School / College B2B Program');
+    } else if (pillar.id === 'parent-services') {
+      setLeadUserType('Parent');
+      setLeadService('1-on-1 Career Counselling Session');
+    } else if (item.id === 'cg-wp' || pillar.id === 'entrepreneurship') {
+      setLeadUserType('Working Professional');
+      setLeadClass('Working Professional');
+      setLeadService('1-on-1 Career Counselling Session');
+    } else if (pillar.id === 'skill-development') {
+      setLeadUserType('Student');
+      setLeadService('Skill Development Course (AI / English / Coding)');
+    } else {
+      setLeadUserType('Student');
+      setLeadService('Stream Selection & Career Clarity Report');
+    }
+    const deskEl = document.getElementById('consultation-desk');
+    if (deskEl) {
+      deskEl.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   // API + Direct Supabase Handlers
@@ -940,7 +976,11 @@ export default function App() {
             </section>
 
             {/* 01. INTERACTIVE 6-PILLAR ECOSYSTEM ARCHITECTURE (MATCHING UPLOADED SCREENSHOT) */}
-            <EcosystemMatrix onNavigateNode={handleNavigateNode} />
+            <EcosystemMatrix
+              onNavigateNode={handleNavigateNode}
+              onBookCounsellingForNode={handleBookCounsellingForNode}
+              onRequestCallbackForNode={handleRequestCallbackForNode}
+            />
 
             {/* 02. WHY CAREER GUIDANCE MATTERS & THE 8-STAGE USER JOURNEY */}
             <section className="py-16 border-b border-slate-200 bg-[#F8FAFC]">
@@ -1134,7 +1174,7 @@ export default function App() {
             </section>
 
             {/* 05. LEAD CAPTURE & EXPERT CONSULTATION DESK + FAQ (PHASE 1 & 18) */}
-            <section className="py-16 bg-white">
+            <section id="consultation-desk" className="py-16 bg-white">
               <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                   {/* Lead Capture Form */}

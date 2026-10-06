@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AlertCircle,
   ArrowRight,
@@ -30,14 +30,74 @@ const COHORT_STAGES: CohortStage[] = [
   'Working Professionals',
 ];
 
-const COHORT_DESCRIPTIONS: Record<CohortStage, string> = {
-  'Class 5-6': 'Multiple-intelligence curiosity check, foundational learning habits, and communication confidence.',
-  'Class 7-8': 'Pre-high-school aptitude discovery, subject affinity mapping, and co-curricular skill orientation.',
-  'Class 9-10': 'Scientific stream & subject combination selection (PCM, PCB, Commerce, Humanities, Interdisciplinary).',
-  'Class 11-12': 'Degree & entrance exam roadmap (JEE, NEET, CUET, CLAT, UCEED, IPMAT) + Tier-1 college shortlisting.',
-  UG: 'Specialization clarity, campus placement vs higher education (MBA/MS/GATE), and employability skill gaps.',
-  PG: 'Domain mastery, R&D vs corporate leadership trajectory, and high-growth industry targeting.',
-  'Working Professionals': 'Mid-career pivot, AI-era upskilling, salary-growth roadmap, and Job-vs-Business readiness.',
+const COHORT_DETAILS: Record<
+  CohortStage,
+  {
+    headline: string;
+    description: string;
+    defaultAcademicNote: string;
+    keyDimensionsTested: string[];
+    expectedDeliverable: string;
+    recommendedExamsOrTracks: string;
+  }
+> = {
+  'Class 5-6': {
+    headline: 'Early Curiosity, Multiple-Intelligence & Learning Style Diagnostic',
+    description: 'Multiple-intelligence curiosity check, foundational learning habits, and communication confidence.',
+    defaultAcademicNote: 'Class 5–6 · Exploring curiosity, learning style & foundational skills',
+    keyDimensionsTested: ['Visual vs Logical Learning', 'Verbal Fluency', 'Creative Curiosity', 'Foundational Habits'],
+    expectedDeliverable: 'Curiosity & Learning Style Profile + Parent Observation Guide',
+    recommendedExamsOrTracks: 'Spoken English Lab · Logic & Coding Foundations · Olympiad Exposure',
+  },
+  'Class 7-8': {
+    headline: 'Pre-High-School Aptitude Discovery & Subject Affinity Mapping',
+    description: 'Pre-high-school aptitude discovery, subject affinity mapping, and co-curricular skill orientation.',
+    defaultAcademicNote: 'Class 7–8 · Discovering STEM vs Creative vs Commerce subject affinity',
+    keyDimensionsTested: ['Quantitative Logic', 'Scientific Curiosity', 'Creative Expression', 'Financial Basics'],
+    expectedDeliverable: 'Aptitude & Subject Affinity Report + Co-Curricular Skill Plan',
+    recommendedExamsOrTracks: 'Python & AI Foundations · Young Investor Basics · Junior Olympiads',
+  },
+  'Class 9-10': {
+    headline: 'Scientific Stream & Subject Combination Selection (PCM, PCB, Commerce, Humanities)',
+    description: 'Scientific stream & subject combination selection (PCM, PCB, Commerce, Humanities, Interdisciplinary).',
+    defaultAcademicNote: 'Class 9–10 · Seeking scientific Class 11 stream & elective clarity',
+    keyDimensionsTested: ['Stream Fit (PCM/PCB/Comm/Arts)', 'Numerical vs Verbal Aptitude', 'Career Cluster Alignment', 'NEP 2020 Electives'],
+    expectedDeliverable: 'Scientific Stream Selection Matrix + Top 3 Career Clusters',
+    recommendedExamsOrTracks: 'Science (PCM/PCB) · Commerce + Math · Humanities / Law / Design',
+  },
+  'Class 11-12': {
+    headline: 'Degree Shortlisting, Entrance Exam Calendar & Tier-1 College Roadmap',
+    description: 'Degree & entrance exam roadmap (JEE, NEET, CUET, CLAT, UCEED, IPMAT) + Tier-1 college shortlisting.',
+    defaultAcademicNote: '89% Aggregate · Seeking structured college & entrance exam roadmap',
+    keyDimensionsTested: ['Degree Specialization Fit', 'Competitive Exam Readiness', 'AI-Era Career Resilience', 'College ROI Match'],
+    expectedDeliverable: '15-College Shortlist Matrix + Entrance Exam Calendar (Plan A/B/C)',
+    recommendedExamsOrTracks: 'JEE / BITSAT / UGEE · CUET / IPMAT · CLAT · UCEED / NID · NEET',
+  },
+  UG: {
+    headline: 'Undergraduate Employability, Skill-Gap Closure & Placement vs Higher Studies',
+    description: 'Specialization clarity, campus placement vs higher education (MBA/MS/GATE), and employability skill gaps.',
+    defaultAcademicNote: 'Undergraduate Student · Evaluating Placement vs MBA/MS & Skill Gaps',
+    keyDimensionsTested: ['Industry Employability Quotient', 'Job vs PG/MBA Fit', 'Technical & AI Competency', 'Interview Poise'],
+    expectedDeliverable: 'Employability & Skill-Gap Report + 90-Day Internship & Placement Plan',
+    recommendedIds: 'Campus Placement Track · CAT / XAT / GMAT · GATE / GRE · CFA',
+    recommendedExamsOrTracks: 'High-CTC Product/Tech Roles · CAT / GMAT (MBA) · GATE / MS · CFA',
+  } as any,
+  PG: {
+    headline: 'Postgraduate Domain Specialization, R&D vs Corporate Leadership & CTC Strategy',
+    description: 'Domain mastery, R&D vs corporate leadership trajectory, and high-growth industry targeting.',
+    defaultAcademicNote: 'Postgraduate Candidate · Targeting Specialist & Leadership Roles',
+    keyDimensionsTested: ['Domain Specialization Depth', 'Executive Leadership Poise', 'R&D vs Corporate Strategy', 'Commercial Acumen'],
+    expectedDeliverable: 'PG Specialization Blueprint + Industry Compensation & Role Matrix',
+    recommendedExamsOrTracks: 'AI Systems Leadership · Product Strategy · Quant Finance · Deep-Tech R&D',
+  },
+  'Working Professionals': {
+    headline: 'Working Professional Mid-Career Pivot, AI Upskilling & Job-vs-Business Audit',
+    description: 'Mid-career pivot, AI-era upskilling, salary-growth roadmap, and Job-vs-Business readiness.',
+    defaultAcademicNote: '4+ Years Experience · Targeting AI/Product Pivot & 50%+ CTC Growth',
+    keyDimensionsTested: ['AI Automation Resilience', 'Transferable Domain Capital', 'Leadership & Pivot Readiness', 'Entrepreneurial Fit'],
+    expectedDeliverable: '90-Day Career Pivot & Salary Acceleration Roadmap + Job-vs-Business Audit',
+    recommendedExamsOrTracks: 'AI Product Management · Applied LLM Engineering · Growth Leadership · Startup Launch',
+  },
 };
 
 interface AssessmentEngineProps {
@@ -68,8 +128,17 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
   const [selectedCohort, setSelectedCohort] = useState<CohortStage>(initialCohort);
   const [studentName, setStudentName] = useState<string>(currentUser.name || 'Aarav Kulkarni');
   const [academicNotes, setAcademicNotes] = useState<string>(
-    '89% Aggregate · Seeking structured career clarity & skill roadmap'
+    COHORT_DETAILS[initialCohort]?.defaultAcademicNote ||
+      '89% Aggregate · Seeking structured career clarity & skill roadmap'
   );
+
+  useEffect(() => {
+    setSelectedCohort(initialCohort);
+    setAcademicNotes(
+      COHORT_DETAILS[initialCohort]?.defaultAcademicNote ||
+        '89% Aggregate · Seeking structured career clarity & skill roadmap'
+    );
+  }, [initialCohort]);
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [selectedOptionIndices, setSelectedOptionIndices] = useState<Record<string, number>>({
     'q-academic': 0,
@@ -170,11 +239,15 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
               type="button"
               onClick={() => {
                 setSelectedCohort(stage);
+                setAcademicNotes(
+                  COHORT_DETAILS[stage]?.defaultAcademicNote ||
+                    'Seeking structured career clarity & skill roadmap'
+                );
                 setCurrentStep(0);
               }}
               className={`px-3.5 py-2 rounded-lg text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap ${
                 selectedCohort === stage
-                  ? 'bg-[#0D3B49] text-white'
+                  ? 'bg-[#0D3B49] text-white ring-2 ring-[#0F766E]'
                   : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
               }`}
             >
@@ -182,10 +255,47 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
             </button>
           ))}
         </div>
-        <p className="text-xs text-slate-500 mt-2">
-          <span className="font-semibold text-slate-700">{selectedCohort} Focus:</span>{' '}
-          {COHORT_DESCRIPTIONS[selectedCohort]}
-        </p>
+
+        {/* Dynamic Cohort Focus & Deliverables Card */}
+        <div className="mt-4 p-4 sm:p-5 rounded-xl bg-white border border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+          <div className="lg:col-span-7 space-y-1.5">
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#0F766E]">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Active Cohort Version: {selectedCohort}</span>
+            </div>
+            <h2 className="text-base font-bold text-slate-900">
+              {COHORT_DETAILS[selectedCohort].headline}
+            </h2>
+            <p className="text-xs text-slate-600">
+              {COHORT_DETAILS[selectedCohort].description}
+            </p>
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {COHORT_DETAILS[selectedCohort].keyDimensionsTested.map((dim, idx) => (
+                <span
+                  key={idx}
+                  className="px-2.5 py-1 rounded-md bg-[#F0FDFA] border border-teal-200 text-[11px] font-medium text-[#0F766E]"
+                >
+                  {dim}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 lg:border-l border-slate-200 lg:pl-5 space-y-1.5 text-xs">
+            <div>
+              <span className="text-slate-500">Expected Profile Deliverable: </span>
+              <span className="font-semibold text-slate-900">
+                {COHORT_DETAILS[selectedCohort].expectedDeliverable}
+              </span>
+            </div>
+            <div>
+              <span className="text-slate-500">Target Pathways / Exams: </span>
+              <span className="font-mono font-medium text-slate-800">
+                {COHORT_DETAILS[selectedCohort].recommendedExamsOrTracks}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
       {viewMode === 'quiz' ? (

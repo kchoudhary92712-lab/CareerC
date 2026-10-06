@@ -46,9 +46,22 @@ export interface UserAccount {
 export interface EcosystemNodeItem {
   id: string;
   label: string;
+  headline: string;
   summary: string;
   cohortOrTarget: string;
   deliverables: string[];
+  keyChallengesSolved: string[];
+  roadmapSteps: {
+    stepTitle: string;
+    detail: string;
+  }[];
+  metrics: {
+    duration: string;
+    mode: string;
+    feeOrTier: string;
+    outcomeMetric: string;
+  };
+  careerOrSkillHighlights: string[];
   recommendedActionLabel: string;
   targetTab: 'ecosystem' | 'assessment' | 'careers' | 'counsellors' | 'skills' | 'workspace';
   targetSubView?: string;
@@ -56,10 +69,16 @@ export interface EcosystemNodeItem {
 
 export interface EcosystemPillar {
   id: string;
+  pillarNumber: string;
   title: string;
   headerBg: string;
   accentColor: string;
   description: string;
+  pillarMetrics: {
+    totalModules: string;
+    targetUsers: string;
+    coreOutcome: string;
+  };
   items: EcosystemNodeItem[];
 }
 

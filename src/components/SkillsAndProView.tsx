@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Award,
   Briefcase,
@@ -45,10 +45,18 @@ export const SkillsAndProView: React.FC<SkillsAndProViewProps> = ({
   onBookMentor,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    initialCategory === 'entrepreneurship-hub' ? 'Entrepreneurship' : initialCategory
+    initialCategory === 'entrepreneurship-hub'
+      ? 'Entrepreneurship'
+      : initialCategory === 'ai-advisor' || initialCategory === 'pro-track'
+      ? 'ALL'
+      : initialCategory
   );
   const [activeSubSection, setActiveSubSection] = useState<'courses' | 'pro' | 'ai'>(
-    initialCategory === 'entrepreneurship-hub' ? 'pro' : 'courses'
+    initialCategory === 'entrepreneurship-hub' || initialCategory === 'pro-track'
+      ? 'pro'
+      : initialCategory === 'ai-advisor'
+      ? 'ai'
+      : 'courses'
   );
 
   // Working Professional & Entrepreneurship Roadmap state
@@ -63,7 +71,26 @@ export const SkillsAndProView: React.FC<SkillsAndProViewProps> = ({
   );
   const [proTrackType, setProTrackType] = useState<
     'Career Pivot & Upskilling' | 'Salary & Promotion Acceleration' | 'Entrepreneurship & Venture Launch'
-  >('Career Pivot & Upskilling');
+  >(
+    initialCategory === 'entrepreneurship-hub'
+      ? 'Entrepreneurship & Venture Launch'
+      : 'Career Pivot & Upskilling'
+  );
+
+  useEffect(() => {
+    if (initialCategory === 'entrepreneurship-hub') {
+      setActiveSubSection('pro');
+      setProTrackType('Entrepreneurship & Venture Launch');
+    } else if (initialCategory === 'pro-track') {
+      setActiveSubSection('pro');
+      setProTrackType('Career Pivot & Upskilling');
+    } else if (initialCategory === 'ai-advisor') {
+      setActiveSubSection('ai');
+    } else {
+      setActiveSubSection('courses');
+      setSelectedCategory(initialCategory || 'ALL');
+    }
+  }, [initialCategory]);
 
   // AI Career Engine state (Phase 16)
   const [aiCohort, setAiCohort] = useState<string>(currentUser.cohort || 'Class 11-12');
@@ -123,8 +150,10 @@ export const SkillsAndProView: React.FC<SkillsAndProViewProps> = ({
       'ALL',
       'AI',
       'English Speaking',
+      'Personality Development',
       'Coding',
       'Digital Marketing',
+      'Graphic Designing',
       'Financial Literacy',
       'Entrepreneurship',
     ];
