@@ -1,0 +1,8 @@
+{
+  "name": "Career360 by Bytezen IT Solution",
+  "description": "Technology-enabled Career Guidance, Psychometric Career Assessment, Counsellor Marketplace, College Guidance & Skill Development Platform by Bytezen IT Solution.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

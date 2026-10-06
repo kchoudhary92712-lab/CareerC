@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+  VITE_SUPABASE_URL = "https://xvnijylejrfrhdrezyek.supabase.co"
+  VITE_SUPABASE_PUBLISHABLE_KEY = "sb_publishable_yHfjsOXr5H37KygE-vA-5A_gObbvBJZ"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,1419 @@
+{
+  "users": [
+    {
+      "id": "usr-student-1",
+      "name": "Aarav Kulkarni",
+      "email": "aarav.k@student.bytezenit.com",
+      "mobile": "+91 98201 44510",
+      "role": "Student",
+      "city": "Pune",
+      "cohort": "Class 11-12",
+      "schoolOrOrg": "Symbiosis Junior College",
+      "boardOrIndustry": "CBSE",
+      "subjectsOrSkills": [
+        "Physics",
+        "Chemistry",
+        "Mathematics",
+        "Computer Science"
+      ],
+      "parentName": "Vikram Kulkarni",
+      "unlockedReportIds": [
+        "rep-free",
+        "rep-999"
+      ],
+      "savedCareerIds": [
+        "car-ai-eng",
+        "car-prod-design",
+        "car-quant-fin"
+      ],
+      "enrolledCourseIds": [
+        "crs-ai-101",
+        "crs-eng-speak"
+      ],
+      "createdAt": "2026-09-14"
+    },
+    {
+      "id": "usr-parent-1",
+      "name": "Vikram Kulkarni",
+      "email": "vikram.kulkarni@gmail.com",
+      "mobile": "+91 98201 44500",
+      "role": "Parent",
+      "city": "Pune",
+      "childIds": [
+        "usr-student-1"
+      ],
+      "unlockedReportIds": [
+        "rep-free",
+        "rep-999"
+      ],
+      "savedCareerIds": [
+        "car-ai-eng",
+        "car-quant-fin"
+      ],
+      "enrolledCourseIds": [],
+      "createdAt": "2026-09-14"
+    },
+    {
+      "id": "usr-pro-1",
+      "name": "Rohan Deshmukh",
+      "email": "rohan.d@techcorp.in",
+      "mobile": "+91 97650 11223",
+      "role": "Working Professional",
+      "city": "Bengaluru",
+      "cohort": "Working Professionals",
+      "boardOrIndustry": "IT Services & Enterprise Software",
+      "experienceYears": 4,
+      "currentRole": "QA Automation Engineer",
+      "targetRole": "AI Product Manager / Solutions Architect",
+      "salaryBand": "₹11.5 LPA",
+      "subjectsOrSkills": [
+        "Python",
+        "SQL",
+        "API Testing",
+        "Agile Delivery"
+      ],
+      "unlockedReportIds": [
+        "rep-free",
+        "rep-1999"
+      ],
+      "savedCareerIds": [
+        "car-ai-eng",
+        "car-prod-mgmt"
+      ],
+      "enrolledCourseIds": [
+        "crs-ai-101"
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
+      "id": "usr-counsellor-1",
+      "name": "Dr. Meera Sharma",
+      "email": "meera.sharma@bytezenit.com",
+      "mobile": "+91 98112 33445",
+      "role": "Counsellor",
+      "city": "New Delhi",
+      "unlockedReportIds": [],
+      "savedCareerIds": [],
+      "enrolledCourseIds": [],
+      "createdAt": "2026-08-01"
+    },
+    {
+      "id": "usr-school-1",
+      "name": "Principal S. Radhakrishnan",
+      "email": "principal@dpsnavimumbai.edu.in",
+      "mobile": "+91 98220 99887",
+      "role": "Institution Admin",
+      "city": "Navi Mumbai",
+      "schoolOrOrg": "Delhi Public School, Navi Mumbai",
+      "unlockedReportIds": [],
+      "savedCareerIds": [],
+      "enrolledCourseIds": [],
+      "createdAt": "2026-08-15"
+    },
+    {
+      "id": "usr-admin-1",
+      "name": "K. Choudhary (Bytezen Super Admin)",
+      "email": "k.choudhary92712@gmail.com",
+      "mobile": "+91 99000 11111",
+      "role": "Super Admin",
+      "city": "Mumbai",
+      "schoolOrOrg": "Bytezen IT Solution",
+      "unlockedReportIds": [
+        "rep-free",
+        "rep-499",
+        "rep-999",
+        "rep-1999",
+        "rep-2999"
+      ],
+      "savedCareerIds": [
+        "car-ai-eng"
+      ],
+      "enrolledCourseIds": [],
+      "createdAt": "2026-07-01"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "prof-aarav-1",
+      "userId": "usr-student-1",
+      "studentName": "Aarav Kulkarni",
+      "cohort": "Class 11-12",
+      "completedAt": "2026-10-02",
+      "academicSnapshot": "Class 11 CBSE (PCM + Computer Science) · 89.4% Aggregate in Class 10 Board · Strong Quantitative & Algorithmic Affinity",
+      "overallReadinessIndex": 86,
+      "dimensionScores": [
+        {
+          "dimension": "Analytical & Quantitative Aptitude",
+          "score": 92,
+          "interpretation": "Strong capacity for mathematical modeling and algorithmic logic."
+        },
+        {
+          "dimension": "Technology & AI Interest",
+          "score": 94,
+          "interpretation": "High intrinsic curiosity in software systems and generative AI."
+        },
+        {
+          "dimension": "Creative Problem Solving",
+          "score": 81,
+          "interpretation": "Capable of connecting technical architecture with user experience."
+        },
+        {
+          "dimension": "Communication Confidence",
+          "score": 74,
+          "interpretation": "Articulate in technical writing; scope to build public speaking poise."
+        },
+        {
+          "dimension": "Entrepreneurial & Financial Awareness",
+          "score": 78,
+          "interpretation": "Understands product value; developing deeper commercial literacy."
+        }
+      ],
+      "interestAreas": [
+        "Artificial Intelligence & Machine Learning",
+        "Product Engineering",
+        "Computational Finance",
+        "Human-Computer Interaction"
+      ],
+      "strengths": [
+        "Systems Thinking & Structured Problem Solving",
+        "Digital & AI Fluency",
+        "Analytical & Quantitative Reasoning"
+      ],
+      "developmentAreas": [
+        "Executive Public Speaking & Pitching",
+        "Time-Boxed Competitive Exam Pacing",
+        "Commercial & Financial Modeling"
+      ],
+      "personalityIndicators": [
+        "Investigative-Architect",
+        "Data-Informed Decision Maker",
+        "Self-Directed Builder"
+      ],
+      "skillIndicators": [
+        "Python & Algorithmic Logic (Advanced)",
+        "Prompt & AI Workflow Design (Intermediate)",
+        "Spoken Executive Communication (Developing)"
+      ],
+      "suggestedClusters": [
+        {
+          "clusterName": "Technology, AI & Data Engineering",
+          "fitLevel": "Suggested High Fit",
+          "rationale": "Strong alignment between quantitative aptitude (92%) and intrinsic technology interest (94%).",
+          "sampleCareers": [
+            "AI & Machine Learning Engineer",
+            "Full-Stack Product Architect",
+            "Data Scientist"
+          ]
+        },
+        {
+          "clusterName": "Quantitative Finance & FinTech",
+          "fitLevel": "Potential Fit",
+          "rationale": "High mathematical rigor pairs well with algorithmic trading, actuarial science, and fintech product roles.",
+          "sampleCareers": [
+            "Quantitative Analyst & FinTech Strategist",
+            "Product Manager (Tech & SaaS)"
+          ]
+        },
+        {
+          "clusterName": "Human-Centric Product & Interaction Design",
+          "fitLevel": "Recommended for Exploration",
+          "rationale": "Combines technical feasibility with visual systems design for high-impact UX engineering.",
+          "sampleCareers": [
+            "UX / Product Systems Designer"
+          ]
+        }
+      ],
+      "recommendedNextSteps": [
+        "Validate JEE Main / BITSAT / CUET preparation balance alongside a 1-on-1 Career Counsellor session.",
+        "Build 2 applied Python + AI portfolio projects to strengthen both skill readiness and holistic college applications.",
+        "Enroll in the Executive English & Communication module to elevate presentation confidence from 74% to 88%+."
+      ],
+      "ninetyDayActionPlan": [
+        {
+          "phase": "Days 1–30: Diagnostic & Stream/Exam Alignment",
+          "milestone": "Complete 1-on-1 Counsellor Review & Lock Target Entrance Exams (JEE / BITSAT / IIIT-H UGEE)",
+          "outcome": "Clear weekly academic schedule with zero exam-overlap confusion."
+        },
+        {
+          "phase": "Days 31–60: Applied Skill & Portfolio Sprint",
+          "milestone": "Complete Applied AI & Python Capstone + Communication Lab",
+          "outcome": "Published GitHub project + measurable improvement in structured verbal articulation."
+        },
+        {
+          "phase": "Days 61–90: College Shortlist & Parent ROI Review",
+          "milestone": "Finalize Top 12 Tier-1/Tier-2 Engineering & FinTech Colleges with Parent Finance Plan",
+          "outcome": "Documented admission calendar, cutoff targets, and scholarship roadmap."
+        }
+      ],
+      "parentGuidanceNote": "Aarav demonstrates strong natural inclination toward Applied AI and Systems Engineering. Avoid pressuring solely on single-exam ranks; encourage portfolio-backed institutes (such as IIIT Hyderabad UGEE, BITS, and top interdisciplinary B.Tech programs) alongside JEE.",
+      "counsellorReviewNote": "Reviewed by Dr. Meera Sharma: Aarav has exceptional analytical depth. Recommended pairing JEE preparation with IIIT-H UGEE and building communication fluency.",
+      "disclaimer": "Automated assessment indicators represent suggested career directions and potential fit based on current responses. They are not guaranteed career or salary outcomes and are recommended for further evaluation with a certified Career360 counsellor."
+    }
+  ],
+  "reportProducts": [
+    {
+      "id": "rep-free",
+      "name": "Career Starter Assessment",
+      "tierLabel": "FREE",
+      "priceInr": 0,
+      "tagline": "Foundational psychometric snapshot and top career cluster indicators.",
+      "recommendedFor": "First-time visitors exploring initial career direction",
+      "modulesIncluded": [
+        "Executive Summary",
+        "Student Profile Snapshot",
+        "Top 3 Interest Areas",
+        "Suggested Next Step"
+      ],
+      "pageCount": 4,
+      "includesCounsellorReview": false
+    },
+    {
+      "id": "rep-499",
+      "name": "Career Snapshot",
+      "tierLabel": "₹499",
+      "priceInr": 499,
+      "tagline": "Focused 14-dimension aptitude, interest, and strength mapping report.",
+      "recommendedFor": "Class 5–8 students & quick stream checkups",
+      "modulesIncluded": [
+        "Executive Summary",
+        "Student Profile",
+        "Assessment Interpretation",
+        "Interest Mapping",
+        "Strength Mapping",
+        "Top 2 Career Clusters"
+      ],
+      "pageCount": 12,
+      "includesCounsellorReview": false
+    },
+    {
+      "id": "rep-999",
+      "name": "Career Clarity Report",
+      "tierLabel": "₹999",
+      "priceInr": 999,
+      "tagline": "Comprehensive career cluster breakdown, entrance exam path, and skill recommendations.",
+      "recommendedFor": "Class 9–12 & UG students making stream or degree decisions",
+      "modulesIncluded": [
+        "Executive Summary",
+        "14-Dimension Assessment Interpretation",
+        "Interest & Strength Mapping",
+        "Career Clusters & 10 Matched Career Options",
+        "Skill Recommendations",
+        "Education Pathway & Entrance Exams"
+      ],
+      "pageCount": 24,
+      "includesCounsellorReview": false
+    },
+    {
+      "id": "rep-1999",
+      "name": "Career Roadmap",
+      "tierLabel": "₹1,999",
+      "priceInr": 1999,
+      "tagline": "End-to-end 5-year education blueprint, 90-day action plan, and parent finance guide.",
+      "recommendedFor": "Serious students & working professionals planning a multi-year trajectory",
+      "modulesIncluded": [
+        "All Career Clarity Report Modules",
+        "Detailed 5-Year Education & College Pathway",
+        "Personalized Skill-Gap Development Plan",
+        "90-Day Action Plan with Milestones",
+        "Parent Guidance & Education ROI Brief"
+      ],
+      "pageCount": 38,
+      "includesCounsellorReview": true
+    },
+    {
+      "id": "rep-2999",
+      "name": "Career Start (Report + 1-on-1 Counselling)",
+      "tierLabel": "₹2,999",
+      "priceInr": 2999,
+      "tagline": "Complete 38-page Career Roadmap Report plus live 1-on-1 expert counsellor validation session.",
+      "recommendedFor": "Complete peace of mind for students, parents, and career switchers",
+      "modulesIncluded": [
+        "Complete 38-Page Career Roadmap Report",
+        "Live 45-Minute 1-on-1 Session with Senior Counsellor",
+        "Counsellor-Validated Personal Career Plan",
+        "Complimentary Skill Course Demo Access",
+        "1-Year Report Version History & Re-evaluation"
+      ],
+      "pageCount": 42,
+      "includesCounsellorReview": true
+    }
+  ],
+  "careers": [
+    {
+      "id": "car-ai-eng",
+      "name": "AI & Machine Learning Engineer",
+      "category": "AI & Data",
+      "description": "Design, train, and deploy intelligent machine learning models, LLM pipelines, and autonomous decision systems across industries.",
+      "eligibility": "Class 12 with PCM (Physics, Chemistry, Mathematics) · 75%+ recommended for Tier-1 institutes",
+      "educationPathway": [
+        "B.Tech / B.E. in CSE (AI & ML) or Data Science",
+        "B.S. in Data Science (IIT Madras Online / IISER)",
+        "M.Tech / MS in Artificial Intelligence"
+      ],
+      "requiredSubjects": [
+        "Mathematics",
+        "Physics",
+        "Computer Science / Statistics"
+      ],
+      "coreSkills": [
+        "Python",
+        "PyTorch / TensorFlow",
+        "Linear Algebra & Probability",
+        "LLM Orchestration & RAG",
+        "Cloud MLOps"
+      ],
+      "certifications": [
+        "TensorFlow Developer Certificate",
+        "AWS Certified Machine Learning Specialty",
+        "Career360 Applied AI Capstone"
+      ],
+      "entranceExams": [
+        "JEE Main & Advanced",
+        "BITSAT",
+        "IIIT-H UGEE",
+        "VITEEE",
+        "GATE (for M.Tech)"
+      ],
+      "topCourses": [
+        "B.Tech CSE (AI & ML)",
+        "B.S. Data Science & Applications",
+        "Integrated M.Tech in AI"
+      ],
+      "topColleges": [
+        "IIT Hyderabad",
+        "IIIT Hyderabad",
+        "IIT Bombay",
+        "BITS Pilani",
+        "NIT Trichy",
+        "VIT Vellore"
+      ],
+      "jobRoles": [
+        "Machine Learning Engineer",
+        "Applied AI Scientist",
+        "LLM Systems Architect",
+        "Computer Vision Engineer"
+      ],
+      "industries": [
+        "SaaS & Cloud Tech",
+        "FinTech",
+        "Healthcare Diagnostics",
+        "Autonomous Mobility",
+        "E-Commerce"
+      ],
+      "entrySalaryInr": "₹8.5L – ₹16L PA",
+      "midCareerSalaryInr": "₹18L – ₹38L PA",
+      "seniorSalaryInr": "₹45L – ₹90L+ PA",
+      "studyDurationYears": "4 Years (B.Tech)",
+      "avgEducationCostInr": "₹8L – ₹18L Total",
+      "competitionLevel": "Very High",
+      "futureOutlook": "High structural demand through 2035 as enterprises integrate AI into core software products.",
+      "aiImpact": "Net creator of AI systems; routine coding is AI-assisted while system architecture and evaluation grow in value.",
+      "automationRisk": "Low (Human-Centric / Strategic)",
+      "entrepreneurshipOpportunities": "High — vertical AI SaaS micro-products, enterprise automation agencies, and specialized AI consulting.",
+      "freelancingOpportunities": "Global remote contracts for LLM fine-tuning, AI workflow integration, and data pipeline engineering."
+    },
+    {
+      "id": "car-prod-mgmt",
+      "name": "Technology Product Manager",
+      "category": "Management",
+      "description": "Own the intersection of user needs, business strategy, and engineering execution to take digital products from concept to market scale.",
+      "eligibility": "Any stream in Class 12 (Math/Economics advantageous) followed by Engineering, Design, Economics, or BBA/MBA",
+      "educationPathway": [
+        "B.Tech / B.Des / BBA / BA Economics",
+        "MBA / PGDM (IIMs, ISB, XLRI, SPJIMR) or Product Fellowship"
+      ],
+      "requiredSubjects": [
+        "Economics",
+        "Mathematics / Statistics",
+        "Business Studies",
+        "Computer Applications"
+      ],
+      "coreSkills": [
+        "Product Strategy",
+        "User Research & UX Sense",
+        "SQL & Product Analytics",
+        "AI Feature Scoping",
+        "Stakeholder Alignment"
+      ],
+      "certifications": [
+        "ISPMA Product Management",
+        "Google Project & Product Analytics",
+        "Career360 Product Leadership Lab"
+      ],
+      "entranceExams": [
+        "IPMAT (After 12th)",
+        "CUET",
+        "CAT / XAT / GMAT (Post-UG)"
+      ],
+      "topCourses": [
+        "Integrated BBA+MBA (IPM)",
+        "B.Tech + MBA",
+        "PGDM in Product & Strategy"
+      ],
+      "topColleges": [
+        "IIM Indore (IPM)",
+        "IIM Ahmedabad",
+        "ISB Hyderabad",
+        "BITS Pilani",
+        "Shaheed Sukhdev College of Business Studies"
+      ],
+      "jobRoles": [
+        "Associate Product Manager (APM)",
+        "AI Product Manager",
+        "Growth Product Manager",
+        "VP of Product"
+      ],
+      "industries": [
+        "Consumer Tech",
+        "B2B SaaS",
+        "FinTech",
+        "EdTech",
+        "Digital Health"
+      ],
+      "entrySalaryInr": "₹9L – ₹18L PA",
+      "midCareerSalaryInr": "₹22L – ₹45L PA",
+      "seniorSalaryInr": "₹50L – ₹1.1Cr+ PA",
+      "studyDurationYears": "4–5 Years",
+      "avgEducationCostInr": "₹10L – ₹28L Total",
+      "competitionLevel": "High",
+      "futureOutlook": "Strong growth for AI-literate Product Managers who can translate domain problems into rapid software products.",
+      "aiImpact": "AI accelerates prototyping and PRD drafting by 3x, increasing expectations for customer judgment and commercial accountability.",
+      "automationRisk": "Low (Human-Centric / Strategic)",
+      "entrepreneurshipOpportunities": "Direct stepping stone to becoming a startup founder or B2B SaaS co-founder.",
+      "freelancingOpportunities": "Fractional Product Manager and MVP advisory for funded seed startups."
+    },
+    {
+      "id": "car-quant-fin",
+      "name": "Chartered Financial Analyst & FinTech Strategist",
+      "category": "Finance & Commerce",
+      "description": "Analyze capital markets, corporate valuation, algorithmic portfolio risk, and digital banking products for institutional and retail wealth.",
+      "eligibility": "Class 12 Commerce or Science with Mathematics / Applied Mathematics",
+      "educationPathway": [
+        "B.Com (Hons) / BMS / B.Sc Finance / B.Tech",
+        "CFA (Level I–III) / CA / MBA Finance / FRM"
+      ],
+      "requiredSubjects": [
+        "Accountancy",
+        "Economics",
+        "Mathematics",
+        "Financial Literacy"
+      ],
+      "coreSkills": [
+        "Financial Modeling & Valuation",
+        "Equity & Credit Research",
+        "Python for Finance",
+        "Risk Management",
+        "Regulatory Compliance"
+      ],
+      "certifications": [
+        "CFA Charter (CFA Institute)",
+        "FRM (GARP)",
+        "NISM Series Certifications"
+      ],
+      "entranceExams": [
+        "CUET (UG)",
+        "NPAT (NMIMS)",
+        "IPMAT",
+        "CA Foundation",
+        "CAT / CFA Exams"
+      ],
+      "topCourses": [
+        "B.Com (Hons)",
+        "B.Sc (Hons) Finance",
+        "BMS / BBA (Financial Investment Analysis)"
+      ],
+      "topColleges": [
+        "SRCC Delhi",
+        "St. Xavier’s Mumbai",
+        "NMIMS Mumbai",
+        "SSCBS Delhi",
+        "Christ University Bengaluru"
+      ],
+      "jobRoles": [
+        "Investment Banking Analyst",
+        "Portfolio & Wealth Strategist",
+        "FinTech Risk Manager",
+        "Corporate Finance Controller"
+      ],
+      "industries": [
+        "Investment Banking",
+        "Asset Management",
+        "FinTech & Digital Payments",
+        "Venture Capital",
+        "Corporate Treasury"
+      ],
+      "entrySalaryInr": "₹7L – ₹15L PA",
+      "midCareerSalaryInr": "₹18L – ₹36L PA",
+      "seniorSalaryInr": "₹42L – ₹85L+ PA",
+      "studyDurationYears": "3–4 Years UG + Certifications",
+      "avgEducationCostInr": "₹4L – ₹14L Total",
+      "competitionLevel": "High",
+      "futureOutlook": "India’s formalizing capital markets and wealth management expansion create sustained demand for tech-enabled finance professionals.",
+      "aiImpact": "Routine bookkeeping and basic ratio analysis are automated; strategic valuation, deal structuring, and client advisory remain human-led.",
+      "automationRisk": "Moderate (AI-Augmented)",
+      "entrepreneurshipOpportunities": "Registered Investment Advisory (RIA), FinTech wealth platforms, and fractional CFO practices.",
+      "freelancingOpportunities": "Startup financial modeling, pitch deck valuation consulting, and independent tax/wealth advisory."
+    },
+    {
+      "id": "car-prod-design",
+      "name": "UX / Product & Interaction Designer",
+      "category": "Design & Media",
+      "description": "Architect intuitive digital interfaces, design systems, spatial experiences, and human-AI workflows for software and consumer hardware.",
+      "eligibility": "Any Stream in Class 12 (Science, Commerce, or Humanities)",
+      "educationPathway": [
+        "B.Des in Interaction / Communication / Product Design",
+        "M.Des or Portfolio-Driven Industry Entry"
+      ],
+      "requiredSubjects": [
+        "Design Thinking",
+        "Visual Arts / Media",
+        "Psychology",
+        "Computer Basics"
+      ],
+      "coreSkills": [
+        "User Research & Usability Testing",
+        "Figma & Design Systems",
+        "Interaction Prototyping",
+        "Information Architecture",
+        "AI-Assisted Design Workflows"
+      ],
+      "certifications": [
+        "Google UX Design Professional",
+        "Human-Computer Interaction (IDF)",
+        "Career360 UI/UX Portfolio Track"
+      ],
+      "entranceExams": [
+        "UCEED (IITs)",
+        "NID DAT",
+        "NIFT Entrance",
+        "SEED (Symbiosis)",
+        "MITID DAT"
+      ],
+      "topCourses": [
+        "B.Des (Interaction Design)",
+        "B.Des (Visual Communication)",
+        "B.Sc Digital Media & Design"
+      ],
+      "topColleges": [
+        "IDC IIT Bombay",
+        "NID Ahmedabad",
+        "IIT Guwahati",
+        "MIT Institute of Design Pune",
+        "Srishti Manipal Bengaluru"
+      ],
+      "jobRoles": [
+        "Product Designer (UI/UX)",
+        "Design Systems Architect",
+        "UX Researcher",
+        "Creative Director"
+      ],
+      "industries": [
+        "Product SaaS",
+        "Consumer Apps",
+        "FinTech",
+        "Gaming & Spatial Computing",
+        "Design Consultancies"
+      ],
+      "entrySalaryInr": "₹6.5L – ₹14L PA",
+      "midCareerSalaryInr": "₹16L – ₹32L PA",
+      "seniorSalaryInr": "₹35L – ₹70L+ PA",
+      "studyDurationYears": "4 Years (B.Des)",
+      "avgEducationCostInr": "₹8L – ₹20L Total",
+      "competitionLevel": "Moderate",
+      "futureOutlook": "High demand for designers who design complex AI-native interfaces, enterprise workflows, and high-conversion digital products.",
+      "aiImpact": "AI generates wireframes rapidly, elevating the designer’s role to systems curation, user empathy, and brand distinction.",
+      "automationRisk": "Moderate (AI-Augmented)",
+      "entrepreneurshipOpportunities": "Specialized product design studio, SaaS micro-brand founder, or digital template marketplace creator.",
+      "freelancingOpportunities": "High global remote demand for UI/UX audits, SaaS redesigns, and interactive brand systems."
+    },
+    {
+      "id": "car-healthcare-bio",
+      "name": "Clinical Medicine & Digital Health Specialist",
+      "category": "Healthcare",
+      "description": "Combine clinical medical practice or biomedical science with modern diagnostic technologies, genomics, and preventive healthcare delivery.",
+      "eligibility": "Class 12 with PCB (Physics, Chemistry, Biology) · English mandatory",
+      "educationPathway": [
+        "MBBS / BDS / B.Tech Biomedical or Biotechnology",
+        "MD / MS / MPH / Digital Health Specialization"
+      ],
+      "requiredSubjects": [
+        "Biology",
+        "Chemistry",
+        "Physics"
+      ],
+      "coreSkills": [
+        "Clinical Diagnostics",
+        "Patient Care & Ethics",
+        "Evidence-Based Medicine",
+        "Biostatistics & Health Informatics"
+      ],
+      "certifications": [
+        "NMC Registration / NEXT",
+        "Clinical Research & Good Clinical Practice (GCP)",
+        "Health Informatics Specialization"
+      ],
+      "entranceExams": [
+        "NEET-UG",
+        "IISER Aptitude Test (IAT)",
+        "CUET (Biotech/Life Sciences)",
+        "NEET-PG / INI-CET"
+      ],
+      "topCourses": [
+        "MBBS",
+        "B.Tech Biotechnology / Biomedical Engineering",
+        "BS-MS Biological Sciences"
+      ],
+      "topColleges": [
+        "AIIMS New Delhi",
+        "CMC Vellore",
+        "JIPMER Puducherry",
+        "AFMC Pune",
+        "IISER Pune",
+        "KMC Manipal"
+      ],
+      "jobRoles": [
+        "Specialist Physician / Surgeon",
+        "Clinical Trial Scientist",
+        "MedTech Product Specialist",
+        "Hospital Operations Leader"
+      ],
+      "industries": [
+        "Multi-Specialty Hospitals",
+        "Biotech & Genomics",
+        "MedTech & Diagnostics",
+        "Public Health"
+      ],
+      "entrySalaryInr": "₹8L – ₹14L PA",
+      "midCareerSalaryInr": "₹20L – ₹45L PA",
+      "seniorSalaryInr": "₹50L – ₹1.2Cr+ PA",
+      "studyDurationYears": "5.5 Years (MBBS) + 3 Years PG",
+      "avgEducationCostInr": "₹1L (Govt) – ₹65L+ (Private)",
+      "competitionLevel": "Very High",
+      "futureOutlook": "Evergreen societal necessity expanding into telemedicine, AI radiology assistance, genomics, and longevity healthcare.",
+      "aiImpact": "AI assists in imaging and triage, while clinical judgment, surgery, and empathetic patient care remain irreplaceably human.",
+      "automationRisk": "Low (Human-Centric / Strategic)",
+      "entrepreneurshipOpportunities": "Specialty diagnostics clinics, digital health platforms, and preventive wellness centers.",
+      "freelancingOpportunities": "Tele-consultation specialist, medical science liaison, and clinical review advisor."
+    },
+    {
+      "id": "car-corp-law",
+      "name": "Corporate, Technology & IP Lawyer",
+      "category": "Law & Policy",
+      "description": "Advise corporations, startups, and institutions on mergers & acquisitions, technology contracts, AI/data privacy regulations, and intellectual property.",
+      "eligibility": "Any Stream in Class 12 (45%+ minimum for CLAT)",
+      "educationPathway": [
+        "5-Year Integrated BA LLB (Hons) / BBA LLB (Hons)",
+        "LLM in Corporate / Tech & IP Law"
+      ],
+      "requiredSubjects": [
+        "English Comprehension",
+        "Legal Reasoning",
+        "Current Affairs",
+        "Logical Reasoning"
+      ],
+      "coreSkills": [
+        "Contract Drafting & Negotiation",
+        "Regulatory & Data Privacy Law (DPDP Act)",
+        "M&A Due Diligence",
+        "Dispute Resolution"
+      ],
+      "certifications": [
+        "Bar Council of India (AIBE)",
+        "CIPP/E or Data Privacy Certification",
+        "Company Secretary (CS) Executive"
+      ],
+      "entranceExams": [
+        "CLAT",
+        "AILET (NLU Delhi)",
+        "SLAT (Symbiosis)",
+        "LSAT-India",
+        "MHCET Law"
+      ],
+      "topCourses": [
+        "BA LLB (Hons)",
+        "BBA LLB (Hons)",
+        "B.Sc LLB (Tech & IP Law)"
+      ],
+      "topColleges": [
+        "NLSIU Bengaluru",
+        "NALSAR Hyderabad",
+        "NLU Delhi",
+        "WBNUJS Kolkata",
+        "Symbiosis Law School Pune",
+        "Jindal Global Law School"
+      ],
+      "jobRoles": [
+        "Corporate Associate (Tier-1 Law Firm)",
+        "In-House Legal Counsel",
+        "Technology & Privacy Policy Advisor",
+        "Litigation Counsel"
+      ],
+      "industries": [
+        "Corporate Law Firms",
+        "Technology & FinTech Enterprises",
+        "Public Policy Think Tanks",
+        "Venture Capital"
+      ],
+      "entrySalaryInr": "₹8L – ₹18L PA",
+      "midCareerSalaryInr": "₹20L – ₹42L PA",
+      "seniorSalaryInr": "₹50L – ₹1.5Cr+ PA",
+      "studyDurationYears": "5 Years (Integrated)",
+      "avgEducationCostInr": "₹12L – ₹25L Total",
+      "competitionLevel": "High",
+      "futureOutlook": "Rapid expansion in AI governance, cybersecurity regulation, cross-border SaaS contracts, and startup fundraising law.",
+      "aiImpact": "Document discovery and clause search are AI-accelerated; high-stakes negotiation, liability strategy, and advocacy are human-led.",
+      "automationRisk": "Low (Human-Centric / Strategic)",
+      "entrepreneurshipOpportunities": "Boutique corporate/startup law practice, IP registration agency, and compliance consultancy.",
+      "freelancingOpportunities": "Contract review, startup incorporation advisory, and privacy policy compliance audits."
+    }
+  ],
+  "colleges": [
+    {
+      "id": "col-iiith",
+      "name": "IIIT Hyderabad (International Institute of Information Technology)",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "coursesOffered": [
+        "B.Tech CSE",
+        "B.Tech ECE",
+        "Dual Degree B.Tech + MS by Research (Computational Linguistics / Exact Humanities)"
+      ],
+      "streamCluster": "Technology, AI & Engineering",
+      "eligibility": "Class 12 PCM · Admission via JEE Main Rank, UGEE (Interview + Aptitude), or SPEC Mode",
+      "annualFeesInr": "₹4.0L PA",
+      "totalProgramCostNumeric": 1800000,
+      "avgPlacementPackageInr": "₹30.5 LPA",
+      "avgPlacementNumeric": 3050000,
+      "admissionProcess": "Multi-channel admission: JEE Main percentile, UGEE (Research Aptitude Test + Interview), Olympiad/KVPY",
+      "entranceExams": [
+        "JEE Main",
+        "IIIT-H UGEE"
+      ],
+      "cutoffInfo": "JEE Main 99.8+ Percentile or UGEE Exam + Personal Interview Selection",
+      "duration": "4 Years (B.Tech) / 5 Years (Dual Degree)",
+      "hostelAvailable": true,
+      "careerOutcomes": "Tier-1 global AI research labs, product engineering roles, and deep-tech startup founders."
+    },
+    {
+      "id": "col-sscbs",
+      "name": "Shaheed Sukhdev College of Business Studies (University of Delhi)",
+      "location": "New Delhi",
+      "state": "Delhi NCR",
+      "coursesOffered": [
+        "BBA (Financial Investment Analysis)",
+        "Bachelor of Management Studies (BMS)",
+        "B.Sc (Hons) Computer Science"
+      ],
+      "streamCluster": "Finance, Commerce & Management",
+      "eligibility": "Class 12 with Mathematics + English · CUET (UG) Merit Score",
+      "annualFeesInr": "₹0.35L PA",
+      "totalProgramCostNumeric": 150000,
+      "avgPlacementPackageInr": "₹11.8 LPA (Top 25% Avg: ₹18.5 LPA)",
+      "avgPlacementNumeric": 1180000,
+      "admissionProcess": "Centralized DU CSAS counselling based on CUET (English + Mathematics + General Test)",
+      "entranceExams": [
+        "CUET (UG)"
+      ],
+      "cutoffInfo": "Top 0.5%ile in CUET (Math + GT + English)",
+      "duration": "3–4 Years (NEP Honours)",
+      "hostelAvailable": true,
+      "careerOutcomes": "Exceptional ROI with direct placements in global investment banks, MBB consulting, and top MBA feeder status."
+    },
+    {
+      "id": "col-bits-pilani",
+      "name": "BITS Pilani (Pilani / Goa / Hyderabad Campuses)",
+      "location": "Pilani / Goa / Hyderabad",
+      "state": "Rajasthan / Goa / Telangana",
+      "coursesOffered": [
+        "B.E. Computer Science",
+        "B.E. Electronics & Computing",
+        "Dual Degree M.Sc Economics + B.E."
+      ],
+      "streamCluster": "Technology, AI & Engineering",
+      "eligibility": "Class 12 PCM with 75%+ aggregate · BITSAT Merit Score (Zero Reservation)",
+      "annualFeesInr": "₹6.1L PA",
+      "totalProgramCostNumeric": 2600000,
+      "avgPlacementPackageInr": "₹22.4 LPA",
+      "avgPlacementNumeric": 2240000,
+      "admissionProcess": "Merit-only online computer-based test (BITSAT Session 1 & 2)",
+      "entranceExams": [
+        "BITSAT"
+      ],
+      "cutoffInfo": "BITSAT Score 315+/390 for CSE; 255+ for Dual Degree Economics",
+      "duration": "4 Years (B.E.) / 5 Years (Dual Degree)",
+      "hostelAvailable": true,
+      "careerOutcomes": "Practice School (6-month guaranteed corporate internship without thesis exam) and premier startup alumni network."
+    },
+    {
+      "id": "col-idc-iitb",
+      "name": "IDC School of Design, IIT Bombay",
+      "location": "Mumbai",
+      "state": "Maharashtra",
+      "coursesOffered": [
+        "B.Des (Bachelor of Design)",
+        "Dual Degree B.Des + M.Des",
+        "M.Des Interaction & Mobility Design"
+      ],
+      "streamCluster": "Design, Law, Media & Humanities",
+      "eligibility": "Class 12 from ANY Stream (Science, Commerce, or Arts) · UCEED Qualified",
+      "annualFeesInr": "₹2.4L PA",
+      "totalProgramCostNumeric": 1050000,
+      "avgPlacementPackageInr": "₹18.2 LPA",
+      "avgPlacementNumeric": 1820000,
+      "admissionProcess": "Undergraduate Common Entrance Examination for Design (UCEED) Part A & Drawing/Design Aptitude Part B",
+      "entranceExams": [
+        "UCEED"
+      ],
+      "cutoffInfo": "All India Rank (AIR) under 25–35 in UCEED Open Category",
+      "duration": "4 Years",
+      "hostelAvailable": true,
+      "careerOutcomes": "Product design leadership at global technology companies, UX research labs, and design entrepreneurship."
+    },
+    {
+      "id": "col-nlsiu",
+      "name": "NLSIU Bengaluru (National Law School of India University)",
+      "location": "Bengaluru",
+      "state": "Karnataka",
+      "coursesOffered": [
+        "5-Year Integrated BA LLB (Hons)",
+        "3-Year LLB (Hons)",
+        "Master of Public Policy (MPP)"
+      ],
+      "streamCluster": "Design, Law, Media & Humanities",
+      "eligibility": "Class 12 in any stream with 45%+ marks · CLAT All-India Merit",
+      "annualFeesInr": "₹4.2L PA",
+      "totalProgramCostNumeric": 2150000,
+      "avgPlacementPackageInr": "₹17.5 LPA",
+      "avgPlacementNumeric": 1750000,
+      "admissionProcess": "Common Law Admission Test (CLAT) centralized counselling",
+      "entranceExams": [
+        "CLAT"
+      ],
+      "cutoffInfo": "CLAT All India Rank under 110 (General)",
+      "duration": "5 Years",
+      "hostelAvailable": true,
+      "careerOutcomes": "Magic Circle & Tier-1 Indian corporate law firms, Supreme Court clerkships, Rhodes scholars, and policy leaders."
+    }
+  ],
+  "courses": [
+    {
+      "id": "crs-ai-101",
+      "title": "Applied Generative AI, Prompt Engineering & Automation Lab",
+      "category": "AI",
+      "overview": "Hands-on program teaching students and professionals to build AI workflows, research assistants, data analyzers, and prompt architectures.",
+      "curriculum": [
+        "Module 1: Foundations of Large Language Models & Multimodal AI",
+        "Module 2: Structured Prompt Engineering & Chain-of-Thought Workflows",
+        "Module 3: Building AI Research, Study & Productivity Pipelines",
+        "Module 4: Capstone — Deploy a Domain-Specific AI Assistant"
+      ],
+      "duration": "6 Weeks (24 Live Hours)",
+      "trainerName": "Siddharth Rao",
+      "trainerCredentials": "Principal AI Architect · Ex-Microsoft · IIT Roorkee Alumnus",
+      "schedule": "Sat & Sun · 10:30 AM – 12:30 PM IST (Live Online)",
+      "feesInr": 4999,
+      "batchSize": 20,
+      "skillsGained": [
+        "Prompt Architecture",
+        "AI Workflow Automation",
+        "Data Synthesis",
+        "Responsible AI Evaluation"
+      ],
+      "outcomes": "Build and showcase 2 working AI workflows in your student or professional portfolio.",
+      "certification": "Career360 by Bytezen Verified Applied AI Certification",
+      "targetAudience": "Class 9–12, UG/PG Students & Working Professionals"
+    },
+    {
+      "id": "crs-eng-speak",
+      "title": "Executive English, Public Speaking & Interview Presence",
+      "category": "English Speaking",
+      "overview": "Overcome hesitation and master structured verbal articulation, group discussions, debates, and high-stakes admission or job interviews.",
+      "curriculum": [
+        "Module 1: Fluency Diagnostics, Vocabulary Precision & Vocal Tonality",
+        "Module 2: The Pyramid Principle — Structuring Thoughts Under Pressure",
+        "Module 3: Group Discussion (GD), Debate & Persuasive Storytelling",
+        "Module 4: Live Mock Interviews & Recorded Video Feedback"
+      ],
+      "duration": "8 Weeks (32 Live Hours)",
+      "trainerName": "Avantika Sen",
+      "trainerCredentials": "Communication Coach · CELTA Certified · 11+ Years Corporate & Youth Training",
+      "schedule": "Tue, Thu & Sat · 6:00 PM – 7:15 PM IST",
+      "feesInr": 3999,
+      "batchSize": 15,
+      "skillsGained": [
+        "Spoken English Fluency",
+        "Public Speaking",
+        "Group Discussion Leadership",
+        "Interview Poise"
+      ],
+      "outcomes": "Deliver a 5-minute TED-style capstone talk and pass a structured mock panel interview.",
+      "certification": "Career360 Communication & Executive Presence Certificate",
+      "targetAudience": "Class 5–12 Students, College Freshers & Job Seekers"
+    },
+    {
+      "id": "crs-fin-lit",
+      "title": "Young Investor: Financial Literacy, Budgeting & Market Fundamentals",
+      "category": "Financial Literacy",
+      "overview": "Practical financial education covering compounding, inflation, banking, taxation basics, mutual funds, and fundamental equity evaluation.",
+      "curriculum": [
+        "Module 1: Money Systems, Inflation, Banking & Credit Score Discipline",
+        "Module 2: The Mathematics of Compounding & Goal-Based Investing",
+        "Module 3: Understanding Businesses, Financial Statements & Equity Markets",
+        "Module 4: Capstone — Construct a 10-Year Model Family/Student Portfolio"
+      ],
+      "duration": "4 Weeks (16 Live Hours)",
+      "trainerName": "CA Pranav Joshi",
+      "trainerCredentials": "Chartered Accountant & CFA Charterholder · Financial Educator",
+      "schedule": "Sun · 11:00 AM – 2:00 PM IST",
+      "feesInr": 2999,
+      "batchSize": 25,
+      "skillsGained": [
+        "Personal Budgeting",
+        "Compounding Math",
+        "Financial Statement Reading",
+        "Risk-Managed Investing"
+      ],
+      "outcomes": "Graduate with a custom personal finance model and lifelong immunity against financial scams.",
+      "certification": "Career360 Financial Literacy Certification",
+      "targetAudience": "Class 7–12, College Students & Young Professionals"
+    },
+    {
+      "id": "crs-ent-yep",
+      "title": "Young Entrepreneur Program (Idea to MVP & Pitch Deck)",
+      "category": "Entrepreneurship",
+      "overview": "Experiential founder bootcamp where learners identify a real problem, interview customers, calculate unit economics, and pitch a live prototype.",
+      "curriculum": [
+        "Module 1: Problem Discovery & Customer Empathy Interviews",
+        "Module 2: No-Code / AI Prototyping & Value Proposition Design",
+        "Module 3: Unit Economics, Pricing & Go-To-Market Channels",
+        "Module 4: Live Demo Day Pitch before Industry Founders"
+      ],
+      "duration": "8 Weeks (30 Hours)",
+      "trainerName": "Karanveer Mehta",
+      "trainerCredentials": "2x SaaS Founder · Startup India Mentor · ISB Alumnus",
+      "schedule": "Sat & Sun · 4:00 PM – 6:00 PM IST",
+      "feesInr": 6499,
+      "batchSize": 18,
+      "skillsGained": [
+        "Problem Validation",
+        "Unit Economics",
+        "MVP Building",
+        "Investor Pitching"
+      ],
+      "outcomes": "Launch a real micro-project or startup prototype with a validated 10-slide pitch deck.",
+      "certification": "Career360 Young Founder Fellowship Certificate",
+      "targetAudience": "Class 8–12, UG Students & Aspiring Founders"
+    },
+    {
+      "id": "crs-coding-py",
+      "title": "Python, Algorithmic Thinking & Full-Stack Web Foundations",
+      "category": "Coding",
+      "overview": "Build real software from scratch. Move beyond textbook syntax to build interactive web applications, APIs, and data visualizations.",
+      "curriculum": [
+        "Module 1: Logic Building, Python Core & Data Structures",
+        "Module 2: Working with APIs, JSON & Automated Scripts",
+        "Module 3: Modern Frontend UI & Full-Stack Integration",
+        "Module 4: Capstone — Build & Deploy a Live Web Application"
+      ],
+      "duration": "8 Weeks (32 Hours)",
+      "trainerName": "Rohan Kulkarni",
+      "trainerCredentials": "Senior Full-Stack Engineer · Open Source Contributor",
+      "schedule": "Mon, Wed & Fri · 7:00 PM – 8:15 PM IST",
+      "feesInr": 5499,
+      "batchSize": 16,
+      "skillsGained": [
+        "Python Programming",
+        "Algorithmic Logic",
+        "API Integration",
+        "Git & Web Deployment"
+      ],
+      "outcomes": "3 deployed projects hosted on GitHub with live shareable links.",
+      "certification": "Career360 Software Engineering Foundations Certificate",
+      "targetAudience": "Class 6–12 & UG Beginners"
+    },
+    {
+      "id": "crs-dm-growth",
+      "title": "Performance Digital Marketing, SEO & Content Growth Engine",
+      "category": "Digital Marketing",
+      "overview": "Master modern customer acquisition across search, social, short-form video, and conversion analytics with live brand case studies.",
+      "curriculum": [
+        "Module 1: Buyer Psychology, Funnel Architecture & Brand Positioning",
+        "Module 2: Technical SEO, Content Strategy & High-Retention Copywriting",
+        "Module 3: Meta & Google Performance Campaigns + ROAS Analytics",
+        "Module 4: Capstone — Live Growth Audit & Campaign Execution"
+      ],
+      "duration": "6 Weeks (24 Hours)",
+      "trainerName": "Neha Kapoor",
+      "trainerCredentials": "Growth Marketing Lead · Managed ₹25Cr+ Ad Spend",
+      "schedule": "Sat & Sun · 2:00 PM – 4:00 PM IST",
+      "feesInr": 4499,
+      "batchSize": 20,
+      "skillsGained": [
+        "Search Engine Optimization",
+        "Performance Ads",
+        "Conversion Copywriting",
+        "GA4 Analytics"
+      ],
+      "outcomes": "Job-ready and freelance-ready digital marketing portfolio with verified campaign metrics.",
+      "certification": "Career360 Certified Growth Marketer",
+      "targetAudience": "Class 11–12, College Students, Freelancers & Business Owners"
+    }
+  ],
+  "counsellors": [
+    {
+      "id": "cns-meera",
+      "name": "Dr. Meera Sharma",
+      "photoUrl": "/src/assets/images/counsellor_meera_sharma_1791281827725.jpg",
+      "qualification": "Ph.D. in Counselling Psychology · Certified Global Career Development Facilitator (GCDF)",
+      "experienceYears": 14,
+      "specialization": "Stream Selection (Class 8–12), Psychometric Interpretation & Parent-Child Alignment",
+      "languages": [
+        "English",
+        "Hindi"
+      ],
+      "studentCategories": [
+        "Class 5-6",
+        "Class 7-8",
+        "Class 9-10",
+        "Class 11-12",
+        "UG"
+      ],
+      "careerDomains": [
+        "Engineering & STEM",
+        "Healthcare & Life Sciences",
+        "Humanities, Law & Psychology",
+        "Interdisciplinary NEP Pathways"
+      ],
+      "feeInr": 1499,
+      "mode": "Offline & Online",
+      "city": "New Delhi / Online Pan-India",
+      "rating": 4.9,
+      "reviewCount": 342,
+      "sessionsCompleted": 1850,
+      "counsellingApproach": "Evidence-based psychometric triangulation combining aptitude data, intrinsic motivation, and family financial realism.",
+      "introduction": "Former Head of Student Guidance at premier K-12 institutions with 14+ years helping over 1,800 Indian families navigate Class 10 stream choices and Class 12 college roadmaps without anxiety.",
+      "verified": true,
+      "availableDays": [
+        "Mon",
+        "Tue",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "availableSlots": [
+        "10:30 AM",
+        "12:00 PM",
+        "04:00 PM",
+        "06:00 PM"
+      ],
+      "sessionDurationMins": 45,
+      "bufferMins": 15
+    },
+    {
+      "id": "cns-rajesh",
+      "name": "Rajesh Verma",
+      "photoUrl": "/src/assets/images/counsellor_rajesh_verma_1791281841055.jpg",
+      "qualification": "MBA (IIM Kozhikode) · B.Tech (NIT Warangal) · Certified Executive & Career Strategist",
+      "experienceYears": 16,
+      "specialization": "Engineering, AI & Data Careers, Management/MBA Admissions & Working Professional Pivots",
+      "languages": [
+        "English",
+        "Hindi",
+        "Marathi"
+      ],
+      "studentCategories": [
+        "Class 11-12",
+        "UG",
+        "PG",
+        "Working Professionals"
+      ],
+      "careerDomains": [
+        "Technology & AI",
+        "Management & Product",
+        "Finance & FinTech",
+        "Entrepreneurship"
+      ],
+      "feeInr": 1999,
+      "mode": "Online",
+      "city": "Bengaluru / Pune",
+      "rating": 4.9,
+      "reviewCount": 289,
+      "sessionsCompleted": 1420,
+      "counsellingApproach": "Industry-backwards planning: mapping 5-year industry shifts, AI automation resilience, and tangible skill ROI before selecting degrees or career pivots.",
+      "introduction": "16 years across enterprise technology leadership and career mentorship. Specializes in guiding Class 11–12 students on Tier-1 engineering/commerce alternatives and helping working professionals transition into AI & Product roles.",
+      "verified": true,
+      "availableDays": [
+        "Wed",
+        "Fri",
+        "Sat",
+        "Sun"
+      ],
+      "availableSlots": [
+        "11:00 AM",
+        "03:00 PM",
+        "05:30 PM",
+        "07:30 PM"
+      ],
+      "sessionDurationMins": 45,
+      "bufferMins": 15
+    },
+    {
+      "id": "cns-ananya",
+      "name": "Ananya Nair",
+      "photoUrl": "/src/assets/images/counsellor_ananya_nair_1791281855158.jpg",
+      "qualification": "M.Sc. Applied Psychology (TISS Mumbai) · Certified College Admissions & Skill Specialist",
+      "experienceYears": 9,
+      "specialization": "New-Age Careers (Design, Law, Media, Digital Business), CUET/CLAT/UCEED & Portfolio Building",
+      "languages": [
+        "English",
+        "Malayalam",
+        "Hindi"
+      ],
+      "studentCategories": [
+        "Class 7-8",
+        "Class 9-10",
+        "Class 11-12",
+        "UG"
+      ],
+      "careerDomains": [
+        "Design & UI/UX",
+        "Law & Public Policy",
+        "Commerce & Digital Marketing",
+        "Liberal Arts & Economics"
+      ],
+      "feeInr": 1299,
+      "mode": "Offline & Online",
+      "city": "Mumbai / Bengaluru",
+      "rating": 4.8,
+      "reviewCount": 215,
+      "sessionsCompleted": 980,
+      "counsellingApproach": "Strength-first discovery that uncovers high-paying non-traditional and emerging careers beyond conventional exam rat-races.",
+      "introduction": "TISS alumna specializing in liberal arts, design (NID/UCEED), law (CLAT), management (IPMAT/CUET), and student skill portfolio creation.",
+      "verified": true,
+      "availableDays": [
+        "Mon",
+        "Wed",
+        "Thu",
+        "Sat",
+        "Sun"
+      ],
+      "availableSlots": [
+        "10:00 AM",
+        "02:00 PM",
+        "04:30 PM",
+        "06:30 PM"
+      ],
+      "sessionDurationMins": 45,
+      "bufferMins": 15
+    }
+  ],
+  "bookings": [
+    {
+      "id": "bk-1001",
+      "studentId": "usr-student-1",
+      "studentName": "Aarav Kulkarni",
+      "studentCohort": "Class 11-12",
+      "counsellorId": "cns-meera",
+      "counsellorName": "Dr. Meera Sharma",
+      "serviceTitle": "1-on-1 Career Roadmap & College Shortlist Session",
+      "date": "2026-10-10",
+      "slot": "04:00 PM",
+      "mode": "Online Video",
+      "feePaidInr": 1499,
+      "status": "Confirmed",
+      "meetingLink": "https://meet.bytezenit.com/career360-bk-1001",
+      "notes": "Focus on JEE Main vs IIIT-H UGEE preparation balance and Computer Science / AI specialization roadmap.",
+      "createdAt": "2026-10-03"
+    },
+    {
+      "id": "bk-1002",
+      "studentId": "usr-pro-1",
+      "studentName": "Rohan Deshmukh",
+      "studentCohort": "Working Professionals",
+      "counsellorId": "cns-rajesh",
+      "counsellorName": "Rajesh Verma",
+      "serviceTitle": "Professional Career Pivot & Salary Growth Strategy",
+      "date": "2026-10-12",
+      "slot": "05:30 PM",
+      "mode": "Online Video",
+      "feePaidInr": 1999,
+      "status": "Confirmed",
+      "meetingLink": "https://meet.bytezenit.com/career360-bk-1002",
+      "notes": "Transitioning from 4 YOE QA Automation to AI Product Management within 6 months.",
+      "createdAt": "2026-10-04"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-5001",
+      "userId": "usr-student-1",
+      "userName": "Aarav Kulkarni",
+      "productType": "Report",
+      "productId": "rep-999",
+      "productName": "Career Clarity Report (24 Pages)",
+      "amountInr": 847,
+      "gstInr": 152,
+      "discountInr": 0,
+      "totalPaidInr": 999,
+      "paymentMethod": "UPI",
+      "invoiceNumber": "BZ-C360-2026-0891",
+      "status": "Paid",
+      "createdAt": "2026-10-02"
+    },
+    {
+      "id": "ord-5002",
+      "userId": "usr-student-1",
+      "userName": "Aarav Kulkarni",
+      "productType": "Counselling",
+      "productId": "cns-meera",
+      "productName": "1-on-1 Session with Dr. Meera Sharma",
+      "amountInr": 1270,
+      "gstInr": 229,
+      "discountInr": 0,
+      "totalPaidInr": 1499,
+      "paymentMethod": "UPI",
+      "invoiceNumber": "BZ-C360-2026-0898",
+      "status": "Paid",
+      "createdAt": "2026-10-03"
+    },
+    {
+      "id": "ord-5003",
+      "userId": "usr-pro-1",
+      "userName": "Rohan Deshmukh",
+      "productType": "Report",
+      "productId": "rep-1999",
+      "productName": "Career Roadmap Report (38 Pages)",
+      "amountInr": 1694,
+      "gstInr": 305,
+      "discountInr": 0,
+      "totalPaidInr": 1999,
+      "paymentMethod": "Card",
+      "invoiceNumber": "BZ-C360-2026-0912",
+      "status": "Paid",
+      "createdAt": "2026-10-04"
+    }
+  ],
+  "leads": [
+    {
+      "id": "ld-201",
+      "name": "Priya Nair (Parent of Class 10 Student)",
+      "mobile": "+91 98450 77812",
+      "email": "priya.nair@outlook.com",
+      "userType": "Parent",
+      "studentClassOrRole": "Class 9-10",
+      "city": "Kochi",
+      "serviceInterested": "Stream Selection & Career Clarity Report",
+      "preferredContact": "WhatsApp",
+      "leadSource": "Organic Search – Career After 10th",
+      "leadOwner": "Aditi Rao (Senior Counsellor Advisor)",
+      "leadScore": 91,
+      "stage": "Assessment Completed",
+      "notes": "Child scored 91% in Class 9; confused between PCM+CS and Commerce+Math. Recommended ₹999 Clarity Report + Dr. Meera session.",
+      "followUpDate": "2026-10-07",
+      "createdAt": "2026-10-04"
+    },
+    {
+      "id": "ld-202",
+      "name": "Devansh Gupta",
+      "mobile": "+91 99104 55219",
+      "email": "devansh.g@gmail.com",
+      "userType": "Student",
+      "studentClassOrRole": "UG",
+      "city": "Indore",
+      "serviceInterested": "Skill-Gap Analysis & Applied AI Course",
+      "preferredContact": "Phone Call",
+      "leadSource": "Homepage Free Assessment CTA",
+      "leadOwner": "Saurabh Tiwari",
+      "leadScore": 84,
+      "stage": "Course Interested",
+      "notes": "3rd year B.Tech student looking for Applied AI & English Speaking bundle before campus placements.",
+      "followUpDate": "2026-10-08",
+      "createdAt": "2026-10-05"
+    },
+    {
+      "id": "ld-203",
+      "name": "St. Xavier’s High School (Vice Principal)",
+      "mobile": "+91 98231 60900",
+      "email": "vp@stxavierspune.edu.in",
+      "userType": "School/College",
+      "studentClassOrRole": "Class 8 to 12 Batch (420 Students)",
+      "city": "Pune",
+      "serviceInterested": "Annual School Career Guidance Program & Batch Assessment",
+      "preferredContact": "Email",
+      "leadSource": "For Schools B2B Portal",
+      "leadOwner": "K. Choudhary",
+      "leadScore": 96,
+      "stage": "Contacted",
+      "notes": "Principal meeting scheduled for Friday to demonstrate School Career Dashboard and Class 9-12 psychometric drive.",
+      "followUpDate": "2026-10-09",
+      "createdAt": "2026-10-05"
+    }
+  ],
+  "institutions": [
+    {
+      "id": "inst-1",
+      "institutionName": "Delhi Public School, Navi Mumbai",
+      "type": "K-12 School",
+      "city": "Navi Mumbai",
+      "principalOrDean": "Dr. S. Radhakrishnan",
+      "studentsEnrolled": 640,
+      "assessmentsCompleted": 582,
+      "counsellingSessionsHeld": 410,
+      "activeProgram": "Annual Career360 NEP-2020 Guidance Cell (Class 8–12)",
+      "workflowStage": "Annual Tie-up",
+      "annualContractValueInr": 480000
+    },
+    {
+      "id": "inst-2",
+      "institutionName": "MIT Junior College & High School",
+      "type": "K-12 School",
+      "city": "Pune",
+      "principalOrDean": "Prof. Vandana Deshpande",
+      "studentsEnrolled": 450,
+      "assessmentsCompleted": 390,
+      "counsellingSessionsHeld": 215,
+      "activeProgram": "Stream Selection & Parent Orientation Drive",
+      "workflowStage": "Counselling",
+      "annualContractValueInr": 315000
+    },
+    {
+      "id": "inst-3",
+      "institutionName": "Prestige Institute of Engineering & Management",
+      "type": "Autonomous College",
+      "city": "Indore",
+      "principalOrDean": "Dr. R.K. Sharma",
+      "studentsEnrolled": 820,
+      "assessmentsCompleted": 710,
+      "counsellingSessionsHeld": 340,
+      "activeProgram": "Employability, AI Skill-Gap & First-Job Readiness Program",
+      "workflowStage": "Skill Courses",
+      "annualContractValueInr": 620000
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1",
+      "recipientRole": "Student",
+      "channel": "WhatsApp",
+      "title": "24-Hour Counselling Reminder",
+      "message": "Reminder: Aarav Kulkarni’s 1-on-1 Career Roadmap session with Dr. Meera Sharma is scheduled for Oct 10 at 04:00 PM IST.",
+      "timestamp": "2 hours ago"
+    },
+    {
+      "id": "notif-2",
+      "recipientRole": "Parent",
+      "channel": "Email",
+      "title": "Career Clarity Report Unlocked & GST Invoice",
+      "message": "Invoice #BZ-C360-2026-0891 (₹999 incl. GST) confirmed. Aarav’s 24-page Career Clarity Report is ready for download.",
+      "timestamp": "1 day ago"
+    },
+    {
+      "id": "notif-3",
+      "recipientRole": "Sales/CRM User",
+      "channel": "In-App",
+      "title": "High-Intent B2B School Lead Captured",
+      "message": "St. Xavier’s High School (420 students, Pune) requested an Annual Career Program demo. Lead score: 96/100.",
+      "timestamp": "5 hours ago"
+    }
+  ]
+}
