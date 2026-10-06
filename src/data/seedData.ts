@@ -3788,7 +3788,8 @@ export const INITIAL_PLATFORM_DB: PlatformDatabase = {
       careerDomains: ['Engineering & STEM', 'Healthcare & Life Sciences', 'Humanities, Law & Psychology', 'Interdisciplinary NEP Pathways'],
       feeInr: 1499,
       mode: 'Offline & Online',
-      city: 'New Delhi / Online Pan-India',
+      city: 'New Delhi / Gurugram',
+      state: 'Delhi NCR',
       rating: 4.9,
       reviewCount: 342,
       sessionsCompleted: 1850,
@@ -3809,12 +3810,13 @@ export const INITIAL_PLATFORM_DB: PlatformDatabase = {
       qualification: 'MBA (IIM Kozhikode) · B.Tech (NIT Warangal) · Certified Executive & Career Strategist',
       experienceYears: 16,
       specialization: 'Engineering, AI & Data Careers, Management/MBA Admissions & Working Professional Pivots',
-      languages: ['English', 'Hindi', 'Marathi'],
+      languages: ['English', 'Hindi', 'Kannada', 'Marathi'],
       studentCategories: ['Class 11-12', 'UG', 'PG', 'Working Professionals'],
       careerDomains: ['Technology & AI', 'Management & Product', 'Finance & FinTech', 'Entrepreneurship'],
       feeInr: 1999,
       mode: 'Online',
-      city: 'Bengaluru / Pune',
+      city: 'Bengaluru',
+      state: 'Karnataka',
       rating: 4.9,
       reviewCount: 289,
       sessionsCompleted: 1420,
@@ -3835,12 +3837,13 @@ export const INITIAL_PLATFORM_DB: PlatformDatabase = {
       qualification: 'M.Sc. Applied Psychology (TISS Mumbai) · Certified College Admissions & Skill Specialist',
       experienceYears: 9,
       specialization: 'New-Age Careers (Design, Law, Media, Digital Business), CUET/CLAT/UCEED & Portfolio Building',
-      languages: ['English', 'Malayalam', 'Hindi'],
+      languages: ['English', 'Marathi', 'Malayalam', 'Hindi'],
       studentCategories: ['Class 7-8', 'Class 9-10', 'Class 11-12', 'UG'],
       careerDomains: ['Design & UI/UX', 'Law & Public Policy', 'Commerce & Digital Marketing', 'Liberal Arts & Economics'],
       feeInr: 1299,
       mode: 'Offline & Online',
-      city: 'Mumbai / Bengaluru',
+      city: 'Mumbai / Pune',
+      state: 'Maharashtra',
       rating: 4.8,
       reviewCount: 215,
       sessionsCompleted: 980,
@@ -3851,6 +3854,60 @@ export const INITIAL_PLATFORM_DB: PlatformDatabase = {
       verified: true,
       availableDays: ['Mon', 'Wed', 'Thu', 'Sat', 'Sun'],
       availableSlots: ['10:00 AM', '02:00 PM', '04:30 PM', '06:30 PM'],
+      sessionDurationMins: 45,
+      bufferMins: 15,
+    },
+    {
+      id: 'cns-karthik',
+      name: 'Dr. Karthik Subramanian',
+      photoUrl: COUNSELLOR_RAJESH_IMG,
+      qualification: 'Ph.D. Career Education (IIT Madras) · Senior STEM & Global Admissions Advisor',
+      experienceYears: 12,
+      specialization: 'IIT/NIT/IIIT Admissions, Semiconductor & AI Engineering, UG/PG Research & First-Job Readiness',
+      languages: ['English', 'Tamil', 'Telugu'],
+      studentCategories: ['Class 9-10', 'Class 11-12', 'UG', 'PG'],
+      careerDomains: ['Engineering & STEM', 'Technology & AI', 'Healthcare & Life Sciences'],
+      feeInr: 1499,
+      mode: 'Offline & Online',
+      city: 'Chennai / Hyderabad',
+      state: 'Tamil Nadu',
+      rating: 4.9,
+      reviewCount: 194,
+      sessionsCompleted: 1120,
+      counsellingApproach:
+        'Data-backed entrance exam matrix and college ROI mapping for South & Pan-India students.',
+      introduction:
+        'Guides high-school and undergraduate students across Tamil Nadu, Telangana, and All-India on JEE, BITSAT, VITEEE, and global MS pathways.',
+      verified: true,
+      availableDays: ['Tue', 'Thu', 'Sat', 'Sun'],
+      availableSlots: ['10:00 AM', '01:00 PM', '05:00 PM', '07:00 PM'],
+      sessionDurationMins: 45,
+      bufferMins: 15,
+    },
+    {
+      id: 'cns-priyanka',
+      name: 'Priyanka Deshpande',
+      photoUrl: COUNSELLOR_MEERA_IMG,
+      qualification: 'CA · MBA Finance · Certified Commerce, FinTech & First-Job Career Coach',
+      experienceYears: 11,
+      specialization: 'Commerce, CA/CFA/IPMAT, Stock Market & Financial Literacy, First-Job Placement & UP/Gujarat/Rajasthan Desks',
+      languages: ['English', 'Hindi', 'Gujarati'],
+      studentCategories: ['Class 9-10', 'Class 11-12', 'UG', 'PG', 'Working Professionals'],
+      careerDomains: ['Finance & FinTech', 'Commerce & Digital Marketing', 'Management & Product', 'Entrepreneurship'],
+      feeInr: 1399,
+      mode: 'Offline & Online',
+      city: 'Ahmedabad / Jaipur / Lucknow',
+      state: 'Gujarat',
+      rating: 4.8,
+      reviewCount: 178,
+      sessionsCompleted: 890,
+      counsellingApproach:
+        'Commercial clarity and ROI-focused roadmap from Class 9 stream selection to first corporate job or family business scaling.',
+      introduction:
+        'Chartered Accountant and career mentor helping students and fresh graduates build high-growth careers in finance, management, and entrepreneurship.',
+      verified: true,
+      availableDays: ['Mon', 'Wed', 'Fri', 'Sat'],
+      availableSlots: ['11:00 AM', '02:30 PM', '05:00 PM', '06:30 PM'],
       sessionDurationMins: 45,
       bufferMins: 15,
     },
@@ -4115,5 +4172,125 @@ export const SEO_LANDING_PAGES: {
     slug: '/school-career-guidance-program',
     title: 'NEP 2020 Institutional Career Guidance Cell & Batch Assessment Drives',
     audience: 'K-12 School Principals & College Deans',
+  },
+];
+
+export const INDIAN_STATES_LIST: string[] = [
+  'All India Online',
+  'Maharashtra',
+  'Delhi NCR',
+  'Karnataka',
+  'Tamil Nadu',
+  'Telangana',
+  'Gujarat',
+  'Uttar Pradesh',
+  'Rajasthan',
+  'West Bengal',
+  'Madhya Pradesh',
+  'Kerala',
+  'Punjab',
+  'Bihar',
+  'Haryana',
+];
+
+export interface DirectBookingCohortTrack {
+  id: string;
+  label: string;
+  priceInr: number;
+  duration: string;
+  mode: 'Online Video';
+  serviceTitle: string;
+  focusSummary: string;
+  deliverables: string[];
+}
+
+export const DIRECT_BOOKING_COHORTS: DirectBookingCohortTrack[] = [
+  {
+    id: 'Class 5-6',
+    label: 'Class 5–6',
+    priceInr: 999,
+    duration: '1 Hour Session Online',
+    mode: 'Online Video',
+    serviceTitle: 'Direct 1-Hr Online Counselling: Class 5–6 Early Curiosity & Learning Discovery',
+    focusSummary:
+      'Foundational multiple-intelligence discovery, learning style audit, and communication confidence building with parent guidance.',
+    deliverables: ['1-Hour Live Online Session', 'Learning Style & Curiosity Summary', 'Parent Action Plan'],
+  },
+  {
+    id: 'Class 7-8',
+    label: 'Class 7–8',
+    priceInr: 999,
+    duration: '1 Hour Session Online',
+    mode: 'Online Video',
+    serviceTitle: 'Direct 1-Hr Online Counselling: Class 7–8 Pre-Stream Aptitude & Skill Foundation',
+    focusSummary:
+      'Subject affinity mapping across STEM, Commerce, Design & Humanities before entering high school.',
+    deliverables: ['1-Hour Live Online Session', 'Subject Affinity & Aptitude Review', 'Skill Building Roadmap'],
+  },
+  {
+    id: 'Class 9-10',
+    label: 'Class 9–10',
+    priceInr: 999,
+    duration: '1 Hour Session Online',
+    mode: 'Online Video',
+    serviceTitle: 'Direct 1-Hr Online Counselling: Class 9–10 Scientific Stream & Subject Selection',
+    focusSummary:
+      'Data-backed Science (PCM/PCB) vs Commerce vs Humanities/Arts decision and elective subject lock.',
+    deliverables: ['1-Hour Live Online Session', 'Primary + Backup Stream Matrix', '2-Year Academic Plan'],
+  },
+  {
+    id: 'Class 11-12',
+    label: 'Class 11–12',
+    priceInr: 999,
+    duration: '1 Hour Session Online',
+    mode: 'Online Video',
+    serviceTitle: 'Direct 1-Hr Online Counselling: Class 11–12 Degree, Entrance Exam & College Roadmap',
+    focusSummary:
+      'Degree shortlisting, national/state entrance exam strategy (JEE/NEET/CUET/CLAT/IPMAT/UCEED), and college ROI check.',
+    deliverables: ['1-Hour Live Online Session', 'Entrance Exam & Backup Strategy', 'Target College Shortlist'],
+  },
+  {
+    id: 'UG Student',
+    label: 'UG Student',
+    priceInr: 999,
+    duration: '1 Hour Session Online',
+    mode: 'Online Video',
+    serviceTitle: 'Direct 1-Hr Online Counselling: UG Student Specialization, Internship & PG vs Placement',
+    focusSummary:
+      'Skill-gap audit, high-impact internship strategy, portfolio building, and Campus Placement vs MBA/MS/M.Tech decision.',
+    deliverables: ['1-Hour Live Online Session', 'Placement vs Higher-Study ROI', '90-Day Skill Portfolio Plan'],
+  },
+  {
+    id: 'PG Student',
+    label: 'PG Student',
+    priceInr: 999,
+    duration: '1 Hour Session Online',
+    mode: 'Online Video',
+    serviceTitle: 'Direct 1-Hr Online Counselling: PG Student Executive Placement & Domain Specialization',
+    focusSummary:
+      'Advanced domain positioning, research/thesis to industry translation, and high-CTC corporate or consulting entry.',
+    deliverables: ['1-Hour Live Online Session', 'Domain Positioning Blueprint', 'Executive Interview Strategy'],
+  },
+  {
+    id: 'Working Professional',
+    label: 'Working Professional',
+    priceInr: 999,
+    duration: '1 Hour Session Online',
+    mode: 'Online Video',
+    serviceTitle: 'Direct 1-Hr Online Counselling: Working Professional Career Switch & Salary Acceleration',
+    focusSummary:
+      'Domain pivot into AI/Product/Management, mid-career stagnation recovery, salary hike strategy, or side-venture validation.',
+    deliverables: ['1-Hour Live Online Session', '180-Day Career Transition Map', 'Job vs Business Evaluation'],
+  },
+  {
+    id: 'First Job',
+    label: 'First Job',
+    priceInr: 999,
+    duration: '1 Hour Session Online',
+    mode: 'Online Video',
+    serviceTitle: 'Direct 1-Hr Online Counselling: First Job Readiness, ATS Resume & Offer Selection',
+    focusSummary:
+      'Dedicated session for freshers and final-year students to crack their first job, structure ATS resumes, and compare job offers.',
+    deliverables: ['1-Hour Live Online Session', 'ATS Resume & LinkedIn Audit', 'First 90-Day Job Success Plan'],
   },
 ];

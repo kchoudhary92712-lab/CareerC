@@ -1,12 +1,20 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
+  Calendar,
   CheckCircle2,
+  Clock,
   Copy,
   Database,
+  MapPin,
   RefreshCw,
   ShieldCheck,
   Star,
+  Video,
 } from 'lucide-react';
+import {
+  DIRECT_BOOKING_COHORTS,
+  INDIAN_STATES_LIST,
+} from '../data/seedData';
 import {
   supabase,
   SUPABASE_PROJECT_ID,
@@ -34,12 +42,31 @@ interface CounsellorsViewProps {
   bookings: BookingRecord[];
   currentUser: UserAccount;
   supabaseStatus: SupabaseSyncStatus | null;
+  initialBookingSection?: 'direct' | 'marketplace';
+  initialDirectCohort?: string;
+  initialStateFilter?: string;
+  customerBasicInfo?: {
+    name: string;
+    mobile: string;
+    email: string;
+    state: string;
+    category: string;
+  } | null;
+  onSaveCustomerBasicInfo?: (info: {
+    name: string;
+    mobile: string;
+    email: string;
+    state: string;
+    category: string;
+  }) => void;
   onSyncSupabase: () => Promise<void>;
   onCreateBooking: (payload: {
     studentId: string;
     studentName: string;
     studentCohort: string;
     counsellorId: string;
+    counsellorName?: string;
+    feePaidInr?: number;
     serviceTitle: string;
     date: string;
     slot: string;
@@ -53,9 +80,19 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
   bookings,
   currentUser,
   supabaseStatus,
+  initialBookingSection = 'direct',
+  initialDirectCohort = 'Class 9-10',
+  initialStateFilter = 'ALL',
+  customerBasicInfo,
+  onSaveCustomerBasicInfo,
   onSyncSupabase,
   onCreateBooking,
 }) => {
+  const [bookingSectionTab, setBookingSectionTab] = useState<'direct' | 'marketplace'>(
+    initialBookingSection
+  );
+  const [selectedDirectCohortId, setSelectedDirectCohortId] = useState<string>(initialDirectCohort);
+  const [stateFilter, setStateFilter] = useState<string>(initialStateFilter);
   const [cohortFilter, setCohortFilter] = useState<string>('ALL');
   const [languageFilter, setLanguageFilter] = useState<string>('ALL');
   const [modeFilter, setModeFilter] = useState<string>('ALL');
@@ -68,9 +105,57 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
   const [onboardExp, setOnboardExp] = useState<number>(8);
   const [onboardFee, setOnboardFee] = useState<number>(1499);
   const [onboardCity, setOnboardCity] = useState<string>('Mumbai');
+  const [onboardState, setOnboardState] = useState<string>('Maharashtra');
   const [onboardSuccess, setOnboardSuccess] = useState<string>('');
   const [activeCounsellor, setActiveCounsellor] = useState<CounsellorRecord | null>(null);
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
+
+  // Direct Rs 999 1-Hour Online Booking state (No specific counsellor recommended)
+  const [directCustomerName, setDirectCustomerName] = useState<string>(
+    customerBasicInfo?.name || currentUser.name
+  );
+  const [directCustomerMobile, setDirectCustomerMobile] = useState<string>(
+    customerBasicInfo?.mobile || currentUser.mobile || '+91 98230 11223'
+  );
+  const [directCustomerEmail, setDirectCustomerEmail] = useState<string>(
+    customerBasicInfo?.email || currentUser.email || 'student@bytezenit.com'
+  );
+  const [directCustomerState, setDirectCustomerState] = useState<string>(
+    customerBasicInfo?.state || 'Maharashtra'
+  );
+  const [directDate, setDirectDate] = useState<string>('2026-10-15');
+  const [directSlot, setDirectSlot] = useState<string>('04:00 PM - 05:00 PM (1 Hour Online)');
+  const [directNotes, setDirectNotes] = useState<string>(
+    'Direct 1-Hour Online Career Counselling Session (Rs 999).'
+  );
+  const [isDirectSubmitting, setIsDirectSubmitting] = useState<boolean>(false);
+  const [confirmedDirectBooking, setConfirmedDirectBooking] = useState<BookingRecord | null>(null);
+
+  useEffect(() => {
+    setBookingSectionTab(initialBookingSection);
+  }, [initialBookingSection]);
+
+  useEffect(() => {
+    if (initialDirectCohort) {
+      setSelectedDirectCohortId(initialDirectCohort);
+    }
+  }, [initialDirectCohort]);
+
+  useEffect(() => {
+    if (initialStateFilter) {
+      setStateFilter(initialStateFilter);
+    }
+  }, [initialStateFilter]);
+
+  useEffect(() => {
+    if (customerBasicInfo) {
+      setDirectCustomerName(customerBasicInfo.name);
+      setDirectCustomerMobile(customerBasicInfo.mobile);
+      setDirectCustomerEmail(customerBasicInfo.email);
+      setDirectCustomerState(customerBasicInfo.state);
+      setCandidateName(customerBasicInfo.name);
+    }
+  }, [customerBasicInfo]);
 
   // Booking modal form state
   const [serviceTitle, setServiceTitle] = useState<string>(
@@ -100,15 +185,68 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
 
   const filteredCounsellors = useMemo(() => {
     return allCounsellors.filter((c) => {
+      const matchState =
+        stateFilter === 'ALL' ||
+        stateFilter === 'All India Online' ||
+        (c.state && c.state.toLowerCase() === stateFilter.toLowerCase()) ||
+        c.city.toLowerCase().includes(stateFilter.toLowerCase()) ||
+        c.specialization.toLowerCase().includes(stateFilter.toLowerCase());
       const matchCohort =
         cohortFilter === 'ALL' || c.studentCategories.includes(cohortFilter as CohortStage);
       const matchLang =
         languageFilter === 'ALL' ||
         c.languages.some((l) => l.toLowerCase() === languageFilter.toLowerCase());
       const matchMode = modeFilter === 'ALL' || c.mode === modeFilter;
-      return matchCohort && matchLang && matchMode;
+      return matchState && matchCohort && matchLang && matchMode;
     });
-  }, [allCounsellors, cohortFilter, languageFilter, modeFilter]);
+  }, [allCounsellors, stateFilter, cohortFilter, languageFilter, modeFilter]);
+
+  const activeDirectTrack = useMemo(() => {
+    return (
+      DIRECT_BOOKING_COHORTS.find((t) => t.id === selectedDirectCohortId) ||
+      DIRECT_BOOKING_COHORTS[2]
+    );
+  }, [selectedDirectCohortId]);
+
+  const handleConfirmDirectBooking = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!directCustomerName.trim() || !directCustomerMobile.trim()) return;
+    setIsDirectSubmitting(true);
+    try {
+      if (onSaveCustomerBasicInfo) {
+        onSaveCustomerBasicInfo({
+          name: directCustomerName.trim(),
+          mobile: directCustomerMobile.trim(),
+          email: directCustomerEmail.trim(),
+          state: directCustomerState,
+          category: activeDirectTrack.label,
+        });
+      }
+      const result = await onCreateBooking({
+        studentId: currentUser.id,
+        studentName: `${directCustomerName.trim()} (${directCustomerState})`,
+        studentCohort: activeDirectTrack.label,
+        counsellorId: 'direct-desk-999',
+        counsellorName: 'Direct Counselling Desk (1-Hr Online · Auto-Assigned)',
+        feePaidInr: 999,
+        serviceTitle: `${activeDirectTrack.serviceTitle} (₹999 · 1 Hr Online)`,
+        date: directDate,
+        slot: directSlot,
+        mode: 'Online Video',
+        notes: `Mobile: ${directCustomerMobile} | Email: ${directCustomerEmail} | State: ${directCustomerState} | ${directNotes}`,
+      });
+      if (result) {
+        await supabase
+          .from('bookings')
+          .upsert(toSupabaseBookingRow(result), { onConflict: 'id' })
+          .then(() => undefined, () => undefined);
+        setConfirmedDirectBooking(result);
+        await onSyncSupabase();
+      }
+    } finally {
+      setIsDirectSubmitting(false);
+    }
+  };
 
   const handleOnboardCounsellor = (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,6 +264,7 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
       feeInr: onboardFee,
       mode: 'Offline & Online',
       city: onboardCity.trim() || 'Pan-India Online',
+      state: onboardState,
       rating: 4.9,
       reviewCount: 12,
       sessionsCompleted: 45,
@@ -207,21 +346,424 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
 
   return (
     <div className="py-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Header & Filter Bar */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-slate-200">
+      {/* Top Booking Counselling Mode Switcher */}
+      <div className="mb-8 p-2 rounded-2xl bg-slate-100 border border-slate-200 flex flex-col sm:flex-row gap-2">
+        <button
+          type="button"
+          onClick={() => setBookingSectionTab('direct')}
+          className={`flex-1 py-3.5 px-5 rounded-xl text-left transition-all cursor-pointer ${
+            bookingSectionTab === 'direct'
+              ? 'bg-[#0D3B49] text-white shadow-sm'
+              : 'bg-white text-slate-800 hover:bg-slate-50 border border-slate-200'
+          }`}
+        >
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-300">
+              Direct 1-Hour Online Booking · Flat ₹999
+            </span>
+            <span className="px-2.5 py-0.5 rounded bg-[#0F766E] text-white font-mono text-xs font-bold">
+              ₹999 / 1 Hr Online
+            </span>
+          </div>
+          <p className="text-sm sm:text-base font-bold mt-1">
+            Direct Counselling Booking (Without Recommending Any Specific Counsellor)
+          </p>
+          <p
+            className={`text-xs mt-0.5 ${
+              bookingSectionTab === 'direct' ? 'text-slate-300' : 'text-slate-500'
+            }`}
+          >
+            Class 5–6 · Class 7–8 · Class 9–10 · Class 11–12 · UG Student · PG Student · Working Professional · First Job
+          </p>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setBookingSectionTab('marketplace')}
+          className={`flex-1 py-3.5 px-5 rounded-xl text-left transition-all cursor-pointer ${
+            bookingSectionTab === 'marketplace'
+              ? 'bg-[#0D3B49] text-white shadow-sm'
+              : 'bg-white text-slate-800 hover:bg-slate-50 border border-slate-200'
+          }`}
+        >
+          <div className="flex items-center justify-between gap-2">
+            <span
+              className={`text-xs font-mono font-bold uppercase tracking-wider ${
+                bookingSectionTab === 'marketplace' ? 'text-teal-300' : 'text-[#0F766E]'
+              }`}
+            >
+              State-Wise Counsellor Directory
+            </span>
+            <span className="px-2.5 py-0.5 rounded bg-slate-200 text-slate-800 font-mono text-xs font-bold">
+              {allCounsellors.length} Verified Advisors
+            </span>
+          </div>
+          <p className="text-sm sm:text-base font-bold mt-1">
+            Search Counsellor State-Wise & Book Specific Specialist
+          </p>
+          <p
+            className={`text-xs mt-0.5 ${
+              bookingSectionTab === 'marketplace' ? 'text-slate-300' : 'text-slate-500'
+            }`}
+          >
+            Filter counsellors by Indian State, Student Stage, Language & Session Mode
+          </p>
+        </button>
+      </div>
+
+      {/* ===================================================================== */}
+      {/* SECTION A: DIRECT BOOKING WITHOUT RECOMMENDING ANY COUNSELLOR (₹999)  */}
+      {/* ===================================================================== */}
+      {bookingSectionTab === 'direct' && (
+        <div className="mb-12 bg-white rounded-2xl border-2 border-[#0F766E] p-6 sm:p-8 shadow-xs">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#0F766E] mb-1">
+                <Video className="w-4 h-4" />
+                <span>
+                  DIRECT 1-HOUR ONLINE SESSION · NO SPECIFIC COUNSELLOR RECOMMENDATION REQUIRED
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
+                Direct Career Counselling Booking — Flat ₹999 (1 Hour Online)
+              </h2>
+              <p className="text-sm text-slate-600 mt-1">
+                Select your category below and book your 1-hour live online session directly at ₹999 without needing to browse or select a specific counsellor.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[#F0FDFA] border border-teal-200 text-right shrink-0">
+              <span className="block text-xs font-semibold text-slate-600">
+                Standard Direct Booking Cost
+              </span>
+              <span className="text-3xl font-bold font-mono tabular-nums text-[#0F766E]">
+                ₹999
+              </span>
+              <span className="block text-xs font-mono text-slate-700 mt-0.5">
+                1 Hour Session · 100% Online Video
+              </span>
+            </div>
+          </div>
+
+          {/* 8 Category Tabs (Class 5-6 to First Job) */}
+          <div className="mt-6">
+            <label className="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">
+              Step 1 · Select Your Category (All 8 Direct Booking Tracks @ ₹999 / 1 Hour Online)
+            </label>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {DIRECT_BOOKING_COHORTS.map((track) => {
+                const isSelected = track.id === activeDirectTrack.id;
+                return (
+                  <button
+                    key={track.id}
+                    type="button"
+                    onClick={() => {
+                      setSelectedDirectCohortId(track.id);
+                      setConfirmedDirectBooking(null);
+                    }}
+                    className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#0D3B49] text-white border-[#0D3B49] ring-2 ring-[#0F766E]'
+                        : 'bg-[#F8FAFC] text-slate-900 border-slate-200 hover:bg-slate-100'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-1 mb-1">
+                      <span className="text-sm font-bold">{track.label}</span>
+                      <span
+                        className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
+                          isSelected
+                            ? 'bg-[#0F766E] text-white'
+                            : 'bg-teal-50 text-[#0F766E]'
+                        }`}
+                      >
+                        ₹{track.priceInr}
+                      </span>
+                    </div>
+                    <p
+                      className={`text-[11px] font-mono ${
+                        isSelected ? 'text-teal-200' : 'text-slate-500'
+                      }`}
+                    >
+                      {track.duration}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Active Direct Category Detail + Direct Booking Form */}
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-5 p-6 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="px-2.5 py-1 rounded bg-[#0D3B49] text-white text-xs font-semibold">
+                  Selected: {activeDirectTrack.label}
+                </span>
+                <span className="text-sm font-mono font-bold text-[#0F766E]">
+                  ₹{activeDirectTrack.priceInr} · {activeDirectTrack.duration}
+                </span>
+              </div>
+
+              <h3 className="text-lg font-bold text-slate-900">
+                {activeDirectTrack.serviceTitle}
+              </h3>
+
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {activeDirectTrack.focusSummary}
+              </p>
+
+              <div className="pt-3 border-t border-slate-200 space-y-2">
+                <p className="text-xs font-bold text-slate-900">
+                  What is Included in This ₹999 1-Hour Online Session:
+                </p>
+                {activeDirectTrack.deliverables.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+                <div className="flex items-center gap-2 text-xs text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-[#0F766E] shrink-0" />
+                  <span>Direct Booking — No Specific Counsellor Selection Needed</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              {confirmedDirectBooking ? (
+                <div className="p-6 rounded-xl bg-[#F0FDFA] border-2 border-[#0F766E] space-y-4">
+                  <div className="flex items-center gap-2 text-[#0F766E] font-bold text-sm">
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span>
+                      Direct 1-Hour Online Session Confirmed & Saved to Supabase ({SUPABASE_PROJECT_ID})
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {confirmedDirectBooking.serviceTitle}
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-lg bg-white border border-slate-200 text-xs">
+                    <div>
+                      <span className="block text-slate-500">Customer & Category</span>
+                      <span className="font-bold text-slate-900">
+                        {confirmedDirectBooking.studentName} · {confirmedDirectBooking.studentCohort}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-slate-500">Date & 1-Hour Online Slot</span>
+                      <span className="font-mono font-bold text-slate-900">
+                        {confirmedDirectBooking.date} · {confirmedDirectBooking.slot}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-slate-500">Booking Type & Cost</span>
+                      <span className="font-mono font-bold text-[#0F766E]">
+                        Direct Online Booking · ₹{confirmedDirectBooking.feePaidInr} (1 Hour)
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-slate-500">Online Video Room Link</span>
+                      <span className="font-mono text-slate-800 break-all">
+                        {confirmedDirectBooking.meetingLink}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setConfirmedDirectBooking(null)}
+                    className="px-4 py-2 rounded-lg bg-[#0D3B49] text-white text-xs font-semibold hover:bg-slate-800 cursor-pointer"
+                  >
+                    Book Another Direct Session
+                  </button>
+                </div>
+              ) : (
+                <form
+                  onSubmit={handleConfirmDirectBooking}
+                  className="p-6 rounded-xl bg-white border border-slate-200 space-y-4"
+                >
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+                    <div>
+                      <p className="text-xs font-semibold text-[#0F766E]">
+                        Step 2 · New Customer Basic Details & 1-Hour Slot Selection
+                      </p>
+                      <h3 className="text-base font-bold text-slate-900">
+                        Book {activeDirectTrack.label} Direct Online Session (₹999 · 1 Hour)
+                      </h3>
+                    </div>
+                    <span className="text-xs font-mono font-bold text-[#0F766E] bg-[#F0FDFA] px-2.5 py-1 rounded border border-teal-200">
+                      Online Video · 60 Mins
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        Full Name (Student / Customer) *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Enter full name"
+                        value={directCustomerName}
+                        onChange={(e) => setDirectCustomerName(e.target.value)}
+                        className="w-full px-3.5 py-2 text-sm bg-[#F8FAFC] border border-slate-300 rounded-lg"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        Mobile Number (WhatsApp / OTP) *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+91 98230 00000"
+                        value={directCustomerMobile}
+                        onChange={(e) => setDirectCustomerMobile(e.target.value)}
+                        className="w-full px-3.5 py-2 text-sm font-mono bg-[#F8FAFC] border border-slate-300 rounded-lg"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        Email Address (Basic Detail)
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="you@example.com"
+                        value={directCustomerEmail}
+                        onChange={(e) => setDirectCustomerEmail(e.target.value)}
+                        className="w-full px-3.5 py-2 text-sm bg-[#F8FAFC] border border-slate-300 rounded-lg"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        Your State
+                      </label>
+                      <select
+                        value={directCustomerState}
+                        onChange={(e) => setDirectCustomerState(e.target.value)}
+                        className="w-full px-3.5 py-2 text-sm bg-[#F8FAFC] border border-slate-300 rounded-lg"
+                      >
+                        {INDIAN_STATES_LIST.map((st) => (
+                          <option key={st} value={st}>
+                            {st}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        Preferred Date
+                      </label>
+                      <input
+                        type="date"
+                        required
+                        value={directDate}
+                        onChange={(e) => setDirectDate(e.target.value)}
+                        className="w-full px-3.5 py-2 text-sm font-mono bg-[#F8FAFC] border border-slate-300 rounded-lg"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                        1-Hour Online Time Slot (IST)
+                      </label>
+                      <select
+                        value={directSlot}
+                        onChange={(e) => setDirectSlot(e.target.value)}
+                        className="w-full px-3.5 py-2 text-sm font-mono bg-[#F8FAFC] border border-slate-300 rounded-lg"
+                      >
+                        <option value="10:00 AM - 11:00 AM (1 Hour Online)">
+                          10:00 AM - 11:00 AM (1 Hour Online)
+                        </option>
+                        <option value="12:00 PM - 01:00 PM (1 Hour Online)">
+                          12:00 PM - 01:00 PM (1 Hour Online)
+                        </option>
+                        <option value="02:30 PM - 03:30 PM (1 Hour Online)">
+                          02:30 PM - 03:30 PM (1 Hour Online)
+                        </option>
+                        <option value="04:00 PM - 05:00 PM (1 Hour Online)">
+                          04:00 PM - 05:00 PM (1 Hour Online)
+                        </option>
+                        <option value="06:00 PM - 07:00 PM (1 Hour Online)">
+                          06:00 PM - 07:00 PM (1 Hour Online)
+                        </option>
+                        <option value="07:30 PM - 08:30 PM (1 Hour Online)">
+                          07:30 PM - 08:30 PM (1 Hour Online)
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Key Questions / Career Goals for Your 1-Hour Session
+                    </label>
+                    <input
+                      type="text"
+                      value={directNotes}
+                      onChange={(e) => setDirectNotes(e.target.value)}
+                      className="w-full px-3.5 py-2 text-sm bg-[#F8FAFC] border border-slate-300 rounded-lg"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isDirectSubmitting}
+                    className="w-full py-3.5 px-6 rounded-xl bg-[#0F766E] text-white text-sm font-bold hover:bg-[#115E59] transition-colors cursor-pointer"
+                  >
+                    {isDirectSubmitting
+                      ? 'Confirming & Saving ₹999 Direct Booking to Supabase...'
+                      : `Confirm Direct 1-Hour Online Booking for ${activeDirectTrack.label} — ₹999`}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ===================================================================== */}
+      {/* SECTION B: STATE-WISE COUNSELLOR SEARCH & MARKETPLACE                 */}
+      {/* ===================================================================== */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
           <p className="text-xs font-medium text-[#0F766E] mb-1">
-            Phase 6 & 8 · Verified Counsellor Marketplace & Supabase Appointment Engine
+            State-Wise Verified Counsellor Directory & Specialist Marketplace
           </p>
           <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
-            Connect with Certified Career Psychologists & Industry Strategists
+            Search Career Counsellors State-Wise & by Student Stage
           </h1>
           <p className="text-sm text-slate-600 mt-1">
-            Every Career360 counsellor is credential-verified and trained in psychometric triangulation + Indian & global admissions.
+            Filter counsellors by Indian State, Student Category, Language, or Session Mode—or use Direct ₹999 1-Hour Online Booking above.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
+          <div>
+            <label
+              htmlFor="counsellor-state-filter"
+              className="block text-xs font-semibold text-[#0F766E] mb-1"
+            >
+              Search by State
+            </label>
+            <select
+              id="counsellor-state-filter"
+              value={stateFilter}
+              onChange={(e) => setStateFilter(e.target.value)}
+              className="px-3 py-2 text-xs font-semibold bg-[#F0FDFA] text-slate-900 border border-teal-300 rounded-lg"
+            >
+              <option value="ALL">All Indian States (Pan-India)</option>
+              {INDIAN_STATES_LIST.map((st) => (
+                <option key={st} value={st}>
+                  {st}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <div>
             <label
               htmlFor="counsellor-cohort-filter"
@@ -264,6 +806,9 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
               <option value="Hindi">Hindi</option>
               <option value="Marathi">Marathi</option>
               <option value="Malayalam">Malayalam</option>
+              <option value="Tamil">Tamil</option>
+              <option value="Kannada">Kannada</option>
+              <option value="Gujarati">Gujarati</option>
             </select>
           </div>
 
@@ -296,6 +841,29 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
             </button>
           </div>
         </div>
+      </div>
+
+      {/* State-Wise Quick Filter Bar */}
+      <div className="mt-4 flex flex-wrap items-center gap-1.5">
+        <span className="text-xs font-semibold text-slate-500 mr-1 inline-flex items-center gap-1">
+          <MapPin className="w-3.5 h-3.5 text-[#0F766E]" /> State-Wise Filter:
+        </span>
+        {['ALL', 'Maharashtra', 'Delhi NCR', 'Karnataka', 'Tamil Nadu', 'Gujarat', 'All India Online'].map(
+          (st) => (
+            <button
+              key={st}
+              type="button"
+              onClick={() => setStateFilter(st)}
+              className={`px-2.5 py-1 rounded-md text-xs font-semibold border cursor-pointer ${
+                stateFilter === st
+                  ? 'bg-[#0D3B49] text-white border-[#0D3B49]'
+                  : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+              }`}
+            >
+              {st === 'ALL' ? 'All States' : st}
+            </button>
+          )
+        )}
       </div>
 
       {/* Phase 7 · Counsellor Onboarding & Verification Workflow */}
@@ -469,6 +1037,10 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
                 <span className="font-mono tabular-nums">{c.sessionsCompleted}+ Sessions</span>
                 <span aria-hidden="true">·</span>
                 <span>{c.mode}</span>
+                <span aria-hidden="true">·</span>
+                <span className="font-semibold text-[#0F766E]">
+                  {c.state || 'All India Online'} ({c.city})
+                </span>
               </div>
 
               <div className="space-y-2.5 text-xs text-slate-700">

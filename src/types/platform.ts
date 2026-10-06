@@ -262,6 +262,7 @@ export interface CounsellorRecord {
   feeInr: number;
   mode: 'Online' | 'Offline & Online' | 'In-Person';
   city: string;
+  state?: string;
   rating: number;
   reviewCount: number;
   sessionsCompleted: number;
