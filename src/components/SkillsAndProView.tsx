@@ -155,7 +155,9 @@ export const SkillsAndProView: React.FC<SkillsAndProViewProps> = ({
       'Digital Marketing',
       'Graphic Designing',
       'Financial Literacy',
+      'Stock Market Education',
       'Entrepreneurship',
+      'Soft Skills',
     ];
     return list;
   }, []);

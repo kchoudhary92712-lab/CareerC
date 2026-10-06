@@ -58,6 +58,17 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
 }) => {
   const [cohortFilter, setCohortFilter] = useState<string>('ALL');
   const [languageFilter, setLanguageFilter] = useState<string>('ALL');
+  const [modeFilter, setModeFilter] = useState<string>('ALL');
+  const [localCounsellors, setLocalCounsellors] = useState<CounsellorRecord[]>([]);
+  const [localBookingOverrides, setLocalBookingOverrides] = useState<Record<string, BookingRecord['status']>>({});
+  const [showOnboardingForm, setShowOnboardingForm] = useState<boolean>(false);
+  const [onboardName, setOnboardName] = useState<string>('');
+  const [onboardQual, setOnboardQual] = useState<string>('');
+  const [onboardSpec, setOnboardSpec] = useState<string>('');
+  const [onboardExp, setOnboardExp] = useState<number>(8);
+  const [onboardFee, setOnboardFee] = useState<number>(1499);
+  const [onboardCity, setOnboardCity] = useState<string>('Mumbai');
+  const [onboardSuccess, setOnboardSuccess] = useState<string>('');
   const [activeCounsellor, setActiveCounsellor] = useState<CounsellorRecord | null>(null);
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
 
@@ -83,16 +94,65 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
   const [copiedSql, setCopiedSql] = useState<boolean>(false);
   const [isSyncingSb, setIsSyncingSb] = useState<boolean>(false);
 
+  const allCounsellors = useMemo(() => {
+    return [...localCounsellors, ...counsellors];
+  }, [localCounsellors, counsellors]);
+
   const filteredCounsellors = useMemo(() => {
-    return counsellors.filter((c) => {
+    return allCounsellors.filter((c) => {
       const matchCohort =
         cohortFilter === 'ALL' || c.studentCategories.includes(cohortFilter as CohortStage);
       const matchLang =
         languageFilter === 'ALL' ||
         c.languages.some((l) => l.toLowerCase() === languageFilter.toLowerCase());
-      return matchCohort && matchLang;
+      const matchMode = modeFilter === 'ALL' || c.mode === modeFilter;
+      return matchCohort && matchLang && matchMode;
     });
-  }, [counsellors, cohortFilter, languageFilter]);
+  }, [allCounsellors, cohortFilter, languageFilter, modeFilter]);
+
+  const handleOnboardCounsellor = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!onboardName.trim() || !onboardQual.trim()) return;
+    const newC: CounsellorRecord = {
+      id: `cns-${Date.now()}`,
+      name: onboardName.trim(),
+      photoUrl: counsellors[0]?.photoUrl || '',
+      qualification: onboardQual.trim(),
+      experienceYears: onboardExp,
+      specialization: onboardSpec.trim() || 'Psychometric Career Guidance & Stream/College Roadmap',
+      languages: ['English', 'Hindi'],
+      studentCategories: ['Class 9-10', 'Class 11-12', 'UG', 'Working Professionals'],
+      careerDomains: ['Technology & AI', 'Finance & Commerce', 'Interdisciplinary NEP'],
+      feeInr: onboardFee,
+      mode: 'Offline & Online',
+      city: onboardCity.trim() || 'Pan-India Online',
+      rating: 4.9,
+      reviewCount: 12,
+      sessionsCompleted: 45,
+      counsellingApproach: 'Psychometric triangulation + realistic 5-year education & skill ROI planning.',
+      introduction: 'Verified Career360 Advisor onboarded through Phase 7 Credential & Interview Verification.',
+      verified: true,
+      availableDays: ['Mon', 'Wed', 'Fri', 'Sat'],
+      availableSlots: ['11:00 AM', '04:00 PM', '06:30 PM'],
+      sessionDurationMins: 45,
+      bufferMins: 15,
+    };
+    setLocalCounsellors((prev) => [newC, ...prev]);
+    setOnboardName('');
+    setOnboardQual('');
+    setOnboardSpec('');
+    setOnboardSuccess(`Counsellor profile for ${newC.name} verified & activated in marketplace!`);
+    setTimeout(() => setOnboardSuccess(''), 4000);
+  };
+
+  const handleUpdateBookingStatus = async (bk: BookingRecord, newStatus: BookingRecord['status']) => {
+    setLocalBookingOverrides((prev) => ({ ...prev, [bk.id]: newStatus }));
+    const updated: BookingRecord = { ...bk, status: newStatus };
+    await supabase
+      .from('bookings')
+      .upsert(toSupabaseBookingRow(updated), { onConflict: 'id' })
+      .then(() => undefined, () => undefined);
+  };
 
   const handleOpenBooking = (c: CounsellorRecord) => {
     setActiveCounsellor(c);
@@ -206,8 +266,158 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
               <option value="Malayalam">Malayalam</option>
             </select>
           </div>
+
+          <div>
+            <label
+              htmlFor="counsellor-mode-filter"
+              className="block text-xs font-medium text-slate-600 mb-1"
+            >
+              Session Mode
+            </label>
+            <select
+              id="counsellor-mode-filter"
+              value={modeFilter}
+              onChange={(e) => setModeFilter(e.target.value)}
+              className="px-3 py-2 text-xs font-semibold bg-white border border-slate-300 rounded-lg"
+            >
+              <option value="ALL">All Modes</option>
+              <option value="Offline & Online">Offline & Online</option>
+              <option value="Online">Online Only</option>
+            </select>
+          </div>
+
+          <div className="pt-4 sm:pt-5">
+            <button
+              type="button"
+              onClick={() => setShowOnboardingForm((v) => !v)}
+              className="px-3.5 py-2 text-xs font-semibold text-[#0D3B49] bg-[#F0FDFA] border border-teal-200 rounded-lg hover:bg-teal-100 cursor-pointer whitespace-nowrap"
+            >
+              {showOnboardingForm ? 'Close Onboarding Form' : '+ Join as Counsellor (Phase 7)'}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Phase 7 · Counsellor Onboarding & Verification Workflow */}
+      {showOnboardingForm && (
+        <form
+          onSubmit={handleOnboardCounsellor}
+          className="mt-6 p-6 rounded-xl bg-white border-2 border-[#0D3B49] space-y-4"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-200">
+            <div>
+              <p className="text-xs font-semibold text-[#0F766E]">
+                Phase 7 · 7-Stage Counsellor Onboarding & Credential Verification
+              </p>
+              <h2 className="text-lg font-bold text-slate-900">
+                Apply to Join the Bytezen Career360 Verified Counsellor Network
+              </h2>
+              <p className="text-xs text-slate-500">
+                Workflow: Registration → Document Upload → Qualification Verification → Experience Review → Interview → Approval → Profile Activation
+              </p>
+            </div>
+          </div>
+
+          {onboardSuccess && (
+            <div className="p-3 rounded-lg bg-[#F0FDFA] border border-teal-200 text-xs font-semibold text-[#0F766E]">
+              {onboardSuccess}
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div>
+              <label htmlFor="ob-name" className="block text-xs font-semibold text-slate-700 mb-1">
+                Full Name & Title
+              </label>
+              <input
+                id="ob-name"
+                type="text"
+                required
+                placeholder="e.g. Dr. Kavita Menon"
+                value={onboardName}
+                onChange={(e) => setOnboardName(e.target.value)}
+                className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg"
+              />
+            </div>
+            <div>
+              <label htmlFor="ob-qual" className="block text-xs font-semibold text-slate-700 mb-1">
+                Qualifications & Certifications
+              </label>
+              <input
+                id="ob-qual"
+                type="text"
+                required
+                placeholder="e.g. M.Phil Psychology · Certified Career Analyst"
+                value={onboardQual}
+                onChange={(e) => setOnboardQual(e.target.value)}
+                className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg"
+              />
+            </div>
+            <div>
+              <label htmlFor="ob-spec" className="block text-xs font-semibold text-slate-700 mb-1">
+                Core Specialization
+              </label>
+              <input
+                id="ob-spec"
+                type="text"
+                placeholder="e.g. Class 9-12 Stream & Study Abroad"
+                value={onboardSpec}
+                onChange={(e) => setOnboardSpec(e.target.value)}
+                className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg"
+              />
+            </div>
+            <div>
+              <label htmlFor="ob-exp" className="block text-xs font-semibold text-slate-700 mb-1">
+                Experience (Years)
+              </label>
+              <input
+                id="ob-exp"
+                type="number"
+                min={1}
+                max={40}
+                value={onboardExp}
+                onChange={(e) => setOnboardExp(Number(e.target.value) || 5)}
+                className="w-full px-3 py-2 text-sm font-mono border border-slate-300 rounded-lg"
+              />
+            </div>
+            <div>
+              <label htmlFor="ob-fee" className="block text-xs font-semibold text-slate-700 mb-1">
+                45-Min Session Fee (INR)
+              </label>
+              <input
+                id="ob-fee"
+                type="number"
+                min={499}
+                max={9999}
+                value={onboardFee}
+                onChange={(e) => setOnboardFee(Number(e.target.value) || 1499)}
+                className="w-full px-3 py-2 text-sm font-mono border border-slate-300 rounded-lg"
+              />
+            </div>
+            <div>
+              <label htmlFor="ob-city" className="block text-xs font-semibold text-slate-700 mb-1">
+                City / Consultation Mode
+              </label>
+              <input
+                id="ob-city"
+                type="text"
+                value={onboardCity}
+                onChange={(e) => setOnboardCity(e.target.value)}
+                className="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg"
+              />
+            </div>
+          </div>
+
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="px-5 py-2.5 rounded-lg bg-[#0F766E] text-white text-xs font-semibold hover:bg-[#115E59] cursor-pointer"
+            >
+              Complete Verification & Activate Profile
+            </button>
+          </div>
+        </form>
+      )}
 
       {/* Counsellor Cards Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
@@ -621,25 +831,40 @@ export const CounsellorsView: React.FC<CounsellorsViewProps> = ({
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {bookings.map((bk) => (
-                <tr key={bk.id} className="hover:bg-slate-50">
-                  <td className="py-3 pr-4 font-mono text-slate-600">{bk.id}</td>
-                  <td className="py-3 px-4 font-medium text-slate-900">
-                    {bk.studentName} · <span className="text-slate-500">{bk.studentCohort}</span>
-                  </td>
-                  <td className="py-3 px-4 text-slate-800">{bk.counsellorName}</td>
-                  <td className="py-3 px-4 text-slate-600">{bk.serviceTitle}</td>
-                  <td className="py-3 px-4 font-mono tabular-nums text-slate-800">
-                    {bk.date} · {bk.slot}
-                  </td>
-                  <td className="py-3 px-4 font-mono tabular-nums text-right font-semibold text-slate-900">
-                    ₹{bk.feePaidInr}
-                  </td>
-                  <td className="py-3 pl-4 text-right font-semibold text-[#0F766E]">
-                    {bk.status}
-                  </td>
-                </tr>
-              ))}
+              {bookings.map((bk) => {
+                const effectiveStatus = localBookingOverrides[bk.id] || bk.status;
+                return (
+                  <tr key={bk.id} className="hover:bg-slate-50">
+                    <td className="py-3 pr-4 font-mono text-slate-600">{bk.id}</td>
+                    <td className="py-3 px-4 font-medium text-slate-900">
+                      {bk.studentName} · <span className="text-slate-500">{bk.studentCohort}</span>
+                    </td>
+                    <td className="py-3 px-4 text-slate-800">{bk.counsellorName}</td>
+                    <td className="py-3 px-4 text-slate-600">{bk.serviceTitle}</td>
+                    <td className="py-3 px-4 font-mono tabular-nums text-slate-800">
+                      {bk.date} · {bk.slot}
+                    </td>
+                    <td className="py-3 px-4 font-mono tabular-nums text-right font-semibold text-slate-900">
+                      ₹{bk.feePaidInr}
+                    </td>
+                    <td className="py-3 pl-4 text-right">
+                      <select
+                        aria-label={`Booking status for ${bk.studentName}`}
+                        value={effectiveStatus}
+                        onChange={(e) =>
+                          handleUpdateBookingStatus(bk, e.target.value as BookingRecord['status'])
+                        }
+                        className="px-2 py-1 text-xs font-semibold text-[#0F766E] bg-[#F8FAFC] border border-slate-200 rounded-md"
+                      >
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Rescheduled">Rescheduled</option>
+                        <option value="Cancelled">Cancelled</option>
+                      </select>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

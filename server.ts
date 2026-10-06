@@ -804,6 +804,38 @@ Remember: Use phrases like "Suggested fit", "Potential pathway", and "Recommende
     });
   });
 
+  // 11. Phase 20 — Mobile Application Readiness Manifest & Token REST Contract
+  app.get('/api/mobile/v1/manifest', (_req, res) => {
+    res.json({
+      platform: 'Career360 by Bytezen IT Solution',
+      version: '2.0.0-phase20',
+      authArchitecture: 'Bearer JWT + Mobile OTP + Google OAuth 2.0',
+      supabaseProjectId: SUPABASE_PROJECT_ID,
+      offlineSyncSupported: true,
+      pushNotificationChannels: ['FCM_ANDROID', 'APNS_IOS', 'WHATSAPP_CLOUD_API', 'EMAIL_SMTP'],
+      endpoints: [
+        'GET /api/bootstrap',
+        'POST /api/leads',
+        'POST /api/assessments/submit',
+        'POST /api/orders/checkout',
+        'POST /api/bookings',
+        'PATCH /api/counsellors/:id/availability',
+        'PATCH /api/crm/leads/:id',
+        'POST /api/cms/career',
+        'POST /api/ai/career-advisor',
+      ],
+      counts: {
+        careers: db.careers.length,
+        colleges: db.colleges.length,
+        courses: db.courses.length,
+        counsellors: db.counsellors.length,
+        bookings: db.bookings.length,
+        orders: db.orders.length,
+        leads: db.leads.length,
+      },
+    });
+  });
+
   if (process.env.NODE_ENV !== 'production') {
     const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({

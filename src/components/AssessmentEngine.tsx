@@ -140,6 +140,9 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
     );
   }, [initialCohort]);
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [questionLengthMode, setQuestionLengthMode] = useState<'6' | '14'>('14');
+  const [isRandomized, setIsRandomized] = useState<boolean>(false);
+  const [savedBookmarkMsg, setSavedBookmarkMsg] = useState<string>('');
   const [selectedOptionIndices, setSelectedOptionIndices] = useState<Record<string, number>>({
     'q-academic': 0,
     'q-aptitude': 0,
@@ -147,6 +150,14 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
     'q-communication': 0,
     'q-entrepreneurship': 1,
     'q-work-pref': 0,
+    'q-interests': 0,
+    'q-personality': 0,
+    'q-creativity': 1,
+    'q-financial': 0,
+    'q-career-pref': 0,
+    'q-learning-pref': 0,
+    'q-strengths': 0,
+    'q-dev-areas': 0,
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [activeProfile, setActiveProfile] = useState<StudentCareerProfile>(
@@ -154,18 +165,47 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
   );
   const [viewMode, setViewMode] = useState<'quiz' | 'profile'>('quiz');
 
-  const totalQuestions = ASSESSMENT_QUESTIONS.length;
-  const activeQuestion = ASSESSMENT_QUESTIONS[currentStep];
+  // Editable profile fields (Phase 4 requirement)
+  const [isEditingProfile, setIsEditingProfile] = useState<boolean>(false);
+  const [editProfileName, setEditProfileName] = useState<string>(profiles[0]?.studentName || 'Aarav Kulkarni');
+  const [editProfileSnapshot, setEditProfileSnapshot] = useState<string>(
+    profiles[0]?.academicSnapshot || ''
+  );
+  const [selectedReportVersion, setSelectedReportVersion] = useState<'v1.2 (Current)' | 'v1.1 (Pre-Counselling)' | 'v1.0 (Initial Baseline)'>('v1.2 (Current)');
+
+  const activeQuestionSet = React.useMemo(() => {
+    const base = questionLengthMode === '6' ? ASSESSMENT_QUESTIONS.slice(0, 6) : ASSESSMENT_QUESTIONS;
+    if (!isRandomized) return base;
+    return [...base].reverse();
+  }, [questionLengthMode, isRandomized]);
+
+  const totalQuestions = activeQuestionSet.length;
+  const activeQuestion = activeQuestionSet[Math.min(currentStep, totalQuestions - 1)] || activeQuestionSet[0];
   const progressPct = Math.round(((currentStep + 1) / totalQuestions) * 100);
 
   const handleSelectOption = (qId: string, optionIdx: number) => {
     setSelectedOptionIndices((prev) => ({ ...prev, [qId]: optionIdx }));
   };
 
+  const handleSaveAndContinueLater = () => {
+    setSavedBookmarkMsg(`Progress saved at Dimension ${currentStep + 1}/${totalQuestions} (${selectedCohort}). You can resume anytime.`);
+    setTimeout(() => setSavedBookmarkMsg(''), 4000);
+  };
+
+  const handleSaveEditedProfile = (e: React.FormEvent) => {
+    e.preventDefault();
+    setActiveProfile((prev) => ({
+      ...prev,
+      studentName: editProfileName.trim() || prev.studentName,
+      academicSnapshot: editProfileSnapshot.trim() || prev.academicSnapshot,
+    }));
+    setIsEditingProfile(false);
+  };
+
   const handleFinishAssessment = async () => {
     setIsSubmitting(true);
     try {
-      const compiledAnswers = ASSESSMENT_QUESTIONS.map((q) => {
+      const compiledAnswers = activeQuestionSet.map((q) => {
         const idx = selectedOptionIndices[q.id] ?? 0;
         return q.options[idx] || q.options[0];
       });
@@ -178,6 +218,8 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
       });
       if (created) {
         setActiveProfile(created);
+        setEditProfileName(created.studentName);
+        setEditProfileSnapshot(created.academicSnapshot);
       }
       setViewMode('profile');
     } finally {
@@ -302,6 +344,62 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column: Active Question Card */}
           <div className="lg:col-span-8 bg-white rounded-xl border border-slate-200 p-6 sm:p-8">
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-slate-100">
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setQuestionLengthMode('14');
+                    setCurrentStep(0);
+                  }}
+                  className={`px-2.5 py-1 rounded-md text-xs font-semibold cursor-pointer ${
+                    questionLengthMode === '14'
+                      ? 'bg-[#0D3B49] text-white'
+                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  }`}
+                >
+                  Full 14-Dimension Mode (14 Qs)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setQuestionLengthMode('6');
+                    setCurrentStep(0);
+                  }}
+                  className={`px-2.5 py-1 rounded-md text-xs font-semibold cursor-pointer ${
+                    questionLengthMode === '6'
+                      ? 'bg-[#0D3B49] text-white'
+                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  }`}
+                >
+                  Express 6-Dimension Mode (6 Qs)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsRandomized((r) => !r);
+                    setCurrentStep(0);
+                  }}
+                  className="px-2.5 py-1 rounded-md text-xs font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 cursor-pointer"
+                >
+                  {isRandomized ? 'Order: Randomized' : 'Randomize Order'}
+                </button>
+              </div>
+              <button
+                type="button"
+                onClick={handleSaveAndContinueLater}
+                className="text-xs font-semibold text-[#0F766E] hover:underline cursor-pointer"
+              >
+                Save & Continue Later
+              </button>
+            </div>
+
+            {savedBookmarkMsg && (
+              <div className="mb-4 p-3 rounded-lg bg-[#F0FDFA] border border-teal-200 text-xs font-semibold text-[#0F766E]">
+                {savedBookmarkMsg}
+              </div>
+            )}
+
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-6 border-b border-slate-100">
               <div className="text-xs text-slate-500">
                 <span className="font-semibold text-[#0F766E]">
@@ -506,13 +604,34 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
                 <p className="text-xs text-slate-600 mt-1">{activeProfile.academicSnapshot}</p>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <div className="text-right pr-3 border-r border-slate-200">
                   <span className="block text-xs text-slate-500">Readiness Index</span>
                   <span className="text-2xl font-bold font-mono tabular-nums text-[#0F766E]">
                     {activeProfile.overallReadinessIndex}/100
                   </span>
                 </div>
+                <select
+                  aria-label="Report Version History"
+                  value={selectedReportVersion}
+                  onChange={(e) => setSelectedReportVersion(e.target.value as any)}
+                  className="px-3 py-2 text-xs font-mono font-semibold bg-[#F8FAFC] border border-slate-300 rounded-lg"
+                >
+                  <option value="v1.2 (Current)">Version: v1.2 (Current)</option>
+                  <option value="v1.1 (Pre-Counselling)">Version: v1.1 (Pre-Counselling)</option>
+                  <option value="v1.0 (Initial Baseline)">Version: v1.0 (Initial Baseline)</option>
+                </select>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEditProfileName(activeProfile.studentName);
+                    setEditProfileSnapshot(activeProfile.academicSnapshot);
+                    setIsEditingProfile((v) => !v);
+                  }}
+                  className="px-3.5 py-2 text-xs font-semibold text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 cursor-pointer whitespace-nowrap"
+                >
+                  {isEditingProfile ? 'Cancel Edit' : 'Edit Profile'}
+                </button>
                 <button
                   type="button"
                   onClick={() => window.print()}
@@ -531,6 +650,46 @@ export const AssessmentEngine: React.FC<AssessmentEngineProps> = ({
                 </button>
               </div>
             </div>
+
+            {isEditingProfile && (
+              <form
+                onSubmit={handleSaveEditedProfile}
+                className="mt-5 p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 grid grid-cols-1 sm:grid-cols-12 gap-4 items-end"
+              >
+                <div className="sm:col-span-4">
+                  <label htmlFor="edit-prof-name" className="block text-xs font-semibold text-slate-700 mb-1">
+                    Student / Candidate Name
+                  </label>
+                  <input
+                    id="edit-prof-name"
+                    type="text"
+                    value={editProfileName}
+                    onChange={(e) => setEditProfileName(e.target.value)}
+                    className="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-lg"
+                  />
+                </div>
+                <div className="sm:col-span-6">
+                  <label htmlFor="edit-prof-snap" className="block text-xs font-semibold text-slate-700 mb-1">
+                    Academic / Role Snapshot & Target Goal
+                  </label>
+                  <input
+                    id="edit-prof-snap"
+                    type="text"
+                    value={editProfileSnapshot}
+                    onChange={(e) => setEditProfileSnapshot(e.target.value)}
+                    className="w-full px-3 py-2 text-sm bg-white border border-slate-300 rounded-lg"
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <button
+                    type="submit"
+                    className="w-full py-2 px-3 rounded-lg bg-[#0F766E] text-white text-xs font-semibold hover:bg-[#115E59] cursor-pointer"
+                  >
+                    Save Profile
+                  </button>
+                </div>
+              </form>
+            )}
 
             {/* Dimension Scores & Suggested Career Clusters */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">

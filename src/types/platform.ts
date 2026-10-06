@@ -95,6 +95,11 @@ export interface AssessmentQuestion {
     | 'Creativity'
     | 'Entrepreneurship Interest'
     | 'Financial Awareness'
+    | 'Career Preferences'
+    | 'Learning Preferences'
+    | 'Work Preferences'
+    | 'Strengths'
+    | 'Development Areas'
     | 'Work & Learning Preferences';
   prompt: string;
   options: {
